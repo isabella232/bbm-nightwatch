@@ -1,4 +1,3 @@
-
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
 
@@ -12,7 +11,6 @@ class DonationsController < ApplicationController
   def new
     @donation = Donation.new
   end
-
 
   def create
     @donation = Donation.new(donation_params)
@@ -28,7 +26,7 @@ class DonationsController < ApplicationController
   private
 
   def post_message_template
-    template_path = Rails.root.join("app","views","posts","group_message.erb").to_s
+    template_path = Rails.root.join("app", "views", "posts", "group_message.erb").to_s
     Tilt::ERBTemplate.new(template_path)
   end
 
@@ -37,6 +35,14 @@ class DonationsController < ApplicationController
   end
 
   def donation_params
-    params.require(:donation).permit(:source_name, :source_address, :quantity, :food_type, :anonymous, :information_source)
+    params.require(:donation).permit(:information_source,
+                                     :source_name,
+                                     :source_address,
+                                     :food_type,
+                                     :quantity,
+                                     :available_from,
+                                     :available_to,
+                                     :anonymous,
+                                     :not_perishable)
   end
 end
