@@ -8,6 +8,8 @@ hu:
     thank_you: Köszönjük a felajánlást!
     create_new: Új felajánlás
     submit: Felajánlás mentése
+    packaged:
+      hint: A szállításra előkészített ételt nagyobb eséllyel tudjuk kiszállítani
   activerecord:
     models:
       donation: Felajánlás
@@ -29,7 +31,7 @@ hu:
     errors:
       models:
         donation:
-          blank: A(z) %{attribute} mezőt kötelező kitölteni
+          blank: A(z) '%{attribute}' mezőt kötelező kitölteni
           attributes:
             information_source:
             quantity:

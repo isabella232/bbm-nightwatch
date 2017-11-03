@@ -19,14 +19,14 @@
     </div>
   </div>
 
-  <%= form.input :comment %>
-
   <%= form.input :available_from %>
   <%= form.input :available_to %>
 
+  <%= form.input :packaged, required: false, hint: t('donation.packaged.hint') %>
   <%= form.input :anonymous, required: false %>
   <%= form.input :not_perishable, required: false %>
-  <%= form.input :packaged, required: false %>
+
+  <%= form.input :comment %>
 
   <%= form.button :submit, t('donation.submit') %>
 <% end %>

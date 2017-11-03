@@ -30,7 +30,7 @@ SimpleForm.setup do |config|
     b.use :label, class: 'col-form-label'
     b.use :input
     b.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
-    b.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+    b.use :hint, wrap_with: {tag: 'small', class: 'form-text text-muted'}
   end
 
   config.wrappers :vertical_boolean, tag: 'div', class: 'form-group' do |b|
@@ -42,7 +42,7 @@ SimpleForm.setup do |config|
     end
 
     b.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
-    b.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+    b.use :hint, wrap_with: {tag: 'small', class: 'form-text text-muted'}
   end
 
   config.wrappers :vertical_radio_and_checkboxes, tag: 'div', class: 'form-group' do |b|
@@ -52,7 +52,7 @@ SimpleForm.setup do |config|
     b.use :label, class: 'col-form-label'
     b.use :input
     b.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
-    b.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+    b.use :hint, wrap_with: {tag: 'small', class: 'form-text text-muted'}
   end
 
   config.wrappers :horizontal_form, tag: 'div', class: 'form-group row' do |b|
@@ -68,7 +68,7 @@ SimpleForm.setup do |config|
     b.wrapper tag: 'div', class: 'col-md-9' do |ba|
       ba.use :input, class: 'form-control'
       ba.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
-      ba.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+      ba.use :hint, wrap_with: {tag: 'small', class: 'form-text text-muted'}
     end
   end
 
@@ -83,7 +83,7 @@ SimpleForm.setup do |config|
     b.wrapper tag: 'div', class: 'col-md-9' do |ba|
       ba.use :input
       ba.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
-      ba.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+      ba.use :hint, wrap_with: {tag: 'small', class: 'form-text text-muted'}
     end
   end
 
@@ -97,7 +97,7 @@ SimpleForm.setup do |config|
       end
 
       wr.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
-      wr.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+      wr.use :hint, wrap_with: {tag: 'small', class: 'form-text text-muted'}
     end
   end
 
@@ -109,7 +109,7 @@ SimpleForm.setup do |config|
     b.wrapper tag: 'div', class: 'col-md-9' do |ba|
       ba.use :input
       ba.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
-      ba.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+      ba.use :hint, wrap_with: {tag: 'small', class: 'form-text text-muted'}
     end
   end
 
@@ -125,7 +125,7 @@ SimpleForm.setup do |config|
     b.use :label, class: 'sr-only'
     b.use :input, class: 'form-control'
     b.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
-    b.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+    b.use :hint, wrap_with: {tag: 'small', class: 'form-text text-muted'}
   end
 
   config.wrappers :multi_select, tag: 'div', class: 'form-group' do |b|
@@ -136,7 +136,7 @@ SimpleForm.setup do |config|
     b.wrapper tag: 'div', class: 'form-inline' do |ba|
       ba.use :input, class: 'form-control'
       ba.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
-      ba.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+      ba.use :hint, wrap_with: {tag: 'small', class: 'form-text text-muted'}
     end
   end
 
