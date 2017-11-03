@@ -15,6 +15,7 @@ hu:
         quantity: Mennyiség (adag)
         food_type: Étel megnevezése
         anonymous: Nem járulok hozzá, hogy a felajánlásomról publikus bejegyzések készüljenek
+        not_perishable: Kijelentem, hogy az étel nem tartalmaz fokozottan romlandó hozzávalókat (tojás, majonéz, stb.)
         status: Állapot
     errors:
       models:

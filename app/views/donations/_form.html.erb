@@ -5,6 +5,7 @@
   <%= form.input :food_type %>
   <%= form.input :quantity %>
   <%= form.input :anonymous, required: false %>
+  <%= form.input :not_perishable, required: false, as: :boolean %>
 
   <%= form.button :submit, t('donation.submit') %>
 <% end %>
