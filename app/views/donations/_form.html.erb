@@ -1,0 +1,52 @@
+<%= form_with(model: donation, local: true) do |form| %>
+  <% if donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+
+      <ul>
+      <% donation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :source_name %>
+    <%= form.text_field :source_name, id: :donation_source_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :source_address %>
+    <%= form.text_field :source_address, id: :donation_source_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, id: :donation_quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :food_type %>
+    <%= form.text_field :food_type, id: :donation_food_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :anonymous %>
+    <%= form.check_box :anonymous, id: :donation_anonymous %>
+  </div>
+
+  <div class="field">
+    <%= form.label :information_source %>
+    <%= form.text_field :information_source, id: :donation_information_source %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status, id: :donation_status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
