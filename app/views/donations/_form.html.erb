@@ -2,8 +2,15 @@
   <%= form.input :information_source %>
   <%= form.input :source_name %>
   <%= form.input :source_address %>
-  <%= form.input :food_type %>
-  <%= form.input :quantity %>
+
+  <div class="row">
+    <div class="col-md-8 mb-3">
+      <%= form.input :food_type %>
+    </div>
+    <div class="col-md-4 mb-3">
+      <%= form.input :quantity %>
+    </div>
+  </div>
 
   <%= form.input :available_from %>
   <%= form.input :available_to %>
