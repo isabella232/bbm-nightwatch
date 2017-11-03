@@ -1,6 +1,10 @@
 class Donation < ApplicationRecord
-  include ActiveModel::Validations
+  validates :source_name, presence: true
+  validates :source_address, presence: true
+  validates :food_type, presence: true
+  validates :information_source, presence: true
 
-  validates_presence_of :source_name, :source_address, :quantity, :food_type, :information_source, :status
-  validates_numericality_of :quantity, greater_than_or_equal_to: 50
+  validates :quantity, presence: true,
+                       numericality: {greater_than_or_equal_to: 50}
+
 end
