@@ -16,7 +16,7 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new(donation_params)
-    @donation.facebook_post_id = ::FacebookHandler.post_to_group(post_message_template.render(@donation)).to_s
+    @donation.facebook_post_id = ::FacebookHandler.post_to_group(FACEBOOK_GROUP_ID, post_message_template.render(@donation))&.to_s
 
     respond_to do |format|
       if @donation.save
