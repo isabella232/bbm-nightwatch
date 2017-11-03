@@ -13,15 +13,18 @@ hu:
       donation: Felajánlás
     attributes:
       donation:
-        information_source: Kapcsolattartó neve
+        contact_name: Kapcsolattartó neve
+        contact_phone: Kapcsolattartó telefonszáma
         source_name: Felajánló neve (cég, intézmény)
         source_address: Átvételi cím
+        comment: Megjegyzés
         available_from: Átvehető -től
         available_to: Átvehető -ig
         quantity: Mennyiség (adag)
         food_type: Étel megnevezése
         anonymous: Nem járulok hozzá, hogy a felajánlásomról publikus bejegyzések készüljenek
         not_perishable: Kijelentem, hogy az étel nem tartalmaz fokozottan romlandó hozzávalókat (tojás, majonéz, gomba, stb.)
+        packaged: Az étel szállításra elő van készítve (be van csomagolva)
         status: Állapot
     errors:
       models:

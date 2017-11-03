@@ -35,14 +35,17 @@ class DonationsController < ApplicationController
   end
 
   def donation_params
-    params.require(:donation).permit(:information_source,
+    params.require(:donation).permit(:contact_name,
+                                     :contact_phone,
                                      :source_name,
                                      :source_address,
                                      :food_type,
                                      :quantity,
                                      :available_from,
                                      :available_to,
+                                     :comment,
                                      :anonymous,
-                                     :not_perishable)
+                                     :not_perishable,
+                                     :packaged)
   end
 end

@@ -1,5 +1,12 @@
 <%= simple_form_for(donation, html: { class: 'form-horizontal' }) do |form| %>
-  <%= form.input :information_source %>
+  <div class="row">
+    <div class="col-md-8 mb-3">
+      <%= form.input :contact_name %>
+    </div>
+    <div class="col-md-4 mb-3">
+      <%= form.input :contact_phone %>
+    </div>
+  </div>
   <%= form.input :source_name %>
   <%= form.input :source_address %>
 
@@ -12,11 +19,14 @@
     </div>
   </div>
 
+  <%= form.input :comment %>
+
   <%= form.input :available_from %>
   <%= form.input :available_to %>
 
   <%= form.input :anonymous, required: false %>
-  <%= form.input :not_perishable, required: false, as: :boolean %>
+  <%= form.input :not_perishable, required: false %>
+  <%= form.input :packaged, required: false %>
 
   <%= form.button :submit, t('donation.submit') %>
 <% end %>

@@ -19,12 +19,12 @@
   <tbody>
     <% @donations.each do |donation| %>
       <tr>
+        <td><%= donation.contact_name %></td>
         <td><%= donation.source_name %></td>
         <td><%= donation.source_address %></td>
         <td><%= donation.quantity %></td>
         <td><%= donation.food_type %></td>
         <td><%= donation.anonymous %></td>
-        <td><%= donation.information_source %></td>
         <td><%= donation.status %></td>
         <td><%= link_to 'Show', donation %></td>
       </tr>
