@@ -1,0 +1,52 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+options = {}
+
+parser = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$PROGRAM_NAME} [options]"
+
+  opts.on('-t [CURRENT_PAGE_ACCESS_TOKEN]', 'set what access token value should be used as the old access token in the refresh process') do |current_access_token|
+    options[:current_access_token] = current_access_token
+  end
+end
+
+parser.parse!
+
+access_token_record = AccessToken.new(name: "page")
+
+current_access_token = lambda do
+  if options[:current_access_token]
+    return options[:current_access_token]
+  else
+    access_token_record = AccessToken.find_by(name: "page") || abort("database has no such access token with page")
+    return access_token_record.value
+  end
+end
+
+require 'koala'
+
+Koala.configure do |config|
+  config.app_id = ENV['APP_ID']
+  config.app_secret = ENV['APP_SECRET']
+  config.app_access_token = Koala::Facebook::OAuth.new(config.app_id, config.app_secret).get_app_access_token
+end
+
+graph = Koala::Facebook::API.new
+
+params = {
+  grant_type: 'fb_exchange_token',
+  client_id: Koala.config.app_id,
+  client_secret: Koala.config.app_secret,
+  fb_exchange_token: current_access_token.call
+}
+
+resp = graph.graph_call('/oauth/access_token', params, 'get', use_ssl: true)
+
+access_token_record.value = resp['access_token']
+access_token_record.save
+
+app_access_token = AccessToken.find_by(name: "app") || AccessToken.new(name: "app")
+app_access_token.value = Koala.config.app_access_token
+app_access_token.save
