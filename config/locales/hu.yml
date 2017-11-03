@@ -16,3 +16,11 @@ hu:
         food_type: Étel leírása
         anonymous: Nem nyilvános
         status: Állapot
+    errors:
+      models:
+        donation:
+          blank: A(z) %{attribute} mezőt kötelező kitölteni
+          attributes:
+            information_source:
+            quantity:
+              greater_than_or_equal_to: Sajnos %{count} adagnál kevesebb ételt nem áll lehetőségünkben kiszállítani
