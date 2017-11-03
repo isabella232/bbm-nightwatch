@@ -8,7 +8,9 @@ module FacebookHandler
   end
 
   def update_a_post(post_id)
-    graph.graph_call(post_id, { message: 'Post modified from API' }, 'post')['success']
+    new_message = yield(graph.graph_call(post_id, {}, 'get')['message'])
+
+    graph.graph_call(post_id, { message: new_message }, 'post')['success']
   end
 
   private
