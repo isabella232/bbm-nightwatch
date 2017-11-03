@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :donations
+
+    root to: "donations#index"
+  end
+
   resources :donations do
     collection do
       get 'thank_you'

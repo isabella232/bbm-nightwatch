@@ -1,0 +1,27 @@
+hu:
+  administrate:
+    actions:
+      confirm: "Biztos vagy benne?"
+      destroy: Töröl
+      edit: Szerkeszt
+      show: Mutat
+      new: Új
+      back: Vissza
+    controller:
+      create:
+        success: "%{resource} sikeresen létrehozva."
+      destroy:
+        success: "%{resource} sikeresen törölve."
+      update:
+        success: "%{resource} sikeresen frissítve."
+    fields:
+      has_many:
+        more: "Mutatva %{count} a %{total_count}-ból"
+        none: Nincs
+      polymorphic:
+        not_supported: Polymorphic relationship forms are not supported.
+      has_one:
+        not_supported: HasOne relationship forms are not supported.
+    search:
+      clear: Keresés törlése
+      label: "%{resource} keresése"
