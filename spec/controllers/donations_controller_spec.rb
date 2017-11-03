@@ -1,13 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe DonationsController, type: :controller do
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do
+    {
+      contact_name: 'Kapcsolat Tartó',
+      contact_phone: '+36 90 5555555',
+      source_name: 'Kajagyár Kft.',
+      source_address: '1111 Budapest, Valahol út 1.',
+      food_type: 'Bread',
+      available_from: '2017-11-03 14:30',
+      available_to: '2017-11-03 16:30',
+      quantity: 51,
+      not_perishable: true
+    }
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    {
+      quantity: 13
+    }
+  end
 
   let(:valid_session) { {} }
 
@@ -44,7 +56,7 @@ RSpec.describe DonationsController, type: :controller do
 
       it "redirects to the created donation" do
         post :create, params: {donation: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Donation.last)
+        expect(response).to redirect_to(thank_you_donations_path)
       end
     end
 
