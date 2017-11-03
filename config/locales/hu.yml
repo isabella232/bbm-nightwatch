@@ -1,7 +1,7 @@
 hu:
   back: Vissza
   donation:
-    accepted: Köszönjük a felajánlást!
+    thank_you: Köszönjük a felajánlást!
     create_new: Új felajánlás
     submit: Felajánlás mentése
   activerecord:
@@ -14,7 +14,7 @@ hu:
         source_address: Felajánló címe
         quantity: Mennyiség (adag)
         food_type: Étel megnevezése
-        anonymous: Hozzájárulok, hogy a felajánlásomról publikus bejegyzések készüljenek
+        anonymous: Nem járulok hozzá, hogy a felajánlásomról publikus bejegyzések készüljenek
         status: Állapot
     errors:
       models:

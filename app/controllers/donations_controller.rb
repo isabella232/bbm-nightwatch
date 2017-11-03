@@ -18,14 +18,10 @@ class DonationsController < ApplicationController
     @donation = Donation.new(donation_params)
     @donation.facebook_post_id = ::FacebookHandler.post_to_group(FACEBOOK_GROUP_ID, post_message_template.render(@donation))&.to_s
 
-    respond_to do |format|
-      if @donation.save
-        format.html { redirect_to @donation, notice: t('donation.accepted') }
-        format.json { render :show, status: :created, location: @donation }
-      else
-        format.html { render :new }
-        format.json { render json: @donation.errors, status: :unprocessable_entity }
-      end
+    if @donation.save
+      redirect_to thank_you_donations_url
+    else
+      render :new
     end
   end
 
