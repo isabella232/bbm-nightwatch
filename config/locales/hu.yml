@@ -1,0 +1,18 @@
+hu:
+  back: Vissza
+  donation:
+    accepted: Köszönjük a felajánlást!
+    create_new: Étel felajánlása
+    submit: Felajánlás mentése
+  activerecord:
+    models:
+      donation: Felajánlás
+    attributes:
+      donation:
+        information_source:
+        source_name: Felajánló
+        source_address: Átvételi cím
+        quantity: Mennyiség (adag)
+        food_type: Étel leírása
+        anonymous: Nem nyilvános
+        status: Állapot
