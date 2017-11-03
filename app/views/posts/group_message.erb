@@ -2,7 +2,12 @@
 
 vasárnap délután (4 óra körül)
 <%= source_address %> biztosítanának kb <%= quantity %> adag <%= food_type %> -t
+<%= packed ? "comagolt" : "csomagolatlan" %>
+<%= not_perishable ? "nem tartos" : "tartos" %>
 
 Jár esetleg valamelyikünk arrafelé?
 Gondoljátok meg s jelezzétek kérlek, ha vállalható.
 Köszönjük!
+
+<%= comment == "" ? "" : "Megjegyzes:" %>
+<%= comment %>
