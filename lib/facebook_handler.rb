@@ -4,7 +4,7 @@ module FacebookHandler
   extend(self)
 
   def post_to_group(group_id, message)
-    graph.new.put_connections(group_id, 'feed', message: message)['id']
+    graph.put_connections(group_id, 'feed', message: message)['id']
   end
 
   def update_a_post(post_id)
