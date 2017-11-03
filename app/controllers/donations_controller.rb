@@ -9,7 +9,7 @@ class DonationsController < ApplicationController
   end
 
   def new
-    @donation = Donation.new
+    @donation = Donation.new available_from: Time.now, available_to: 2.hours.from_now
   end
 
   def create

@@ -9,15 +9,17 @@ class DonationDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
+    contact_name: Field::String,
+    contact_phone: Field::String,
     source_name: Field::String,
     source_address: Field::String,
-    quantity: Field::Number,
     food_type: Field::String,
-    anonymous: Field::Boolean,
-    contact_name: Field::String,
-    status: Field::String,
+    quantity: Field::Number,
     available_from: Field::DateTime,
     available_to: Field::DateTime,
+    anonymous: Field::Boolean,
+    comment: Field::String,
+    status: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     facebook_post_id: Field::String,
@@ -34,22 +36,22 @@ class DonationDashboard < Administrate::BaseDashboard
     :source_address,
     :food_type,
     :quantity,
-    :status,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
+    :contact_name,
+    :contact_phone,
     :source_name,
     :source_address,
-    :quantity,
     :food_type,
-    :anonymous,
-    :contact_name,
-    :status,
+    :quantity,
     :available_from,
     :available_to,
+    :anonymous,
+    :comment,
     :created_at,
     :updated_at,
     :facebook_post_id,
@@ -59,15 +61,16 @@ class DonationDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :contact_name,
+    :contact_phone,
     :source_name,
     :source_address,
-    :quantity,
     :food_type,
-    :anonymous,
-    :contact_name,
-    :status,
+    :quantity,
     :available_from,
     :available_to,
+    :anonymous,
+    :comment,
   ].freeze
 
   # Overwrite this method to customize how donations are displayed
