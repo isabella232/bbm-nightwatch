@@ -6,7 +6,7 @@ RSpec.describe "donations/index", type: :view do
       Donation.create!(
         :source_name => "Source Name",
         :source_address => "Source Address",
-        :quantity => 2,
+        :quantity => 200,
         :food_type => "Food Type",
         :anonymous => false,
         :information_source => "Information Source",
@@ -15,7 +15,7 @@ RSpec.describe "donations/index", type: :view do
       Donation.create!(
         :source_name => "Source Name",
         :source_address => "Source Address",
-        :quantity => 2,
+        :quantity => 200,
         :food_type => "Food Type",
         :anonymous => false,
         :information_source => "Information Source",
@@ -28,7 +28,7 @@ RSpec.describe "donations/index", type: :view do
     render
     assert_select "tr>td", :text => "Source Name".to_s, :count => 2
     assert_select "tr>td", :text => "Source Address".to_s, :count => 2
-    assert_select "tr>td", :text => 2.to_s, :count => 2
+    assert_select "tr>td", :text => 200.to_s, :count => 2
     assert_select "tr>td", :text => "Food Type".to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
     assert_select "tr>td", :text => "Information Source".to_s, :count => 2

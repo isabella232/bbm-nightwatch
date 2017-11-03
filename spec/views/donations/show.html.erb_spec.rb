@@ -5,7 +5,7 @@ RSpec.describe "donations/show", type: :view do
     @donation = assign(:donation, Donation.create!(
       :source_name => "Source Name",
       :source_address => "Source Address",
-      :quantity => 2,
+      :quantity => 200,
       :food_type => "Food Type",
       :anonymous => false,
       :information_source => "Information Source",
