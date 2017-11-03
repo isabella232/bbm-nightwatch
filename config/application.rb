@@ -29,5 +29,6 @@ module BbmNightwatch
     config.generators.system_tests = nil
 
     config.i18n.default_locale = :hu
+    config.time_zone = 'Budapest'
   end
 end
