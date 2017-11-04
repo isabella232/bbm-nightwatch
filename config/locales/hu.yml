@@ -12,9 +12,14 @@ hu:
       hint: A szállításra előkészített ételt nagyobb eséllyel tudjuk kiszállítani
     submit_manually: |
       Keresd az operátort: +36-00-000-000
+  transport:
+    create_new: Fuvar vállalása
+    submit: Elvállal
+    already_assigned: Ezt a felajánlást már elvállalta valaki
   activerecord:
     models:
       donation: Felajánlás
+      transport: Szállítás
     attributes:
       donation:
         contact_name: Kapcsolattartó neve
@@ -30,13 +35,22 @@ hu:
         not_perishable: Kijelentem, hogy az étel nem tartalmaz fokozottan romlandó hozzávalókat (tojás, majonéz, gomba, stb.)
         packaged: Az étel szállításra elő van készítve (be van csomagolva)
         status: Állapot
+        transporter: Szállító
+      transport:
+        name: Név
+        email: E-mail cím
     errors:
       models:
         donation:
-          blank: A(z) '%{attribute}' mezőt kötelező kitölteni
+          blank: "'%{attribute}' mező kitöltése kötelező"
           attributes:
             information_source:
             quantity:
               greater_than_or_equal_to: Sajnos %{count} adagnál kevesebb ételt nem áll lehetőségünkben kiszállítani
             not_perishable:
               inclusion: Sajnos fokozottan romlandó ételt nem áll lehetőségünkben kiszállítani
+        transport:
+          blank: "'%{attribute}' mező kitöltése kötelező"
+          attributes:
+            email:
+              invalid: "'%{attribute}' formátuma nem megfelelő"

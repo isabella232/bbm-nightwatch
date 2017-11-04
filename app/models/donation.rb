@@ -1,4 +1,6 @@
 class Donation < ApplicationRecord
+  has_many :transports
+
   validates :contact_name, presence: true
   validates :contact_phone, presence: true
   validates :source_name, presence: true

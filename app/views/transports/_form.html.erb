@@ -1,0 +1,12 @@
+<%= simple_form_for([@donation, @transport], html: { class: 'form-horizontal' }) do |form| %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.input :name %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <%= form.input :email %>
+    </div>
+  </div>
+
+  <%= form.button :submit, t('transport.submit') %>
+<% end %>
