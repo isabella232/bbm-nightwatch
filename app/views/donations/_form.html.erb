@@ -1,26 +1,39 @@
 <%= simple_form_for(donation, html: { class: 'form-horizontal' }) do |form| %>
   <div class="row">
-    <div class="col-md-8 mb-3">
+    <div class="col-md-6 mb-3">
       <%= form.input :contact_name %>
     </div>
-    <div class="col-md-4 mb-3">
+    <div class="col-md-6 mb-3">
       <%= form.input :contact_phone %>
     </div>
   </div>
-  <%= form.input :source_name %>
-  <%= form.input :source_address %>
 
   <div class="row">
-    <div class="col-md-8 mb-3">
+    <div class="col-md-6 mb-3">
+      <%= form.input :source_name %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <%= form.input :source_address %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
       <%= form.input :food_type %>
     </div>
-    <div class="col-md-4 mb-3">
+    <div class="col-md-6 mb-3">
       <%= form.input :quantity %>
     </div>
   </div>
 
-  <%= form.input :available_from %>
-  <%= form.input :available_to %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.input :available_from %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <%= form.input :available_to %>
+    </div>
+  </div>
 
   <%= form.input :packaged, required: false, hint: t('donation.packaged.hint') %>
   <%= form.input :anonymous, required: false %>
