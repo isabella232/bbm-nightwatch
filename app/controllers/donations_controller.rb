@@ -14,9 +14,10 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new(donation_params)
-    @donation.facebook_post_id = ::FacebookHandler.post_to_group(FACEBOOK_GROUP_ID, post_message_template.render(@donation))&.to_s
 
     if @donation.save
+      post_to_facebook unless ENV['SKIP_FACEBOOK_POST']
+
       redirect_to thank_you_donations_url
     else
       render :new
@@ -24,6 +25,11 @@ class DonationsController < ApplicationController
   end
 
   private
+
+  def post_to_facebook
+    facebook_post_id = ::FacebookHandler.post_to_group(FACEBOOK_GROUP_ID, post_message_template.render(@donation))&.to_s
+    @donation.update_attributes facebook_post_id: facebook_post_id
+  end
 
   def post_message_template
     template_path = Rails.root.join("app", "views", "posts", "group_message.erb").to_s
@@ -35,17 +41,13 @@ class DonationsController < ApplicationController
   end
 
   def donation_params
-    params.require(:donation).permit(:contact_name,
-                                     :contact_phone,
-                                     :source_name,
-                                     :source_address,
-                                     :food_type,
-                                     :quantity,
-                                     :available_from,
-                                     :available_to,
-                                     :comment,
-                                     :anonymous,
-                                     :not_perishable,
-                                     :packaged)
+    params.require(:donation).permit(
+      :contact_name, :contact_phone,
+      :source_name, :source_address,
+      :food_type, :quantity,
+      :available_from, :available_to,
+      :comment, :anonymous,
+      :not_perishable, :packaged
+    )
   end
 end
