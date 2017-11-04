@@ -13,4 +13,19 @@ class Donation < ApplicationRecord
             numericality: { greater_than_or_equal_to: 50 }
 
   validates :not_perishable, inclusion: { in: [true] }
+
+  state_machine initial: :reported, attribute: :status do
+    event :assign do
+      transition :reported => :assigned
+    end
+
+    event :finish do
+      transition :assigned => :transported
+    end
+
+    event :fail do
+      transition :assigned => :failed
+    end
+  end
+
 end
