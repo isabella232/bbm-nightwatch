@@ -44,6 +44,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
+  gem 'factory_bot_rails'
 end
 
 group :development do

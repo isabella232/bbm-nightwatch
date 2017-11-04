@@ -27,6 +27,10 @@ module BbmNightwatch
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.generators do |g|
+      g.orm :active_record
+      g.test_framework :rspec
+    end
 
     config.i18n.default_locale = :hu
     config.time_zone = 'Budapest'
