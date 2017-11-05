@@ -33,9 +33,10 @@ class DonationDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :source_name,
-    :source_address,
     :food_type,
     :quantity,
+    :available_from,
+    :status,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

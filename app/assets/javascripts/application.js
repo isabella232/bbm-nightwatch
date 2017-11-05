@@ -12,3 +12,11 @@
 //
 //= require rails-ujs
 //= require_tree .
+
+//= require moment
+//= require datetime_picker
+//= require moment/hu
+
+$(function () {
+  $('.datetime-picker').datetimepicker({locale: 'hu', format: 'YYYY-MM-DD HH:mm'});
+});
