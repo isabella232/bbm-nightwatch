@@ -26,7 +26,7 @@ class TransportsController < ApplicationController
   end
 
   def transport_params
-    params.require(:transport).permit(:name, :email)
+    params.require(:transport).permit(:name, :email, :phone)
 
   end
 end

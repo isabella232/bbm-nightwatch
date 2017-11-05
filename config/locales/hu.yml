@@ -39,6 +39,7 @@ hu:
       transport:
         name: Név
         email: E-mail cím
+        phone: Telefonszám
     errors:
       models:
         donation:

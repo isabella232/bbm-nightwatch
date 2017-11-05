@@ -5,6 +5,7 @@ RSpec.describe TransportsController, type: :controller do
   let(:valid_attributes) do
     {
       name: 'Futár Ferenc',
+      phone: '+36 90 555 5555',
       email: 'contact@example.com'
     }
   end
@@ -12,6 +13,7 @@ RSpec.describe TransportsController, type: :controller do
   let(:invalid_attributes) do
     {
       name: '',
+      phone: '',
       email: 'not_an_email'
     }
   end
