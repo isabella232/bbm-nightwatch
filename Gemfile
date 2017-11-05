@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
   gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
