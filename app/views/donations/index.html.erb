@@ -10,7 +10,6 @@
       <th><%= Donation.human_attribute_name :source_address %></th>
       <th><%= Donation.human_attribute_name :quantity %></th>
       <th><%= Donation.human_attribute_name :food_type %></th>
-      <th><%= Donation.human_attribute_name :anonymous %></th>
       <th><%= Donation.human_attribute_name :status %></th>
       <th colspan="2"></th>
     </tr>
@@ -24,8 +23,7 @@
         <td><%= donation.source_address %></td>
         <td><%= donation.quantity %></td>
         <td><%= donation.food_type %></td>
-        <td><%= donation.anonymous %></td>
-        <td><%= donation.status %></td>
+        <td><%= t donation.status, scope: [:donation, :statuses] %></td>
         <td><%= link_to 'Assign', new_donation_transport_path(donation) %></td>
         <td><%= link_to 'Show', donation %></td>
       </tr>

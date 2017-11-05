@@ -1,0 +1,32 @@
+<dl class="row">
+  <dt class="col-sm-3">Description lists</dt>
+  <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:source_name) %></dt>
+  <dd class="col-sm-9"><%= donation.source_name %></dd>
+
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:source_address) %></dt>
+  <dd class="col-sm-9"><%= donation.source_address %></dd>
+
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:food_type) %></dt>
+  <dd class="col-sm-9"><%= donation.food_type %></dd>
+
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:quantity) %></dt>
+  <dd class="col-sm-9"><%= donation.quantity %></dd>
+
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:available_from) %></dt>
+  <dd class="col-sm-9"><%= l donation.available_from %></dd>
+
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:available_to) %></dt>
+  <dd class="col-sm-9"><%= l donation.available_to %></dd>
+
+
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:contact_name) %></dt>
+  <dd class="col-sm-9"><%= donation.contact_name %></dd>
+
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:contact_phone) %></dt>
+  <dd class="col-sm-9"><%= donation.contact_phone %></dd>
+
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:status) %></dt>
+  <dd class="col-sm-9"><%= t donation.status, scope: [:donation, :statuses] %></dd>
+</dl>

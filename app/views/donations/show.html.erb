@@ -1,41 +1,12 @@
 <p id="notice"><%= notice %></p>
 <p id="error"><%= flash[:alert] %></p>
 
-<dl class="row">
-  <dt class="col-sm-3">Description lists</dt>
-  <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+<%= render 'info', donation: @donation %>
 
-  <dt class="col-sm-3"><%= Donation.human_attribute_name(:source_name) %></dt>
-  <dd class="col-sm-9"><%= @donation.source_name %></dd>
+<% if transport = @donation.transports.first %>
+  <h3><%= Donation.human_attribute_name(:transporter) %></h3>
+  <p><%= transport.name %></p>
+<% end %>
 
-  <dt class="col-sm-3"><%= Donation.human_attribute_name(:source_address) %></dt>
-  <dd class="col-sm-9"><%= @donation.source_address %></dd>
-
-  <dt class="col-sm-3"><%= Donation.human_attribute_name(:food_type) %></dt>
-  <dd class="col-sm-9"><%= @donation.food_type %></dd>
-
-  <dt class="col-sm-3"><%= Donation.human_attribute_name(:quantity) %></dt>
-  <dd class="col-sm-9"><%= @donation.quantity %></dd>
-
-  <dt class="col-sm-3"><%= Donation.human_attribute_name(:available_from) %></dt>
-  <dd class="col-sm-9"><%= l @donation.available_from %></dd>
-
-  <dt class="col-sm-3"><%= Donation.human_attribute_name(:available_to) %></dt>
-  <dd class="col-sm-9"><%= l @donation.available_to %></dd>
-
-
-  <dt class="col-sm-3"><%= Donation.human_attribute_name(:contact_name) %></dt>
-  <dd class="col-sm-9"><%= @donation.contact_name %></dd>
-
-  <dt class="col-sm-3"><%= Donation.human_attribute_name(:contact_phone) %></dt>
-  <dd class="col-sm-9"><%= @donation.contact_phone %></dd>
-
-  <dt class="col-sm-3"><%= Donation.human_attribute_name(:status) %></dt>
-  <dd class="col-sm-9"><%= t @donation.status, scope: [:donation, :statuses] %></dd>
-
-  <% if transport = @donation.transports.first %>
-    <dt class="col-sm-3"><%= Donation.human_attribute_name(:transporter) %></dt>
-    <dd class="col-sm-9"><%= transport.name %></dd>
-  <% end %>
 
 <%= link_to t('back'), donations_path %>
