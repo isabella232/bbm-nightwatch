@@ -23,8 +23,8 @@ class Donation < ApplicationRecord
       transition :assigned => :transported
     end
 
-    event :fail do
-      transition :assigned => :failed
+    event :miss do
+      transition :assigned => :missed
     end
   end
 
