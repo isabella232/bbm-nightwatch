@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     root to: "donations#index"
   end
 
+  devise_for :users
+
   resources :donations, only: [:new, :create, :show, :index] do
     get :thank_you, on: :collection
     resources :transports, only: [:new, :create]
