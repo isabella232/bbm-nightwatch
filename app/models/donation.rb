@@ -24,7 +24,7 @@ class Donation < ApplicationRecord
     end
 
     event :miss do
-      transition :assigned => :missed
+      transition :reported => :missed
     end
   end
 

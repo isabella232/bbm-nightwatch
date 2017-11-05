@@ -1,48 +1,31 @@
 <p id="notice"><%= notice %></p>
 <p id="error"><%= flash[:alert] %></p>
 
-<p>
-  <strong><%= Donation.human_attribute_name(:source_name) %>:</strong>
-  <%= @donation.source_name %>
-</p>
+<dl class="row">
+  <dt class="col-sm-3">Description lists</dt>
+  <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
 
-<p>
-  <strong><%= Donation.human_attribute_name(:source_address) %>:</strong>
-  <%= @donation.source_address %>
-</p>
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:source_name) %></dt>
+  <dd class="col-sm-9"><%= @donation.source_name %></dd>
 
-<p>
-  <strong><%= Donation.human_attribute_name(:quantity) %>:</strong>
-  <%= @donation.quantity %>
-</p>
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:source_address) %></dt>
+  <dd class="col-sm-9"><%= @donation.source_address %></dd>
 
-<p>
-  <strong><%= Donation.human_attribute_name(:food_type) %>:</strong>
-  <%= @donation.food_type %>
-</p>
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:food_type) %></dt>
+  <dd class="col-sm-9"><%= @donation.food_type %></dd>
 
-<p>
-  <strong><%= Donation.human_attribute_name(:anonymous) %>:</strong>
-  <%= @donation.anonymous %>
-</p>
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:quantity) %></dt>
+  <dd class="col-sm-9"><%= @donation.quantity %></dd>
 
-<p>
-  <strong><%= Donation.human_attribute_name(:contact_name) %>:</strong>
-  <%= @donation.contact_name %>
-</p>
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:contact_name) %></dt>
+  <dd class="col-sm-9"><%= @donation.contact_name %></dd>
 
-<p>
-  <strong><%= Donation.human_attribute_name(:status) %>:</strong>
-  <%= @donation.status %>
-</p>
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:status) %></dt>
+  <dd class="col-sm-9"><%= t @donation.status, scope: [:donation, :statuses] %></dd>
 
-<p>
-  <strong><%= Donation.human_attribute_name(:transporter) %>:</strong>
   <% if transport = @donation.transports.first %>
-    <%= transport.name %>
-  <% else %>
-    -
+    <dt class="col-sm-3"><%= Donation.human_attribute_name(:transporter) %></dt>
+    <dd class="col-sm-9"><%= transport.name %></dd>
   <% end %>
-</p>
 
 <%= link_to t('back'), donations_path %>

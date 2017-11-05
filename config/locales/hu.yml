@@ -12,6 +12,11 @@ hu:
       hint: A szállításra előkészített ételt nagyobb eséllyel tudjuk kiszállítani
     submit_manually: |
       Keresd az operátort: +36-00-000-000
+    statuses:
+      reported: Bejelentett
+      assigned: Elvállalt
+      transported: Elszállított
+      missed: Kihagyott
   transport:
     create_new: Fuvar vállalása
     submit: Elvállal
