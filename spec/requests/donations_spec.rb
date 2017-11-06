@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Donations", type: :request do
+  let(:user) { create :user }
+  before { sign_in user }
+
   describe "GET /donations" do
     it "works" do
       get donations_path

@@ -1,12 +1,14 @@
 class TransportsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_donation
 
   def new
-    @transport = @donation.transports.new
+    @transport = @donation.transports.new transporter: current_user
   end
 
   def create
     @transport = @donation.transports.new(transport_params)
+    @transport.transporter = current_user
 
     if @transport.save
       redirect_to @donation

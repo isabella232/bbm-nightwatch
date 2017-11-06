@@ -1,4 +1,5 @@
 class DonationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -9,11 +10,11 @@ class DonationsController < ApplicationController
   end
 
   def new
-    @donation = Donation.new available_from: Time.now, available_to: 2.hours.from_now
+    @donation = current_user.donations.new(available_from: Time.now, available_to: 2.hours.from_now)
   end
 
   def create
-    @donation = Donation.new(donation_params)
+    @donation = current_user.donations.new(donation_params)
 
     if @donation.save
       post_to_facebook if ENV['APP_ID'] && ENV["APP_SECRET"]

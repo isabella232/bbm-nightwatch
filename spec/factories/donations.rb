@@ -9,5 +9,6 @@ FactoryBot.define do
     available_to 4.hours.from_now
     quantity 51
     not_perishable true
+    user
   end
 end

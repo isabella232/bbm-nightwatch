@@ -1,5 +1,6 @@
 class Transport < ApplicationRecord
   belongs_to :donation
+  belongs_to :transporter, class_name: "User"
 
   validates :donation, presence: true
   validates :name, presence: true

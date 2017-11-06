@@ -23,9 +23,12 @@ RSpec.describe DonationsController, type: :controller do
 
   let(:valid_session) { {} }
 
+  let(:user) { create :user }
+  before { sign_in user }
+
   describe "GET #index" do
     it "returns a success response" do
-      donation = Donation.create! valid_attributes
+      donation = create :donation
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
@@ -33,7 +36,7 @@ RSpec.describe DonationsController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      donation = Donation.create! valid_attributes
+      donation = create :donation
       get :show, params: {id: donation.to_param}, session: valid_session
       expect(response).to be_success
     end
@@ -52,6 +55,12 @@ RSpec.describe DonationsController, type: :controller do
         expect {
           post :create, params: {donation: valid_attributes}, session: valid_session
         }.to change(Donation, :count).by(1)
+      end
+
+      it "saves user_id on the new Donation" do
+        expect {
+          post :create, params: {donation: valid_attributes}, session: valid_session
+        }.to change(user.donations, :count).by(1)
       end
 
       it "redirects to the created donation" do

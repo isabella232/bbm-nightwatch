@@ -20,6 +20,9 @@ RSpec.describe TransportsController, type: :controller do
 
   let(:valid_session) { {} }
 
+  let(:user) { create :user }
+  before { sign_in user }
+
   describe "GET #new" do
     it "returns a success response" do
       get :new, params: {donation_id: donation.id}, session: valid_session
@@ -29,10 +32,16 @@ RSpec.describe TransportsController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Donation" do
+      it "creates a new Transport" do
         expect {
           post :create, params: {donation_id: donation.id, transport: valid_attributes}, session: valid_session
-        }.to change(Donation, :count).by(1)
+        }.to change(Transport, :count).by(1)
+      end
+
+      it "saves transporter on the new Transport" do
+        expect {
+          post :create, params: {donation_id: donation.id, transport: valid_attributes}, session: valid_session
+        }.to change(user.transports, :count).by(1)
       end
 
       it "redirects to the created donation" do
