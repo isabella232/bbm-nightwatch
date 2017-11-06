@@ -7,4 +7,7 @@ class User < ApplicationRecord
 
   has_many :donations
   has_many :transports, foreign_key: :transporter_id
+
+  validates :name, presence: true
+  validates :phone, presence: true
 end

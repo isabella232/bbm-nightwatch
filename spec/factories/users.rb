@@ -4,5 +4,7 @@ FactoryBot.define do
     password 's0m3pa55'
     password_confirmation 's0m3pa55'
     confirmed_at Time.now
+    name { 'John' }
+    phone { '555 55-55' }
   end
 end
