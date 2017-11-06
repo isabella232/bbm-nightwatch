@@ -16,5 +16,5 @@ Rails.application.routes.draw do
 
   get '/healthcheck', to: 'health_check#index'
 
-  root to: 'health_check#index'
+  root to: 'pages#home'
 end

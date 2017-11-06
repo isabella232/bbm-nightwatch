@@ -1,4 +1,4 @@
-<h1>Donations</h1>
+<h1><%= t '.title' %></h1>
 
 <table class="table">
   <thead>
@@ -22,8 +22,8 @@
         <td><%= donation.quantity %></td>
         <td><%= donation.food_type %></td>
         <td><%= t donation.status, scope: [:donation, :statuses] %></td>
-        <td><%= link_to 'Assign', new_donation_transport_path(donation) %></td>
-        <td><%= link_to 'Show', donation %></td>
+        <td><%= link_to t('.show'), donation %></td>
+        <td><%= link_to t('.assign'), new_donation_transport_path(donation) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Donation', new_donation_path, class: "btn btn-primary" %>
+<%= link_to t(:create_new, scope: [:donation]), new_donation_path, class: "btn btn-primary" %>

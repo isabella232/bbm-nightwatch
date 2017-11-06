@@ -1,5 +1,12 @@
 hu:
   back: Vissza
+  shared:
+    nav:
+      donations: Felajánlások
+      account: Fiók
+      log_out: Kijelentkezés
+      sign_in: Bejelentkezés
+      sign_up: Regisztráció
   donation:
     thank_you: Köszönjük a felajánlást!
     create_new: Új felajánlás
@@ -13,6 +20,11 @@ hu:
       assigned: Elvállalt
       transported: Elszállított
       missed: Kihagyott
+  donations:
+    index:
+      title: Felajánlások
+      assign: Elvállal
+      show: Részletek
   transport:
     create_new: Fuvar vállalása
     submit: Elvállal

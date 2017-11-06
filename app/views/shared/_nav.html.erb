@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">BBM - Nightwatch</a>
+  <%= link_to "BBM - Nightwatch", root_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,23 +7,23 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to "New Donation", new_donation_path, class: 'nav-link' %>
+        <%= link_to t('.donations'), donations_path, class: 'nav-link' %>
       </li>
     </ul>
     <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Account", edit_user_registration_path, class: 'nav-link' %>
+          <%= link_to t(".account"), edit_user_registration_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          <%= link_to t(".log_out"), destroy_user_session_path, method: :delete, class: 'nav-link' %>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Sign in", new_user_session_path, class: 'nav-link' %>
+          <%= link_to t(".sign_in"), new_user_session_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path, class: 'nav-link' %>
+          <%= link_to t(".sign_up"), new_user_registration_path, class: 'nav-link' %>
         </li>
       <% end %>
     </ul>
