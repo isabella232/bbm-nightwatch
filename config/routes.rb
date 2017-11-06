@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :donations
+    resources :transports
+    resources :users
 
     root to: "donations#index"
   end
