@@ -16,6 +16,14 @@ module FacebookHandler
   private
 
   def graph
-    Koala::Facebook::API.new
+    Koala::Facebook::API.new page_access_token, app_secret
+  end
+
+  def app_secret
+    ENV["APP_SECRET"]
+  end
+
+  def page_access_token
+    AccessToken.find_by(name: 'page')&.value
   end
 end
