@@ -28,7 +28,9 @@ class DonationsController < ApplicationController
   private
 
   def post_to_facebook
-    facebook_post_id = ::FacebookHandler.post_to_group(FACEBOOK_GROUP_ID, post_message_template.render(@donation))&.to_s
+    message = post_message_template.render(@donation)
+    link = new_donation_transport_url(@donation, host: ENV["HOST"])
+    facebook_post_id = ::FacebookHandler.post_to_group(FACEBOOK_GROUP_ID, message, link)&.to_s
     @donation.update_attributes facebook_post_id: facebook_post_id
   end
 
