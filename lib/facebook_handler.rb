@@ -13,6 +13,10 @@ module FacebookHandler
     graph.graph_call(post_id, { message: new_message }, 'post')['success']
   end
 
+  def comment_on_post(post_id, message)
+    graph.put_connections(post_id, 'comments', message: message)
+  end
+
   private
 
   def graph

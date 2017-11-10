@@ -20,6 +20,7 @@ class TransportsController < ApplicationController
 
     if @transport.save
       @donation.assign!
+      comment_on_post if ENV["APP_SECRET"]
 
       redirect_to @donation
     else
@@ -66,5 +67,10 @@ class TransportsController < ApplicationController
     unless @transport.transporter == current_user && @transport.donation.can_finish?
       redirect_to @transport.donation, alert: t("transport.can_not_finish")
     end
+  end
+
+  def comment_on_post
+    message = "#{@transport.name} elvállalta a szállítást"
+    ::FacebookHandler.comment_on_post(@donation.facebook_post_id, message)
   end
 end

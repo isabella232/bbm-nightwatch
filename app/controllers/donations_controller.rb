@@ -17,7 +17,7 @@ class DonationsController < ApplicationController
     @donation = current_user.donations.new(donation_params)
 
     if @donation.save
-      post_to_facebook if ENV['APP_ID'] && ENV["APP_SECRET"]
+      post_to_facebook if ENV["APP_SECRET"]
 
       redirect_to thank_you_donations_url
     else
