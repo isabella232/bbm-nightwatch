@@ -69,7 +69,7 @@ RSpec.describe TransportsController, type: :controller do
   describe "GET #close" do
     let(:donation) { transport.donation }
     let(:transport) { create :transport, transporter: user }
-    subject { get :close, params: {donation_id: donation.id, id: transport.id} }
+    subject { get :close, params: {id: transport.id} }
 
     it "returns a success response" do
       subject
@@ -101,7 +101,7 @@ RSpec.describe TransportsController, type: :controller do
     let(:donation) { transport.donation }
     let(:transport) { create :transport, transporter: user }
     subject { patch :finish, params: params }
-    let(:params) { {donation_id: donation.id, id: transport.id, transport: { target_location: "Target" }} }
+    let(:params) { {id: transport.id, transport: { target_location: "Target" }} }
 
     it "updates the transport" do
       expect { subject}
@@ -115,7 +115,7 @@ RSpec.describe TransportsController, type: :controller do
 
     it "redirects to donation" do
       subject
-      expect(response).to redirect_to(donation_path(donation.id))
+      expect(response).to redirect_to(transports_path)
     end
 
     context "donation is already transported" do

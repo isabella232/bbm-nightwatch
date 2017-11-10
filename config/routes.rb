@@ -11,11 +11,13 @@ Rails.application.routes.draw do
 
   resources :donations, only: [:new, :create, :show, :index] do
     get :thank_you, on: :collection
-    resources :transports, only: [:new, :create] do
-      member do
-        get :close
-        patch :finish
-      end
+    resources :transports, only: [:new, :create]
+  end
+
+  resources :transports, only: [:index] do
+    member do
+      get :close
+      patch :finish
     end
   end
 

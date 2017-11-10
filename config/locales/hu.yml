@@ -3,6 +3,7 @@ hu:
   shared:
     nav:
       donations: Felajánlások
+      my_transports: Vállalásaim
       account: Fiók
       log_out: Kijelentkezés
       sign_in: Bejelentkezés
@@ -31,6 +32,11 @@ hu:
     can_not_assign: Ez a felajánlás nem elvállalható
     can_not_finish: Ez a felajánlás nem lezárható
     close: Fuvar lezárása
+  transports:
+    index:
+      title: Vállalásaim
+      details: Részletek
+      close: Lezárás
   activerecord:
     models:
       donation: Felajánlás

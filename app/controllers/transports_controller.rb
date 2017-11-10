@@ -1,13 +1,17 @@
 class TransportsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_donation
+
+  before_action :find_donation, only: [:new, :create]
   before_action :check_assignability, only: [:new, :create]
 
   before_action :find_transport, only: [:close, :finish]
   before_action :check_finishability, only: [:close, :finish]
 
   def new
-    @transport = @donation.transports.new transporter: current_user
+    @transport = @donation.transports.new transporter: current_user,
+                                          name: current_user.name,
+                                          email: current_user.email,
+                                          phone: current_user.phone
   end
 
   def create
@@ -23,14 +27,19 @@ class TransportsController < ApplicationController
     end
   end
 
+  def index
+    @transports = current_user.transports
+  end
+
   def close
   end
 
   def finish
     if @transport.update_attributes transport_params
-      @donation.finish!
-      redirect_to @donation
+      @transport.donation.finish!
+      redirect_to transports_path
     else
+      @donation = @transport.donation
       render :close
     end
   end
@@ -42,7 +51,7 @@ class TransportsController < ApplicationController
   end
 
   def find_transport
-    @transport = @donation.transports.find params[:id]
+    @transport = Transport.find params[:id]
   end
 
   def transport_params
@@ -54,8 +63,8 @@ class TransportsController < ApplicationController
   end
 
   def check_finishability
-    unless @transport.transporter == current_user && @donation.can_finish?
-      redirect_to @donation, alert: t("transport.can_not_finish")
+    unless @transport.transporter == current_user && @transport.donation.can_finish?
+      redirect_to @transport.donation, alert: t("transport.can_not_finish")
     end
   end
 end
