@@ -3,7 +3,7 @@ class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
 
   def index
-    @donations = Donation.all
+    @donations = Donation.order(available_from: :desc).all
   end
 
   def show
