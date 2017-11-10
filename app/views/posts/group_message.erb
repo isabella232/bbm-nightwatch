@@ -1,13 +1,15 @@
-íme egy másik, tervezhető felajánlás:
+Új felajánlás: <%= quantity %> adag <%= food_type %>
 
-vasárnap délután (4 óra körül)
-<%= source_address %> biztosítanának kb <%= quantity %> adag <%= food_type %> -t
-<%= packaged ? "comagolt" : "csomagolatlan" %>
-<%= not_perishable ? "nem tartos" : "tartos" %>
 
-Jár esetleg valamelyikünk arrafelé?
-Gondoljátok meg s jelezzétek kérlek, ha vállalható.
-Köszönjük!
+Átvehető:
+<%= source_name %>
 
-<%= comment == "" ? "" : "Megjegyzes:" %>
+<%= source_address %>
+
+<%= I18n.l available_from %> - <%= I18n.l available_to %>
+
+
+<% unless comment.blank? %>
+<%= Donation.human_attribute_name :comment %>:
 <%= comment %>
+<% end %>
