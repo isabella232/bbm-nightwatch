@@ -11,7 +11,12 @@ Rails.application.routes.draw do
 
   resources :donations, only: [:new, :create, :show, :index] do
     get :thank_you, on: :collection
-    resources :transports, only: [:new, :create]
+    resources :transports, only: [:new, :create] do
+      member do
+        get :close
+        patch :finish
+      end
+    end
   end
 
   get '/healthcheck', to: 'health_check#index'

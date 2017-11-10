@@ -1,0 +1,9 @@
+<h1><%= t('transport.close') %></h1>
+
+<%= render 'donations/info', donation: @donation %>
+
+<%= simple_form_for([:finish, @donation, @transport], html: { class: 'form-horizontal' }) do |form| %>
+  <%= form.input :target_location %>
+
+  <%= form.button :submit, t('transport.submit') %>
+<% end %>
