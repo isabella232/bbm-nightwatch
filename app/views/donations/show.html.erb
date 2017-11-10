@@ -2,7 +2,7 @@
 
 <% if transport = @donation.transports.first %>
   <h3><%= Donation.human_attribute_name(:transporter) %></h3>
-  <p><%= transport.name %></p>
+  <%= render 'transports/info', transport: transport %>
 <% end %>
 
 
