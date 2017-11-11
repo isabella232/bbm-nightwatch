@@ -15,7 +15,7 @@ class DonationsController < ApplicationController
                                            contact_phone: current_user.phone,
                                            source_name: last_donation&.source_name,
                                            source_address: last_donation&.source_address,
-                                           available_from: Time.now,
+                                           available_from: Time.current,
                                            available_to: 2.hours.from_now
   end
 
