@@ -10,11 +10,17 @@ class DonationsController < ApplicationController
   end
 
   def new
-    @donation = current_user.donations.new(available_from: Time.now, available_to: 2.hours.from_now)
+    last_donation = current_user.donations.last
+    @donation = current_user.donations.new contact_name: current_user.name,
+                                           contact_phone: current_user.phone,
+                                           source_name: last_donation&.source_name,
+                                           source_address: last_donation&.source_address,
+                                           available_from: Time.now,
+                                           available_to: 2.hours.from_now
   end
 
   def create
-    @donation = current_user.donations.new(donation_params)
+    @donation = current_user.donations.new donation_params
 
     if @donation.save
       post_to_facebook if ENV["APP_SECRET"]
@@ -28,19 +34,19 @@ class DonationsController < ApplicationController
   private
 
   def post_to_facebook
-    message = post_message_template.render(@donation)
-    link = new_donation_transport_url(@donation, host: ENV["HOST"])
+    message = post_message_template.render @donation
+    link = new_donation_transport_url @donation, host: ENV["HOST"]
     facebook_post_id = ::FacebookHandler.post_to_group(FACEBOOK_GROUP_ID, message, link)&.to_s
     @donation.update_attributes facebook_post_id: facebook_post_id
   end
 
   def post_message_template
     template_path = Rails.root.join("app", "views", "posts", "group_message.erb").to_s
-    Tilt::ERBTemplate.new(template_path)
+    Tilt::ERBTemplate.new template_path
   end
 
   def set_donation
-    @donation = Donation.find(params[:id])
+    @donation = Donation.find params[:id]
   end
 
   def donation_params
