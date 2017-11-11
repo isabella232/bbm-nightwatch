@@ -41,6 +41,7 @@ hu:
     models:
       donation: Felajánlás
       transport: Szállítás
+      target_location: Szálló
     attributes:
       donation:
         contact_name: Kapcsolattartó neve
