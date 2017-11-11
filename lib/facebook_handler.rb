@@ -4,11 +4,7 @@ module FacebookHandler
   extend(self)
 
   def post_to_group(group_id, message, link)
-    graph.put_connections(group_id,
-                          'feed',
-                          message: message,
-                          link: link,
-                          privacy: {value: 'EVERYONE'})['id']
+    graph.put_connections(group_id, 'feed', message: message, link: link)['id']
   end
 
   def update_a_post(post_id)
