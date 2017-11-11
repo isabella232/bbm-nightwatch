@@ -3,7 +3,7 @@
 <%= render 'donations/info', donation: @transport.donation %>
 
 <%= simple_form_for([:finish, @transport]) do |form| %>
-  <%= form.input :target_location %>
+  <%= form.input :target_location, as: :select, collection: TargetLocation.all.map(&:name) %>
 
   <%= form.button :submit, t('transport.close') %>
 <% end %>

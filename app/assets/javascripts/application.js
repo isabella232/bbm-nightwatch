@@ -10,13 +10,18 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require moment
+//= require moment/hu
+//= require datetime_picker
+//= require select2
 //= require rails-ujs
 //= require_tree .
 
-//= require moment
-//= require datetime_picker
-//= require moment/hu
-
 $(function () {
   $('.datetime-picker').datetimepicker({locale: 'hu', format: 'YYYY-MM-DD HH:mm'});
+
+  $( "#transport_target_location" ).select2({
+    theme: "bootstrap",
+    tags: true
+  });
 });
