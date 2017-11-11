@@ -1,9 +1,9 @@
 <h1><%= t('transport.close') %></h1>
 
-<%= render 'donations/info', donation: @donation %>
+<%= render 'donations/info', donation: @transport.donation %>
 
-<%= simple_form_for([:finish, @donation, @transport], html: { class: 'form-horizontal' }) do |form| %>
+<%= simple_form_for([:finish, @transport]) do |form| %>
   <%= form.input :target_location %>
 
-  <%= form.button :submit, t('transport.submit') %>
+  <%= form.button :submit, t('transport.close') %>
 <% end %>
