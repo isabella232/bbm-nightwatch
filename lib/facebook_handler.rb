@@ -4,13 +4,17 @@ module FacebookHandler
   extend(self)
 
   def post_to_group(group_id, message, link)
-    graph.put_connections(group_id, 'feed', message: message, link: link, privacy: 'EVERYONE')['id']
+    graph.put_connections(group_id,
+                          'feed',
+                          message: message,
+                          link: link,
+                          privacy: {value: 'EVERYONE'})['id']
   end
 
   def update_a_post(post_id)
     new_message = yield(graph.graph_call(post_id, {}, 'get')['message'])
 
-    graph.graph_call(post_id, { message: new_message }, 'post')['success']
+    graph.graph_call(post_id, {message: new_message}, 'post')['success']
   end
 
   def comment_on_post(post_id, message)
