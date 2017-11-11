@@ -1,0 +1,31 @@
+hu:
+  devise:
+    failure:
+      invited: "Függőben lévő meghívód van. Kövesd a levélben kapott utasításokat, hogy befejezd a fiókod létrehozását."
+    invitations:
+      send_instructions: "A meghívót elküldtük a(z) %{email} címre."
+      invitation_token_invalid: "Nem érvényes meghívó!"
+      updated: "Jelszó sikeresen beállítva. Be vagy jelentkezve."
+      updated_not_active: "Jelszó sikeresen beállítva."
+      no_invitations_remaining: "Nincs több meghívód"
+      invitation_removed: "A meghívód eltávolítottuk."
+      new:
+        header: Meghívó küldése
+        submit_button: Meghív
+      edit:
+        header: "Állítsd be a jelszavad"
+        submit_button: "Jelszó beállítása"
+    mailer:
+      invitation_instructions:
+        subject: "Meghívód érkezett"
+        hello: "Hello %{name}"
+        someone_invited_you: "%{someone} meghívott téged, hogy csatlakozz a %{url} oldalhoz. Az elfogadáshoz kattints az alábbi linkre."
+        accept: "Meghívás elfogadása"
+        accept_until: "A meghívó lejár: %{due_date}."
+        ignore: "Ha nem szeretnéd elfogadni, akkor hagyd figyelmen kívül ezt az email-t.<br />\nA fiókod nem jön létre amíg a fenti linken be nem állítasz egy jelszót."
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%Y %B %d. %H:%M"
