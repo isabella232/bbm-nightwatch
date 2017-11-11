@@ -57,6 +57,16 @@ hu:
         packaged: Az étel szállításra elő van készítve (be van csomagolva)
         status: Állapot
         transporter: Szállító
+      target_location:
+        name: Szálló neve
+        address: Cím
+        contact_name: Kontakt neve
+        phone: Telefonszám
+        email: Email cím
+        category: Jelleg
+        capacity: Férőhely
+        winter_capacity: Téli + férőhely
+        comment: Megjegyzés
       transport:
         name: Név
         email: E-mail cím
