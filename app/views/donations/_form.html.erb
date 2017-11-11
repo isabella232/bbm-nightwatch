@@ -1,36 +1,36 @@
-<%= simple_form_for(donation, html: { class: 'form-horizontal' }) do |form| %>
+<%= simple_form_for(donation) do |form| %>
   <div class="row">
-    <div class="col-md-6 mb-3">
+    <div class="col-md-6">
       <%= form.input :contact_name %>
     </div>
-    <div class="col-md-6 mb-3">
+    <div class="col-md-6">
       <%= form.input :contact_phone %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-6 mb-3">
+    <div class="col-md-6">
       <%= form.input :source_name %>
     </div>
-    <div class="col-md-6 mb-3">
+    <div class="col-md-6">
       <%= form.input :source_address %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-6 mb-3">
+    <div class="col-md-6">
       <%= form.input :food_type %>
     </div>
-    <div class="col-md-6 mb-3">
+    <div class="col-md-6">
       <%= form.input :quantity %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-6 mb-3">
+    <div class="col-md-6">
       <%= form.input :available_from, as: :string, input_html: { class: 'datetime-picker' } %>
     </div>
-    <div class="col-md-6 mb-3">
+    <div class="col-md-6">
       <%= form.input :available_to, as: :string, input_html: { class: 'datetime-picker' } %>
     </div>
   </div>

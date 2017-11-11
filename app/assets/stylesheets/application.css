@@ -46,3 +46,7 @@ code {
 .bootstrap-datetimepicker-widget {
   display: block;
 }
+
+.help-block {
+    font-size: small;
+}
