@@ -72,7 +72,7 @@ hu:
         name: Név
         email: E-mail cím
         phone: Telefonszám
-        target_location: Uticél
+        target_location: Úti cél
       user:
         name: Név
         email: E-mail cím
