@@ -27,6 +27,7 @@ hu:
       assign: Elvállal
       show: Részletek
   transport:
+    title: Kattints ide a fuvar vállalásához
     create_new: Fuvar vállalása
     submit: Elvállal
     can_not_assign: Ez a felajánlás nem elvállalható
