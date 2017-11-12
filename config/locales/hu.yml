@@ -1,4 +1,5 @@
 hu:
+  page_title: BBM - Nightwatch
   back: Vissza
   shared:
     nav:
@@ -33,6 +34,8 @@ hu:
     can_not_finish: Ez a felajánlás nem lezárható
     close: Fuvar lezárása
   transports:
+    new:
+      call_to_action: Kattints ide, hogy elvállald
     index:
       title: Vállalásaim
       details: Részletek
