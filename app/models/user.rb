@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :invitable
+         :invitable, :async
 
   has_many :donations
   has_many :transports, foreign_key: :transporter_id

@@ -1,3 +1,8 @@
+require 'sidekiq/web'
+Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+  username == ENV["SIDEKIQ_USERNAME"] && password == ENV["SIDEKIQ_PASSWORD"]
+end
+
 Rails.application.routes.draw do
   namespace :admin do
     resources :donations
@@ -25,4 +30,6 @@ Rails.application.routes.draw do
   get '/healthcheck', to: 'health_check#index'
 
   root to: 'pages#home'
+
+  mount Sidekiq::Web => '/sidekiq'
 end

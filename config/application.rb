@@ -34,5 +34,7 @@ module BbmNightwatch
 
     config.i18n.default_locale = :hu
     config.time_zone = 'Budapest'
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end

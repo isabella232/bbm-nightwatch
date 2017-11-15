@@ -28,7 +28,10 @@ gem 'state_machines-activerecord'
 gem 'administrate'
 gem 'rails-i18n', '~> 5.0.0'
 
+gem 'sidekiq'
+
 gem 'devise'
+gem 'devise-async'
 gem 'devise_invitable'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views', github: 'hisea/devise-bootstrap-views', branch: 'bootstrap4'
