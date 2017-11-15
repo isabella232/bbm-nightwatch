@@ -34,6 +34,7 @@ hu:
     can_not_assign: Ez a felajánlás nem elvállalható
     can_not_finish: Ez a felajánlás nem lezárható
     close: Fuvar lezárása
+    assigned_to: "%{name} elvállalta a szállítást"
   transports:
     new:
       call_to_action: Kattints ide, hogy elvállald
