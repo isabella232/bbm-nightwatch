@@ -42,6 +42,15 @@ hu:
       title: Vállalásaim
       details: Részletek
       close: Lezárás
+  posts:
+    group_message:
+      available: "Átvehető"
+      subject: "%{qty} adag %{food}"
+      statuses:
+        reported: Új felajánlás
+        assigned: Elvállalva
+        transported: Elszállítva
+        missed: Kihagyott lehetőség
   activerecord:
     models:
       donation: Felajánlás

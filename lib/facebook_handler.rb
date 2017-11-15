@@ -3,14 +3,12 @@ require 'json'
 module FacebookHandler
   extend(self)
 
-  def post_to_group(group_id, message, link)
+  def post_to_group(group_id, message, link=nil)
     graph.put_connections(group_id, 'feed', message: message, link: link)['id']
   end
 
-  def update_a_post(post_id)
-    new_message = yield(graph.graph_call(post_id, {}, 'get')['message'])
-
-    graph.graph_call(post_id, {message: new_message}, 'post')['success']
+  def update_a_post(post_id, message)
+    graph.graph_call(post_id, {message: message}, 'post')['success']
   end
 
   def comment_on_post(post_id, message)

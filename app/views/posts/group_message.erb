@@ -1,7 +1,7 @@
-Új felajánlás: <%= quantity %> adag <%= food_type %>
+<%= ::I18n.t status, scope: [:posts, :group_message, :statuses] %>: <%= ::I18n.t 'posts.group_message.subject', qty: quantity, food: food_type %>
 
 
-Átvehető:
+<%= ::I18n.t 'posts.group_message.available' %>:
 <%= source_name %>
 
 <%= source_address %>

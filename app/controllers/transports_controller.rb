@@ -23,6 +23,7 @@ class TransportsController < ApplicationController
 
       message = ::I18n.t 'transport.assigned_to', name: @transport.name
       CommentOnFacebookPostJob.perform_later @donation.facebook_post_id, message
+      UpdateDonationPostOnFacebookJob.perform_later @donation.id
 
       redirect_to @donation
     else
