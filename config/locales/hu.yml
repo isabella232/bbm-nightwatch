@@ -54,6 +54,7 @@ hu:
     group_message:
       available: "Átvehető"
       subject: "%{qty} adag %{food}"
+      call_to_action: "Kattints az alábbi hivatkozásra, hogy elvállald"
       statuses:
         reported: Új felajánlás
         assigned: Elvállalva

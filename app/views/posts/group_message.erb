@@ -13,3 +13,5 @@
 <%= Donation.human_attribute_name :comment %>:
 <%= comment %>
 <% end %>
+
+<%= ::I18n.t('posts.group_message.call_to_action') if reported? %>
