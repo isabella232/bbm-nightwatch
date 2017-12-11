@@ -1,4 +1,8 @@
 hu:
+  devise:
+    registrations:
+      new:
+        minimum_password_length: "legalább %{num} karakter"
   page_title: BBM - Nightwatch
   back: Vissza
   shared:
