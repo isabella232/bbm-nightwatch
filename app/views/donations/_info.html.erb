@@ -11,12 +11,17 @@
   <dt class="col-sm-3"><%= Donation.human_attribute_name(:quantity) %></dt>
   <dd class="col-sm-9"><%= donation.quantity %></dd>
 
+  <dt class="col-sm-3"><%= t '.package' %></dt>
+  <dd class="col-sm-9"><%= donation.packaged ? t('.packaged') : t('.not_packaged') %></dd>
+
+  <dt class="col-sm-3"><%= Donation.human_attribute_name(:comment) %></dt>
+  <dd class="col-sm-9"><%= donation.comment %></dd>
+
   <dt class="col-sm-3"><%= Donation.human_attribute_name(:available_from) %></dt>
   <dd class="col-sm-9"><%= l donation.available_from %></dd>
 
   <dt class="col-sm-3"><%= Donation.human_attribute_name(:available_to) %></dt>
   <dd class="col-sm-9"><%= l donation.available_to %></dd>
-
 
   <dt class="col-sm-3"><%= Donation.human_attribute_name(:contact_name) %></dt>
   <dd class="col-sm-9"><%= donation.contact_name %></dd>

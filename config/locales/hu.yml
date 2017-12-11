@@ -32,6 +32,10 @@ hu:
       title: Felajánlások
       assign: Elvállal
       show: Részletek
+    info:
+      package: Csomagolás
+      packaged: Az étel szállításra elő van készítve (be van csomagolva)
+      not_packaged: Nincs csomagolva
   transport:
     create_new: Fuvar vállalása
     submit: Elvállal
