@@ -23,10 +23,10 @@ hu:
     submit_manually: |
       Keresd az operátort: +36-00-000-000
     statuses:
-      reported: Bejelentett
-      assigned: Elvállalt
-      transported: Elszállított
-      missed: Kihagyott
+      reported: Szabad
+      assigned: Elvállalva
+      transported: Elszállítva
+      missed: Kihagyott lehetőség
   donations:
     index:
       title: Felajánlások
