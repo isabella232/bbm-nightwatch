@@ -25,6 +25,7 @@ class TransportsController < ApplicationController
       CommentOnFacebookPostJob.perform_later @donation.facebook_post_id, message
       UpdateDonationPostOnFacebookJob.perform_later @donation.id
 
+      flash[:success] = t('transport.succesfully_assigned')
       redirect_to @donation
     else
       render :new
