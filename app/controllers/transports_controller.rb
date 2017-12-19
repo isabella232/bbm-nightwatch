@@ -21,9 +21,9 @@ class TransportsController < ApplicationController
     if @transport.save
       @donation.assign!
 
-      message = ::I18n.t 'transport.assigned_to', name: @transport.name
-      CommentOnFacebookPostJob.perform_later @donation.facebook_post_id, message
-      UpdateDonationPostOnFacebookJob.perform_later @donation.id
+      # message = ::I18n.t 'transport.assigned_to', name: @transport.name
+      # CommentOnFacebookPostJob.perform_later @donation.facebook_post_id, message
+      # UpdateDonationPostOnFacebookJob.perform_later @donation.id
 
       flash[:success] = t('transport.succesfully_assigned')
       redirect_to @donation

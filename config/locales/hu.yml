@@ -27,6 +27,10 @@ hu:
       assigned: Elvállalva
       transported: Elszállítva
       missed: Kihagyott lehetőség
+    mailer:
+      created_notification:
+        subject: Új felajánlás érkezett
+        call_to_action: Kattints ide, hogy elvállald
   donations:
     index:
       title: Felajánlások
