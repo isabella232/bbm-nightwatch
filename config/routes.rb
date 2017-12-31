@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     root to: "donations#index"
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
 
   resources :donations, only: [:new, :create, :show, :index] do
     get :thank_you, on: :collection
