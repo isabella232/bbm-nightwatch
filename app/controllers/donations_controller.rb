@@ -23,7 +23,6 @@ class DonationsController < ApplicationController
     @donation = current_user.donations.new donation_params
 
     if @donation.save
-      # PostDonationToFacebookJob.perform_later @donation.id
       User.all.each do |user|
         DonationMailer.created_notification(@donation, user).deliver_later
       end
