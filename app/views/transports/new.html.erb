@@ -3,4 +3,5 @@
 
 <%= render 'donations/info', donation: @donation %>
 
+<h2><%= Donation.human_attribute_name(:transporter) %></h2>
 <%= render 'form' %>
