@@ -31,15 +31,16 @@ hu:
       created_notification:
         subject: Új felajánlás érkezett
         call_to_action: Kattints ide, hogy elvállald
+    assign: Elvállal
   donations:
     index:
       title: Felajánlások
-      assign: Elvállal
       show: Részletek
     info:
       package: Csomagolás
       packaged: Az étel szállításra elő van készítve (be van csomagolva)
       not_packaged: Nincs csomagolva
+    show:
   transport:
     create_new: Fuvar vállalása
     submit: Elvállal

@@ -5,5 +5,5 @@
   <%= render 'transports/info', transport: transport %>
 <% end %>
 
-
+<%= link_to t('donation.assign'), new_donation_transport_path(@donation), class: 'btn btn-success' if @donation.can_assign? %>
 <%= link_to t('back'), donations_path %>

@@ -23,7 +23,7 @@
         <td><%= donation.food_type %></td>
         <td><%= t donation.status, scope: [:donation, :statuses] %></td>
         <td><%= link_to t('.show'), donation %></td>
-        <td><%= link_to t('.assign'), new_donation_transport_path(donation) if donation.can_assign? %></td>
+        <td><%= link_to t('donation.assign'), new_donation_transport_path(donation) if donation.can_assign? %></td>
       </tr>
     <% end %>
   </tbody>
