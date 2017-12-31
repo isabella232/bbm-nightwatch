@@ -29,7 +29,7 @@ class TransportsController < ApplicationController
   end
 
   def index
-    @transports = current_user.transports
+    @transports = current_user.transports.order(created_at: :desc).all
   end
 
   def close
