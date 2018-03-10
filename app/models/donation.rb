@@ -13,8 +13,6 @@ class Donation < ApplicationRecord
   validates :quantity, presence: true,
             numericality: { greater_than_or_equal_to: 50 }
 
-  validates :not_perishable, acceptance: true
-
   state_machine initial: :reported, attribute: :status do
     event :assign do
       transition :reported => :assigned

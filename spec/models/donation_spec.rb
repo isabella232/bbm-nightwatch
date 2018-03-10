@@ -11,7 +11,4 @@ RSpec.describe Donation, type: :model do
   it { is_expected.to validate_presence_of(:available_to) }
 
   it { is_expected.to validate_numericality_of(:quantity).is_greater_than_or_equal_to(50) }
-
-  it { is_expected.to validate_acceptance_of(:not_perishable) }
-
 end
