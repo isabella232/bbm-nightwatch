@@ -23,6 +23,15 @@ Things you may want to cover:
 
 * ...
 
+## Initialization
+
+    $ bundle
+    $ docker-compose up -d
+    $ RAILS_ENV=development bundle exec rake db:create
+    $ RAILS_ENV=development bundle exec rake db:migrate
+    $ RAILS_ENV=test bundle exec rake db:create
+    $ RAILS_ENV=test bundle exec rake db:migrate
+    $ foreman start
 
 ## manual setup on env
 
