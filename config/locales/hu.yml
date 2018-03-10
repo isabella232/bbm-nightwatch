@@ -15,7 +15,10 @@ hu:
       sign_in: Bejelentkezés
       sign_up: Regisztráció
   donation:
-    thank_you: Köszönjük a felajánlást!
+    thank_you:
+      title: Köszönjük a felajánlást,
+      consequence: ezzel is léptünk egyet az ételpazarlás ellen!
+      next_step: Autósaink megkapták az értesítést, és amennyiben van szabad kapacitással rendelkező őrszemünk, hamarosan keresni fog az általad megadott elérhetősége(ke)n.
     create_new: Új felajánlás
     submit: Felajánlás mentése
     packaged:
