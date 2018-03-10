@@ -36,5 +36,7 @@ module BbmNightwatch
     config.time_zone = 'Budapest'
 
     config.active_job.queue_adapter = :sidekiq
+
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
