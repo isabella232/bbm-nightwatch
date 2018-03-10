@@ -1,3 +1,9 @@
 <h1><%= t('donation.create_new') %></h1>
 
+<ul>
+  <% t('donation.instructions').each do |line| %>
+    <li><%= line %></li>
+  <% end %>
+</ul>
+
 <%= render 'form', donation: @donation %>

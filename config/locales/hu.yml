@@ -20,13 +20,9 @@ hu:
       consequence: ezzel is léptünk egyet az ételpazarlás ellen!
       next_step: Autósaink megkapták az értesítést, és amennyiben van szabad kapacitással rendelkező őrszemünk, hamarosan keresni fog az általad megadott elérhetősége(ke)n.
     create_new: Új felajánlás
-    submit: Felajánlás mentése
-    packaged:
-      hint: A szállításra előkészített ételt nagyobb eséllyel tudjuk kiszállítani
-    not_perishable:
-      hint: Figyelj! Csak a mai napon készített, friss ételeket tudjuk elvinni a rászorulóknak. Fokozottan romlandó - nyers tojásos, gombás, majonézes - ételeket nem szállítunk el!
+    submit: Felajánlom :)
     submit_manually: |
-      Ha elakadtál, hívd Dórit, a 06 30 202 7965-ös telefonszámon!
+      Ha elakadtál, hívd Dórit, a +36 30 202 7965-ös telefonszámon!
     statuses:
       reported: Szabad
       assigned: Elvállalva
@@ -37,6 +33,12 @@ hu:
         subject: Új felajánlás érkezett
         call_to_action: Kattints ide, hogy elvállald
     assign: Elvállal
+    instructions:
+      - "bármi gondod van a kitöltéssel keresd nyugodtan Szőke Dórát: Tel: +36 30 202 7965"
+      - "egyéb gondjaiddal háziorvosodat keresd :)"
+      - "Kérjük, hogy oldd meg a csomagolást!"
+      - "A BBM őrszemek 1 és 5 literes zárható dobozokkal rendelkeznek, a nem csomagolt ételeket ezekben tudják elszállítani"
+      - "A fokozottan romlandó (nyers tojásos,majonézes,gombás) ételeket nem szállítjuk el."
   donations:
     index:
       title: Felajánlások
@@ -126,3 +128,15 @@ hu:
           attributes:
             email:
               invalid: "'%{attribute}' formátuma nem megfelelő"
+  simple_form:
+    hints:
+      donation:
+        packaged:  A szállításra előkészített ételt nagyobb eséllyel tudjuk kiszállítani
+        not_perishable: Figyelj! Csak a mai napon készített, friss ételeket tudjuk elvinni a rászorulóknak. Fokozottan romlandó - nyers tojásos, gombás, majonézes - ételeket nem szállítunk el!
+        contact_name: Téged keres a futár :)
+        source_name: Ha nem szeretnéd, nem lesz publikus
+        source_address: Ide jön a BBM őrszem(futár)
+        food_type: "Pl: szendvics 30db., alma 15kg., sós süti 5 tálca"
+        quantity: 1 adag = 1 ember vacsorája
+        comment: bármi ami az őrszemet/futárt segítheti a szállításban.
+        anonymous: Nem járulok hozzá, hogy a felajánlásom publikus legyen.
