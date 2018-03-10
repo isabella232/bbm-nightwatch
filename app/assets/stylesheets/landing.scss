@@ -1,0 +1,194 @@
+.landing-page {
+  font-family: Barlow;
+
+  .welcome-main {
+    background-image: asset_url("cover_bg_overlay.jpg");
+    background-size: cover;
+    color: white;
+    padding: 244px 0;
+
+    .motto {
+      font-weight: 300;
+      font-size: 64px;
+      line-height: 72px;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 40px;
+    }
+    .btn {
+      width: 200px;
+      margin: 0 8px;
+    }
+  }
+
+  .our-mission {
+    background-image: radial-gradient(50% 100%, #17A1E6 5%, #0066CC 100%);
+    color: white;
+    padding: 120px 0;
+
+    hr {
+      width: 40px;
+      border-top: 2px solid white;
+      margin: 40px auto;
+    }
+    .lead {
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 1px;
+      line-height: 32px;
+    }
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  .how-we-do {
+    background-image: asset_url("block_bg_overlay.jpg");
+    background-size: cover;
+    color: white;
+    padding: 64px 0 100px;
+  }
+  .success-stories {
+    background: #12171A;
+    color: white;
+
+    padding: 80px 0;
+
+    h2 {
+      margin-bottom: 80px;
+    }
+  }
+
+
+  .navbar-inverse {
+    background: transparent;
+    background-image: none;
+    border-color: transparent;
+    box-shadow: none;
+    color: white;
+    text-align: center;
+
+    .navbar-brand {
+      color: white;
+      padding: 41px 15px;
+      line-height: 24px;
+      font-weight: 600;
+      font-size: 24px;
+      letter-spacing: -1px;
+    }
+    .navbar-nav.navbar-center {
+      float: none;
+      display: inline-block;
+    }
+    .navbar-nav > li {
+      a {
+        color: white;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        padding-top: 44px;
+        padding-bottom: 44px;
+      }
+      &.active > a {
+        background: none;
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          left: 15px;
+          right: 15px;
+          bottom: 38px;
+          height: 2px;
+          background-color: #fff;
+        }
+      }
+    }
+    .navbar-btn {
+      width: 160px;
+      margin: 32px 0;
+    }
+  }
+
+  footer {
+    padding: 46px 0;
+    background: #293033;
+    color: #999;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 300;
+    position: relative;
+
+    p {
+      margin: 0;
+    }
+    .copyright {
+      font-weight: 500;
+    }
+    a {
+      color: #999;
+      margin-right: 16px;
+    }
+    .go-to-top {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -11px;
+      margin-left: -11px;
+      width: 22px;
+      height: 22px;
+    }
+    .designed-by {
+      float: right;
+      height: 56px;
+      line-height: 56px;
+      padding-right: 30px;
+      background: asset_url('norb_co_signature.png') center right no-repeat;
+      a {
+        font-weight: bold;
+      }
+    }
+  }
+
+  h2 {
+    font-family: Barlow;
+    font-weight: 400;
+    font-size: 48px;
+    letter-spacing: 2px;
+    line-height: 48px;
+  }
+
+  .btn {
+    font-family: Barlow;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 24px;
+    text-transform: uppercase;
+    border-radius: 100px;
+    padding: 12px 24px;
+  }
+  .btn-default {
+    border: 2px solid #FFFFFF;
+    padding: 10px 22px;
+    background: none;
+  }
+  .btn-primary {
+    background: #17A1E6;
+    border: none;
+    &:hover {
+      border: none;
+    }
+  }
+
+}

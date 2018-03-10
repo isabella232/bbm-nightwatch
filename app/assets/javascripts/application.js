@@ -24,4 +24,6 @@ $(function () {
     theme: "bootstrap",
     tags: true
   });
+
+  $('body.landing-page').scrollspy({target: '#navbar', offset: 50})
 });

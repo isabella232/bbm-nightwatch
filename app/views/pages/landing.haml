@@ -1,0 +1,113 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to t('.brand'), root_path, class: 'navbar-brand'
+    #navbar.collapse.navbar-collapse
+      = link_to t('.sign_in'), new_user_session_path, class: 'btn btn-primary navbar-btn pull-right'
+      %ul.nav.navbar-nav.navbar-center
+        %li= link_to t('.mission'), '#kuldetesunk'
+        %li= link_to t('.how_we_do'), '#hogyan-csinaljuk'
+        %li= link_to t('.success_stories'), '#sikertortenetek'
+
+
+
+.welcome-main.text-center
+  .container
+    .row
+      .col-md-10.col-md-offset-1
+        %h1.motto= t('.motto').html_safe
+    .row
+      .col-md-6.col-md-offset-3
+        %p Segítsünk együtt megmenteni a megmaradt porciókat a kidobástól, és eljuttatni az ételeket rászoruló társainknak, akiknek jól jönne pár finom falat.
+        %p
+          = link_to t('.how'), '#kuldetesunk', class: 'btn btn-default'
+          = link_to t('.join'), '#', class: 'btn btn-primary'
+
+#kuldetesunk.our-mission
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        %h2.text-center= t '.mission'
+        %hr
+        %p.lead
+          A ételmentők étel-adományozókból és önkéntes futárokból áll.
+        %p
+          Az adományozók fel tudnak ajánlani még teljes mértékben emberi fogyasztásra alkalmas ételeket, amik valamilyen okból megmaradtak—és így sajnos kidobásra kerülnének.
+        %p
+          A totális pazarlást megelőzvén önkéntes kiszállítóink szívesen eljuttatják ezeket a megmaradt ételeket olyan helyekre, olyan rászorulóknak, szervezeteknek és intézményeknek, akiknek nagyon jól jönne pár finom falat.
+
+
+#hogyan-csinaljuk.how-we-do
+  .container
+    .row
+      .col-md-6
+        %h2.text-center A mentés
+        %ol
+          %li
+            %h3 Felajánlás
+            %p Az adományozó felviszi a rendszerünkbe a felajánlott étel adatait, annak átvételi helyét és lehetséges idejét.
+          %li
+            %h3 Átvétel
+            %p A futár kiválasztja az adományt, amit el akar juttatni rászorulóknak, és egyeztet az adományozóval az átvétel részleteiről.
+          %li
+            %h3 Kiszállítás
+            %p A futár kiszállítja és átadja az adományt a rászorulóknak, és ezt jelzi a rendszernek — lehetőleg fényképpel, hogy sikersztori legyen a misszióból!
+      .col-md-6
+        %h2.text-center A mentők
+        %ul
+          %li
+            %h3 Adományozók
+            %p Az adományozó megmaradt, még emberi fogyasztásra teljes mértékben alkalmas étel adagokat tud felajánlani, amit a rendszerünkbe felvéve futárok fognak átvenni és kiszállítani rászorulóknak.
+            %p= link_to t('.join_as_donator'), '#', class: 'btn btn-default'
+          %li
+            %h3 Futárok
+            %p A futár a rendszerünkbe bekerült adományokból tud válogatni, hogy azokat eljuttassa az általa választott rászorulóknak.
+            %p= link_to t('.join_as_transporter'), '#', class: 'btn btn-default'
+
+#sikertortenetek.success-stories
+  .container
+    .row
+      .col-md-12
+        %h2.text-center Sikeres mentések
+
+        .row
+          .col-sm-6.col-md-4
+            .thumbnail
+              = image_tag 'succes_story_image_1'
+              .caption
+                %h3 24 étel a mosoly utcai általános iskolának
+                %p Nagyon örültek a napközis gyerekek a finom paradicsom-levesnek és a szendvicseknek.
+                %p Tóth Géza & Szekeres Eszter
+          .col-sm-6.col-md-4
+            .thumbnail
+              = image_tag 'succes_story_image_1'
+              .caption
+                %h3 24 étel a mosoly utcai általános iskolának
+                %p Nagyon örültek a napközis gyerekek a finom paradicsom-levesnek és a szendvicseknek.
+                %p Tóth Géza & Szekeres Eszter
+          .col-sm-6.col-md-4
+            .thumbnail
+              = image_tag 'succes_story_image_1'
+              .caption
+                %h3 24 étel a mosoly utcai általános iskolának
+                %p Nagyon örültek a napközis gyerekek a finom paradicsom-levesnek és a szendvicseknek.
+                %p Tóth Géza & Szekeres Eszter
+
+%footer
+  .container
+    .designed-by.pull-right
+      Design by
+      = link_to 'norb.co', 'http://norb.co/'
+    = link_to image_tag("icons/arrow_up.png"), '#top', class: 'go-to-top'
+    %p
+      %span.copyright © 2018 Ételmentők
+      %br
+      = link_to t('.mission'), '#kuldetesunk'
+      = link_to t('.how_we_do'), '#hogyan-csinaljuk'
+      = link_to t('.success_stories'), '#sikertortenetek'
+      = link_to t('.contact'), '#kapcsolat'

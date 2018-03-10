@@ -29,7 +29,8 @@ Rails.application.routes.draw do
 
   get '/healthcheck', to: 'health_check#index'
 
-  root to: 'pages#home'
+  root to: 'pages#landing'
+  get '/home', to: 'pages#home'
 
   mount Sidekiq::Web => '/sidekiq'
 end

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>Arrow Icon - Down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Main-Page" transform="translate(-629.000000, -709.000000)">
+            <g id="Block---Cover">
+                <g id="Arrow-Icon---Down" transform="translate(624.000000, 704.000000)">
+                    <polygon id="Stroke-1" stroke-opacity="0.00784313771" stroke="#000000" stroke-width="1.33333335e-11" points="0 0 31.999998 0 31.999998 31.999998 0 31.999998"></polygon>
+                    <polygon id="Fill-2" fill="#FFFFFF" points="26.6666651 15.999999 24.7866653 14.1199993 17.3333323 21.5599987 17.3333323 5.33333301 14.6666658 5.33333301 14.6666658 21.5599987 7.22666633 14.1066657 5.33333301 15.999999 15.999999 26.6666651"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
