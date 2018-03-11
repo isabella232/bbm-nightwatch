@@ -14,10 +14,8 @@
         %li= link_to t('.how_we_do'), '#hogyan-csinaljuk'
         %li= link_to t('.success_stories'), '#sikertortenetek'
 
-
-
-.welcome-main.text-center
-  .container
+%section.intro.text-center
+  .container.content
     .row
       .col-md-10.col-md-offset-1
         %h1.motto= t('.motto').html_safe
@@ -28,7 +26,8 @@
           = link_to t('.how'), '#kuldetesunk', class: 'btn btn-default'
           = link_to t('.join'), '#', class: 'btn btn-primary'
 
-#kuldetesunk.our-mission
+  = link_to image_tag("icons/arrow_down.png"), '#kuldetesunk', class: 'go-to-next'
+%section#kuldetesunk.our-mission
   .container
     .row
       .col-md-6.col-md-offset-3
@@ -42,7 +41,7 @@
           A totális pazarlást megelőzvén önkéntes kiszállítóink szívesen eljuttatják ezeket a megmaradt ételeket olyan helyekre, olyan rászorulóknak, szervezeteknek és intézményeknek, akiknek nagyon jól jönne pár finom falat.
 
 
-#hogyan-csinaljuk.how-we-do
+%section#hogyan-csinaljuk.how-we-do
   .container
     .row
       .col-md-6
@@ -69,7 +68,7 @@
             %p A futár a rendszerünkbe bekerült adományokból tud válogatni, hogy azokat eljuttassa az általa választott rászorulóknak.
             %p= link_to t('.join_as_transporter'), '#', class: 'btn btn-default'
 
-#sikertortenetek.success-stories
+%section#sikertortenetek.success-stories
   .container
     .row
       .col-md-12
