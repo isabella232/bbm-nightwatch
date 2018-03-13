@@ -13,6 +13,7 @@ html, body {
     color: white;
     text-align: center;
     padding: 20px 0;
+    transition: 0.25s;
 
     .navbar-brand {
       font-family: HelveticaNeue;
@@ -58,8 +59,7 @@ html, body {
 
     &.navbar-scrolled {
       background-color: rgba(0, 0, 0, 0.5);
-      padding: 0px;
-      transition: 0.25s;
+      padding: 0;
     }
   }
 
