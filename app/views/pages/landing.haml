@@ -8,14 +8,23 @@
         %span.icon-bar
       = link_to t('.brand'), root_path, class: 'navbar-brand'
     #navbar.collapse.navbar-collapse
-      = link_to t('.sign_in'), new_user_session_path, class: 'btn btn-primary navbar-btn pull-right'
       %ul.nav.navbar-nav.navbar-center
         %li= link_to t('.mission'), '#kuldetesunk'
         %li= link_to t('.how_we_do'), '#hogyan-csinaljuk'
         %li= link_to t('.success_stories'), '#sikertortenetek'
+      - if user_signed_in?
+        %ul.nav.navbar-nav.navbar-right
+          %li= link_to t("shared.nav.account"), edit_user_registration_path, class: 'nav-link'
+          %li= link_to t("shared.nav.log_out"), destroy_user_session_path, method: :delete, class: 'nav-link'
+      - else
+        = link_to t('.sign_in'), new_user_session_path, class: 'btn btn-primary navbar-btn pull-right'
 
 %section#start.intro.text-center
   .container.content
+    - if flash.any?
+      .row
+        .col-md-6.col-md-offset-3
+          = render partial: "shared/flash_messages", flash: flash
     .row
       .col-md-10.col-md-offset-1
         %h1.motto= t('.motto').html_safe
