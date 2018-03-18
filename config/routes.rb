@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :target_locations
     resources :transports
     resources :users
+    resources :subscribers
 
     root to: "donations#index"
   end
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
       patch :finish
     end
   end
+
+  resources :subscribers, only: [:new, :create]
 
   get '/healthcheck', to: 'health_check#index'
 

@@ -24,7 +24,7 @@
         %p Segítsünk együtt megmenteni a megmaradt porciókat a kidobástól, és eljuttatni az ételeket rászoruló társainknak, akiknek jól jönne pár finom falat.
         %p
           = link_to t('.how'), '#kuldetesunk', class: 'btn btn-default'
-          = link_to t('.join'), '#', class: 'btn btn-primary'
+          = link_to t('.join'), '#', class: 'btn btn-primary', :'data-toggle' => 'modal', :'data-target' => '#join'
 
   = link_to image_tag("icons/arrow_down.svg"), '#kuldetesunk', class: 'go-to-next'
 %section#kuldetesunk.our-mission
@@ -63,12 +63,12 @@
             .icon= image_tag 'icons/food.svg'
             %h3 Adományozók
             %p Az adományozó megmaradt, még emberi fogyasztásra teljes mértékben alkalmas étel adagokat tud felajánlani, amit a rendszerünkbe felvéve futárok fognak átvenni és kiszállítani rászorulóknak.
-            %p= link_to t('.join_as_donator'), '#', class: 'btn btn-default'
+            %p= link_to t('.join_as_donator'), '#', class: 'btn btn-default', :'data-toggle' => 'modal', :'data-target' => '#join'
           %li
             .icon= image_tag 'icons/car.svg'
             %h3 Futárok
             %p A futár a rendszerünkbe bekerült adományokból tud válogatni, hogy azokat eljuttassa az általa választott rászorulóknak.
-            %p= link_to t('.join_as_transporter'), '#', class: 'btn btn-default'
+            %p= link_to t('.join_as_transporter'), '#', class: 'btn btn-default', :'data-toggle' => 'modal', :'data-target' => '#join'
 
 %section#sikertortenetek.success-stories
   .container
@@ -134,3 +134,20 @@
       = link_to t('.how_we_do'), '#hogyan-csinaljuk'
       = link_to t('.success_stories'), '#sikertortenetek'
       = link_to t('.contact'), '#kapcsolat'
+
+#join.modal.fade(aria-labelledby="joinModalLabel" role="dialog" tabindex="-1")
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header.text-center
+        %button.close(aria-label="Close" data-dismiss="modal" type="button")
+          %span(aria-hidden="true") ×
+        %h4#joinModalLabel.modal-title= t 'subscribers.new.title'
+      .modal-body
+        = t 'subscribers.new.lead'
+
+        %hr
+
+        = simple_form_for(Subscriber.new) do |form|
+          = form.input :email
+          .text-center
+            %button.btn.btn-primary{type: "submit"}= t 'subscribers.form.submit'

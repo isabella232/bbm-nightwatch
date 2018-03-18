@@ -63,6 +63,17 @@ hu:
       title: Vállalásaim
       details: Részletek
       close: Lezárás
+  subscribers:
+    new:
+      title: Meghívó igénylése
+      lead:
+        Jelenlen a felhasználók csak meghívásos alapon kerülhetnek be az oldalra —
+        igényelj te is meghívót az e-mail címed megadásával! Így felkerülsz a várólistára,
+        és esélyed lesz arra, hogy meghívót küldünk neked.
+    create:
+      thank_you: "Köszönjük jelentkezésed!"
+    form:
+      submit: Tegyél fel a listára!
   posts:
     group_message:
       available: "Átvehető"
@@ -78,6 +89,7 @@ hu:
       donation: Felajánlás
       transport: Szállítás
       target_location: Szálló
+      subscriber: Feliratkozó
     attributes:
       donation:
         contact_name: Kapcsolattartó neve
