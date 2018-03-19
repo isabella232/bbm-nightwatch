@@ -27,6 +27,7 @@ html, body {
     .navbar-nav.navbar-center {
       float: none;
       display: inline-block;
+      vertical-align: top;
     }
     .navbar-nav > li {
       a {
@@ -96,7 +97,7 @@ html, body {
     }
     .btn {
       width: 200px;
-      margin: 0 8px;
+      margin: 5px 8px;
     }
 
     .go-to-next {
@@ -213,7 +214,6 @@ html, body {
 
       img {
         border-radius: 8px 8px 0 0;
-        height: 270px;
       }
       .caption {
         padding: 32px 40px;
@@ -312,4 +312,49 @@ html, body {
     }
   }
 
+}
+
+@media (max-width: 768px) {
+  .landing-page {
+    .navbar-inverse {
+
+      .navbar-brand {
+        padding: 13px 15px;
+      }
+
+      .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.8) !important;
+        border: none;
+        box-shadow: none;
+      }
+
+      .navbar-nav.navbar-center {
+        display: block;
+      }
+      .navbar-btn.pull-right {
+        float: none !important;
+      }
+    }
+    .intro {
+      height: auto;
+      padding: 80px 0;
+      .content {
+        position: relative;
+        width: auto;
+        top: 0;
+        transform: none;
+      }
+    }
+    .our-mission {
+      padding: 80px 0;
+    }
+    .how-we-do {
+      ol, ul {
+        padding-left: 10px;
+        li {
+          padding-left: 70px;
+        }
+      }
+    }
+  }
 }
