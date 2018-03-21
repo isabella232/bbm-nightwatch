@@ -27,4 +27,8 @@ class Donation < ApplicationRecord
     end
   end
 
+  scope :reported, -> { where(status: :reported) }
+  scope :assigned, -> { where(status: :assigned) }
+  scope :available, -> { reported.where(Donation.arel_table[:available_to].gt(Time.now) ) }
+  scope :archive, -> { where(status: [:transported, :missed]) }
 end

@@ -1,0 +1,21 @@
+%table.table
+  %thead
+    %tr
+      %th= Donation.human_attribute_name :available_from
+      %th= Donation.human_attribute_name :source_name
+      %th= Donation.human_attribute_name :source_address
+      %th= Donation.human_attribute_name :quantity
+      %th= Donation.human_attribute_name :food_type
+      %th= Donation.human_attribute_name :status
+      %th{:colspan => "2"}
+  %tbody
+    - donations.each do |donation|
+      %tr
+        %td= l donation.available_from
+        %td= donation.source_name
+        %td= donation.source_address
+        %td= donation.quantity
+        %td= donation.food_type
+        %td= t donation.status, scope: [:donation, :statuses]
+        %td= link_to t('.show'), donation
+        %td= link_to t('donation.assign'), new_donation_transport_path(donation) if donation.can_assign?

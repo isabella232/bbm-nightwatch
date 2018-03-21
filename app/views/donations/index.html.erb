@@ -3,34 +3,7 @@
   <%= link_to t(:create_new, scope: [:donation]), new_donation_path, class: "btn btn-primary pull-right" %>
 </h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th><%= Donation.human_attribute_name :available_from %></th>
-      <th><%= Donation.human_attribute_name :source_name %></th>
-      <th><%= Donation.human_attribute_name :source_address %></th>
-      <th><%= Donation.human_attribute_name :quantity %></th>
-      <th><%= Donation.human_attribute_name :food_type %></th>
-      <th><%= Donation.human_attribute_name :status %></th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @donations.each do |donation| %>
-      <tr>
-        <td><%= l donation.available_from %></td>
-        <td><%= donation.source_name %></td>
-        <td><%= donation.source_address %></td>
-        <td><%= donation.quantity %></td>
-        <td><%= donation.food_type %></td>
-        <td><%= t donation.status, scope: [:donation, :statuses] %></td>
-        <td><%= link_to t('.show'), donation %></td>
-        <td><%= link_to t('donation.assign'), new_donation_transport_path(donation) if donation.can_assign? %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'table', donations: @donations %>
 
 <br>
 

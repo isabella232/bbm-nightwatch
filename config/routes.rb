@@ -17,7 +17,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
 
   resources :donations, only: [:new, :create, :show, :index] do
-    get :thank_you, on: :collection
+    collection do
+      get :thank_you
+      get :my
+      get :active
+      get :archive
+    end
     resources :transports, only: [:new, :create]
   end
 

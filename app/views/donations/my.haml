@@ -1,0 +1,12 @@
+%h1= t '.my_assigned_donations'
+= render 'table', donations: @my_assigned_donations
+
+%br/
+
+%h1= t '.my_available_donations'
+= render 'table', donations: @my_available_donations
+
+%br/
+
+%h1= t '.my_archive_donations'
+= render 'table', donations: @my_archive_donations

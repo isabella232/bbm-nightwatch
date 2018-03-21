@@ -6,6 +6,26 @@ class DonationsController < ApplicationController
     @donations = Donation.order(available_from: :desc).all
   end
 
+  def my
+    @my_assigned_donations = current_user.donations.assigned.order(available_from: :asc)
+    @my_available_donations = current_user.donations.available.order(available_from: :asc)
+    @my_archive_donations = current_user.donations.archive.order(available_from: :desc)
+  end
+
+  def active
+    @available_donations = Donation.available.order(available_from: :asc)
+    @my_transports = Donation.assigned.joins(:transports)
+                                      .where(transports: {transporter: current_user})
+                                      .order(available_from: :asc)
+    @donations_assigned_to_others = Donation.assigned.joins(:transports)
+                                                     .where.not(transports: {transporter: current_user})
+                                                     .order(available_from: :asc)
+  end
+
+  def archive
+    @donations = Donation.archive.order(available_from: :desc)
+  end
+
   def show
   end
 

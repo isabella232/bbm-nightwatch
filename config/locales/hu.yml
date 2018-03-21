@@ -7,8 +7,12 @@ hu:
   back: Vissza
   shared:
     nav:
+      active: Aktív felajánlások
+      archive: Arhívum
       donations: Felajánlások
       my_transports: Vállalásaim
+      my_donations: Felajánlásaim
+      donate: Étel felajánlása
       invite: Meghívás
       account: Fiók
       log_out: Kijelentkezés
@@ -42,12 +46,23 @@ hu:
   donations:
     index:
       title: Felajánlások
+    table:
       show: Részletek
     info:
       package: Csomagolás
       packaged: Az étel szállításra elő van készítve (be van csomagolva)
       not_packaged: Nincs csomagolva
     show:
+    active:
+      my_transports: Általam elvállalt kiszállítások
+      available_donations: Kiszállítandó felajánlások
+      donations_assigned_to_others: Mások által elvállalt felajánlások
+    my:
+      my_assigned_donations: Mások által elvállalt felajánlásaim
+      my_available_donations: Aktív felajánlásaim
+      my_archive_donations: Arhív felajánlásaim
+    archive:
+      title: Arhívum
   transport:
     create_new: Fuvar vállalása
     submit: Elvállal

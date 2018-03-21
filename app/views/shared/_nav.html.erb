@@ -12,9 +12,18 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to t('.donations'), donations_path, class: 'nav-link' %></li>
-        <li><%= link_to t('.my_transports'), transports_path, class: 'nav-link' %></li>
+        <% if current_user.donations.any? %>
+          <li><%= link_to t('.my_donations'), my_donations_path, class: 'nav-link' %></li>
+        <% end %>
+        <li>
+          <%= link_to active_donations_path, class: 'nav-link' do %>
+            <%= t('.active') %>
+            <%= "(#{ Donation.available.count })" %>
+          <% end %>
+        </li>
+        <li><%= link_to t('.archive'), archive_donations_path, class: 'nav-link' %></li>
       </ul>
+      <%= link_to t('.donate'), new_donation_path, class: 'btn btn-success navbar-btn' %>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <% if current_user.has_invitations_left? %>
