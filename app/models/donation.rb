@@ -18,6 +18,10 @@ class Donation < ApplicationRecord
       transition :reported => :assigned
     end
 
+    event :cancel do
+      transition :assigned => :reported
+    end
+
     event :finish do
       transition :assigned => :transported
     end

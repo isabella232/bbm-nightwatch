@@ -68,6 +68,7 @@ hu:
     submit: Elvállal
     can_not_assign: Ez a felajánlás nem elvállalható
     can_not_finish: Ez a felajánlás nem lezárható
+    can_not_cancel: Ez a felajánlás nem visszamondható
     close: Fuvar lezárása
     assigned_to: "%{name} elvállalta a szállítást"
     succesfully_assigned: Sikeresen elvállaltad a szállítást

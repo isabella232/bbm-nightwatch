@@ -4,8 +4,9 @@ class TransportsController < ApplicationController
   before_action :find_donation, only: [:new, :create]
   before_action :check_assignability, only: [:new, :create]
 
-  before_action :find_transport, only: [:close, :finish]
+  before_action :find_transport, only: [:close, :finish, :cancel]
   before_action :check_finishability, only: [:close, :finish]
+  before_action :check_cancelability, only: [:cancel]
 
   def new
     @transport = @donation.transports.new transporter: current_user,
@@ -45,6 +46,12 @@ class TransportsController < ApplicationController
     end
   end
 
+  def cancel
+    @transport.donation.cancel!
+    @transport.destroy
+    redirect_to active_donations_path
+  end
+
   private
 
   def find_donation
@@ -66,6 +73,12 @@ class TransportsController < ApplicationController
   def check_finishability
     unless @transport.transporter == current_user && @transport.donation.can_finish?
       redirect_to @transport.donation, alert: t("transport.can_not_finish")
+    end
+  end
+
+  def check_cancelability
+    unless @transport.transporter == current_user && @transport.donation.can_cancel?
+      redirect_to @transport.donation, alert: t("transport.can_not_cancel")
     end
   end
 end

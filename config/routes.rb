@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     member do
       get :close
       patch :finish
+      delete :cancel
     end
   end
 
