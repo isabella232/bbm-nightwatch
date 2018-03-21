@@ -52,26 +52,27 @@ hu:
       title: Felajánlások
     table:
       show: Részletek
-    cards:
+    cards: &cards
       food_type: Tétel
       source_address: Cím
+      available_from: Mikor
       available_to: Határidő
       transport: Kiszállítom
       cancel: Visszamondom
       assigned: Elvállalva
+      close: Átadtam
+      transporter: Szállító
+      confirm: Biztos vagy benne?
+      destroy: Visszavon
     info:
       package: Csomagolás
       packaged: Az étel szállításra elő van készítve (be van csomagolva)
       not_packaged: Nincs csomagolva
     show:
-    active:
-      my_transports: Általam elvállalt kiszállítások
-      available_donations: Kiszállítandó felajánlások
-      donations_assigned_to_others: Mások által elvállalt felajánlások
     my:
       my_assigned_donations: Mások által elvállalt felajánlásaim
       my_available_donations: Aktív felajánlásaim
-      my_archive_donations: Arhív felajánlásaim
+      my_archive_donations: Régebbi felajánlásaim
     archive:
       title: Arhívum
   transport:
@@ -87,9 +88,10 @@ hu:
     new:
       call_to_action: Kattints ide, hogy elvállald
     index:
-      title: Vállalásaim
-      details: Részletek
-      close: Lezárás
+      my_transports: Általam elvállalt kiszállítások
+      available_donations: Kiszállítandó felajánlások
+      donations_assigned_to_others: Mások által elvállalt felajánlások
+    cards: *cards
   subscribers:
     new:
       title: Meghívó igénylése

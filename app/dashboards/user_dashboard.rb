@@ -14,6 +14,8 @@ class UserDashboard < Administrate::BaseDashboard
     id: Field::Number,
     email: Field::String,
     encrypted_password: Field::String,
+    password: Field::String,
+    password_confirmation: Field::String,
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
     remember_created_at: Field::DateTime,
@@ -95,6 +97,8 @@ class UserDashboard < Administrate::BaseDashboard
     :role,
     :name,
     :phone,
+    :password,
+    :password_confirmation
   ].freeze
 
   # Overwrite this method to customize how users are displayed

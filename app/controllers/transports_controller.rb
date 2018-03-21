@@ -30,7 +30,15 @@ class TransportsController < ApplicationController
   end
 
   def index
-    @transports = current_user.transports.order(created_at: :desc).all
+    @my_transports = current_user.transports
+                                 .includes(:donation, :transporter)
+                                 .where(donations: {status: :assigned})
+                                 .order('donations.available_to')
+    @other_transports = Transport.includes(:donation, :transporter)
+                                 .where(donations: {status: :assigned})
+                                 .where.not(transporter: current_user)
+                                 .order('donations.available_to')
+    @available_donations = Donation.available.order(available_to: :asc)
   end
 
   def close
@@ -49,7 +57,7 @@ class TransportsController < ApplicationController
   def cancel
     @transport.donation.cancel!
     @transport.destroy
-    redirect_to active_donations_path
+    redirect_to transports_path
   end
 
   private

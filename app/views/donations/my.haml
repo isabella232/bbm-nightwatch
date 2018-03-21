@@ -1,12 +1,41 @@
 %h2= t '.my_assigned_donations'
-= render 'table', donations: @my_assigned_donations
+.row
+  - @transports_of_my_donations.each do |transport|
+    - donation = transport.donation
+    .col-md-3.col-sm-6
+      .panel.panel-default
+        .panel-body
+          %p
+            = "#{t 'donations.cards.food_type'}:"
+            = link_to donation.food_type, donation
+          %p
+            = "#{t 'donations.cards.source_address'}:"
+            = link_to donation.source_address, "https://maps.google.com/?q=#{donation.source_address}", target: '_blank'
+          %p
+            = "#{t 'donations.cards.available_from'}:"
+            = l donation.available_from, format: :default
+          %p
+            = "#{t 'donations.cards.transporter'}:"
+            = transport.transporter.name
+          .text-center
+            = link_to t('donations.cards.destroy'), donation_path(donation), method: :delete, class: 'btn btn-danger', data: {confirm: t('donations.cards.confirm')}
 
-%br/
+%hr/
 
 %h2= t '.my_available_donations'
-= render 'table', donations: @my_available_donations
-
-%br/
-
-%h2= t '.my_archive_donations'
-= render 'table', donations: @my_archive_donations
+.row
+  - @my_available_donations.each do |donation|
+    .col-md-3.col-sm-6
+      .panel.panel-default
+        .panel-body
+          %p
+            = "#{t 'donations.cards.food_type'}:"
+            = link_to donation.food_type, donation
+          %p
+            = "#{t 'donations.cards.source_address'}:"
+            = link_to donation.source_address, "https://maps.google.com/?q=#{donation.source_address}", target: '_blank'
+          %p
+            = "#{t 'donations.cards.available_from'}:"
+            = l donation.available_from, format: :default
+          .text-center
+            = link_to t('donations.cards.destroy'), donation_path(donation), method: :delete, class: 'btn btn-danger', data: {confirm: t('donations.cards.confirm')}

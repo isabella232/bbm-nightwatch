@@ -7,19 +7,10 @@ class DonationsController < ApplicationController
   end
 
   def my
-    @my_assigned_donations = current_user.donations.assigned.order(available_from: :asc)
-    @my_available_donations = current_user.donations.available.order(available_from: :asc)
-    @my_archive_donations = current_user.donations.archive.order(available_from: :desc)
-  end
-
-  def active
-    @available_donations = Donation.available.order(available_from: :asc)
-    @my_transports = Donation.assigned.joins(:transports)
-                                      .where(transports: {transporter: current_user})
-                                      .order(available_from: :asc)
-    @donations_assigned_to_others = Donation.assigned.joins(:transports)
-                                                     .where.not(transports: {transporter: current_user})
-                                                     .order(available_from: :asc)
+    @transports_of_my_donations = Transport.includes(:donation, :transporter)
+                                           .where(donations: {status: :assigned, user: current_user})
+                                           .order('donations.available_to')
+    @my_available_donations = current_user.donations.available.order(available_to: :asc)
   end
 
   def archive
@@ -51,6 +42,12 @@ class DonationsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @donation = current_user.donations.find params[:id]
+    @donation.destroy
+    redirect_to my_donations_path
   end
 
   private

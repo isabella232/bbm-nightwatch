@@ -12,7 +12,7 @@
         - if current_user&.donations&.any?
           %li= link_to t('.my_donations'), my_donations_path, class: 'nav-link'
         %li
-          = link_to active_donations_path, class: 'nav-link' do
+          = link_to transports_path, class: 'nav-link' do
             = t('.active')
             = "(#{ Donation.active.count })"
         %li= link_to t('.archive'), archive_donations_path, class: 'nav-link'

@@ -1,0 +1,65 @@
+%h2= t '.my_transports'
+.row
+  - @my_transports.each do |transport|
+    - donation = transport.donation
+    .col-md-3.col-sm-6
+      .panel.panel-default
+        .panel-body
+          %p
+            = "#{t 'donations.cards.food_type'}:"
+            = link_to donation.food_type, donation
+          %p
+            = "#{t 'donations.cards.source_address'}:"
+            = link_to donation.source_address, "https://maps.google.com/?q=#{donation.source_address}", target: '_blank'
+          %p
+            = "#{t 'donations.cards.available_to'}:"
+            = l donation.available_to, format: :default
+          .text-center
+            - if donation.can_cancel?
+              = link_to t('donations.cards.cancel'), cancel_transport_path(transport), method: :delete, class: 'btn btn-warning', data: {confirm: t('donations.cards.confirm')}
+            - if donation.can_finish?
+              = link_to t('donations.cards.close'), close_transport_path(transport), class: 'btn btn-success'
+
+%hr/
+
+%h2= t '.available_donations'
+.row
+  - @available_donations.each do |donation|
+    .col-md-3.col-sm-6
+      .panel.panel-default
+        .panel-body
+          %p
+            = "#{t 'donations.cards.food_type'}:"
+            = link_to donation.food_type, donation
+          %p
+            = "#{t 'donations.cards.source_address'}:"
+            = link_to donation.source_address, "https://maps.google.com/?q=#{donation.source_address}", target: '_blank'
+          %p
+            = "#{t 'donations.cards.available_to'}:"
+            = l donation.available_to, format: :default
+          .text-center
+            - if donation.user == current_user
+              = link_to t('donations.cards.destroy'), donation_path(donation), method: :delete, class: 'btn btn-danger', data: {confirm: t('donations.cards.confirm')}
+            - elsif donation.can_assign?
+              = link_to t('donations.cards.transport'), new_donation_transport_path(donation), class: 'btn btn-success'
+
+%hr/
+
+%h2= t '.donations_assigned_to_others'
+.row
+  - @other_transports.each do |transport|
+    - donation = transport.donation
+    .col-md-3.col-sm-6
+      .panel.panel-default
+        .panel-body
+          %p
+            = "#{t 'donations.cards.food_type'}:"
+            = link_to donation.food_type, donation
+          %p
+            = "#{t 'donations.cards.source_address'}:"
+            = link_to donation.source_address, "https://maps.google.com/?q=#{donation.source_address}", target: '_blank'
+          %p
+            = "#{t 'donations.cards.transporter'}:"
+            = transport.transporter.name
+          .text-center
+            %span.btn.btn-default= t('donations.cards.assigned')
