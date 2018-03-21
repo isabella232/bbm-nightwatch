@@ -1,12 +1,16 @@
 hu:
+  time:
+    formats:
+      default: "%Y-%m-%d %H:%M"
   devise:
     registrations:
       new:
         minimum_password_length: "legalább %{num} karakter"
-  page_title: BBM - Nightwatch
+  page_title: Ételmentők
   back: Vissza
   shared:
     nav:
+      brand: Ételmentők
       active: Aktív felajánlások
       archive: Arhívum
       donations: Felajánlások
@@ -14,7 +18,7 @@ hu:
       my_donations: Felajánlásaim
       donate: Étel felajánlása
       invite: Meghívás
-      account: Fiók
+      account: Profil
       log_out: Kijelentkezés
       sign_in: Bejelentkezés
       sign_up: Regisztráció
@@ -48,6 +52,13 @@ hu:
       title: Felajánlások
     table:
       show: Részletek
+    cards:
+      food_type: Tétel
+      source_address: Cím
+      available_to: Határidő
+      transport: Kiszállítom
+      cancel: Visszamondom
+      assigned: Elvállalva
     info:
       package: Csomagolás
       packaged: Az étel szállításra elő van készítve (be van csomagolva)

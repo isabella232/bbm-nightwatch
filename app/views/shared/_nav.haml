@@ -1,0 +1,27 @@
+%nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to t('.brand'), root_path, class: "navbar-brand"
+    #navbar-collapse.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        - if current_user&.donations&.any?
+          %li= link_to t('.my_donations'), my_donations_path, class: 'nav-link'
+        %li
+          = link_to active_donations_path, class: 'nav-link' do
+            = t('.active')
+            = "(#{ Donation.active.count })"
+        %li= link_to t('.archive'), archive_donations_path, class: 'nav-link'
+      = link_to t('.donate'), new_donation_path, class: 'btn btn-success navbar-btn'
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          - if current_user.has_invitations_left?
+            %li= link_to t(".invite"), new_user_invitation_path, class: 'nav-link'
+          %li= link_to t(".account"), edit_user_registration_path, class: 'nav-link'
+          %li= link_to t(".log_out"), destroy_user_session_path, method: :delete, class: 'nav-link'
+        - else
+          %li= link_to t(".sign_in"), new_user_session_path, class: 'nav-link'
