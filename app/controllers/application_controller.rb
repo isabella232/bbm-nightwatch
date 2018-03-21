@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:invite, keys: [:name, :phone, :email])
     devise_parameter_sanitizer.permit(:accept_invitation, keys: [:name, :phone, :email])
   end
+
+  def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || stored_location_for(resource) || active_donations_path
+  end
 end
