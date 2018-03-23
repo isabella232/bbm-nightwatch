@@ -38,6 +38,7 @@ gem 'devise-bootstrap-views', github: 'hisea/devise-bootstrap-views', branch: 'b
 
 gem 'select2-rails'
 gem 'haml-rails'
+gem 'actionview-encoded_mail_to'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

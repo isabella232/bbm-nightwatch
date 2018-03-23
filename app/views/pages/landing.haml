@@ -14,6 +14,7 @@
         %li= link_to t('.mission'), '#kuldetesunk'
         %li= link_to t('.how_we_do'), '#hogyan-csinaljuk'
         %li= link_to t('.success_stories'), '#sikertortenetek'
+        %li= link_to t('.contact'), '#kapcsolat'
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
           %li= link_to t("shared.nav.donations"), transports_path, class: 'nav-link'
@@ -86,7 +87,7 @@
   .container
     .row
       .col-md-12
-        %h2.text-center Sikeres mentések
+        %h2.text-center= t '.success_stories'
 
         .row
           .col-sm-6.col-md-4
@@ -126,12 +127,21 @@
           -#  .thumbnail
           -#    = image_tag 'success_stories/04_01.jpg'
           -#    .caption
-          -#      %h3
+          -#      %h3 Minden nap egy alma...
           -#      %p
           -#        Forgatásról megmaradt 25 kg friss gyümölcs. Nem hagytuk kárba veszni, a Rés Alapítvány
           -#        Női Éjjeli menedékhelyére szállítottuk.  
           -#      %hr
           -#      %p.text-right Tóth Géza & Szekeres Eszter
+
+%section#kapcsolat.contact
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        %h2.text-center= t '.contact'
+        %p.text-center
+          Ha elakadtál vagy kérdésed merült fel, amire itt nem kaptál választ, akkor keresd Dórit:
+          = mail_to 'dori@etelmentes.hu', nil, encode: :javascript
 
 %footer
   .container
@@ -145,7 +155,6 @@
       = link_to t('.mission'), '#kuldetesunk'
       = link_to t('.how_we_do'), '#hogyan-csinaljuk'
       = link_to t('.success_stories'), '#sikertortenetek'
-      = link_to t('.contact'), '#kapcsolat'
 
 #join.modal.fade(aria-labelledby="joinModalLabel" role="dialog" tabindex="-1")
   .modal-dialog{role: "document"}
