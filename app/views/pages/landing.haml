@@ -6,7 +6,9 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to t('.brand'), root_path, class: 'navbar-brand'
+      = link_to root_path, class: 'navbar-brand' do
+        %span.bbm= "#{t('shared.nav.bbm')}:"
+        = t('shared.nav.brand')
     #navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-center
         %li= link_to t('.mission'), '#kuldetesunk'
@@ -14,10 +16,11 @@
         %li= link_to t('.success_stories'), '#sikertortenetek'
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
-          %li= link_to t("shared.nav.account"), edit_user_registration_path, class: 'nav-link'
+          %li= link_to t("shared.nav.donations"), transports_path, class: 'nav-link'
+          %li= link_to current_user.name, edit_user_registration_path, class: 'nav-link'
           %li= link_to t("shared.nav.log_out"), destroy_user_session_path, method: :delete, class: 'nav-link'
       - else
-        = link_to t('.sign_in'), new_user_session_path, class: 'btn btn-primary navbar-btn pull-right'
+        = link_to t('shared.nav.sign_in'), new_user_session_path, class: 'btn btn-primary navbar-btn pull-right'
 
 %section#start.intro.text-center
   .container.content

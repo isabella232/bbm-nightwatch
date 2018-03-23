@@ -6,7 +6,9 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to t('.brand'), root_path, class: "navbar-brand"
+      = link_to root_path, class: 'navbar-brand' do
+        %span.bbm= "#{t('shared.nav.bbm')}:"
+        = t('shared.nav.brand')
     #navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
         - if current_user&.donations&.any?

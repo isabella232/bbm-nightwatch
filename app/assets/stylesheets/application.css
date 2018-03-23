@@ -52,3 +52,8 @@ code {
 .help-block {
     font-size: small;
 }
+
+
+.navbar-brand .bbm {
+  color: #dadac0;
+}

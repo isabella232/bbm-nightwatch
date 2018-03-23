@@ -6,11 +6,12 @@ hu:
     registrations:
       new:
         minimum_password_length: "legalább %{num} karakter"
-  page_title: Ételmentők
+  page_title: "Bike Maffia: Ételmentés"
   back: Vissza
   shared:
     nav:
-      brand: Ételmentők
+      bbm: Bike Maffia
+      brand: Ételmentés
       active: Aktív felajánlások
       archive: Arhívum
       donations: Felajánlások
@@ -20,7 +21,7 @@ hu:
       invite: Meghívás
       account: Profil
       log_out: Kijelentkezés
-      sign_in: Bejelentkezés
+      sign_in: Belépés
       sign_up: Regisztráció
   donation:
     thank_you:
