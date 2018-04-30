@@ -18,8 +18,12 @@
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
           %li= link_to t("shared.nav.donations"), transports_path, class: 'nav-link'
-          %li= link_to current_user.name, edit_user_registration_path, class: 'nav-link'
-          %li= link_to t("shared.nav.log_out"), destroy_user_session_path, method: :delete, class: 'nav-link'
+          %li
+            = link_to edit_user_registration_path, class: 'nav-link', title: current_user.name do
+              %span.glyphicon.glyphicon-user(aria-hidden="true")
+          %li
+            = link_to destroy_user_session_path, method: :delete, class: 'nav-link', title: t("shared.nav.log_out") do
+              %span.glyphicon.glyphicon-log-out(aria-hidden="true")
       - else
         = link_to t('shared.nav.sign_in'), new_user_session_path, class: 'btn btn-primary navbar-btn pull-right'
 
