@@ -6,9 +6,13 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    http_basic_authenticate_with(
-      name: ENV.fetch("ADMIN_NAME"),
-      password: ENV.fetch("ADMIN_PASSWORD")
-    )
+    before_action :authenticate_user!
+    before_action :authenticate_admin
+
+    def authenticate_admin
+      unless current_user.admin?
+        redirect_to root_path, alert: "Access denied."
+      end
+    end
   end
 end

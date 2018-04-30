@@ -49,10 +49,12 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :invited_by,
     :name,
-    :phone,
     :email,
+    :phone,
+    :role,
+    :invited_by,
+    :last_sign_in_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -97,8 +99,6 @@ class UserDashboard < Administrate::BaseDashboard
     :role,
     :name,
     :phone,
-    :password,
-    :password_confirmation
   ].freeze
 
   # Overwrite this method to customize how users are displayed
