@@ -2,7 +2,7 @@
   .container
     .navbar-header
       %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
+        %span.sr-only Navigáció
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
@@ -51,11 +51,11 @@
         %h2.text-center= t '.mission'
         %hr
         %p.lead
-          A ételmentők étel-adományozókból és önkéntes futárokból áll.
+          Az ételmentő csapat étel-adományozókból és önkéntes futárokból áll.
         %p
-          Az adományozók fel tudnak ajánlani még teljes mértékben emberi fogyasztásra alkalmas ételeket, amik valamilyen okból megmaradtak—és így sajnos kidobásra kerülnének.
+          Az adományozók még emberi fogyasztásra alkalmas ételeket tudnak felajánlani, melyek valamilyen okból megmaradtak és máskülönben így sajnos a kukába kerülnének.
         %p
-          A totális pazarlást megelőzvén önkéntes kiszállítóink szívesen eljuttatják ezeket a megmaradt ételeket olyan helyekre, olyan rászorulóknak, szervezeteknek és intézményeknek, akiknek nagyon jól jönne pár finom falat.
+          A totális pazarlást megelőzvén önkéntes futáraink szívesen eljuttatják ezeket az adományokat olyan helyekre, olyan rászorulóknak, szervezeteknek és intézményeknek, akiknek nagyon jól jönne pár finom falat.
 
 
 %section#hogyan-csinaljuk.how-we-do
@@ -66,25 +66,28 @@
         %ol
           %li
             %h3 Felajánlás
-            %p Az adományozó felviszi a rendszerünkbe a felajánlott étel adatait, annak átvételi helyét és lehetséges idejét.
+            %p Az adományozó felviszi a rendszerünkbe a felajánlott étel adatait (milyen típusú és mennyiségű adományról van szó), annak pontos átvételi helyét és lehetséges idejét.
+            %p Az adományozóinktól kérjük, hogy az adományok csomagolásáról gondoskodjanak a szállíthatóság megkönnyítése érdekében.
+            %p Csak az adott napon készített, friss ételeket tudjuk elvinni a rászorulóknak. A fokozottan romlandó (nyers tojásos, majonézes, gombás) ételeket nem szállíthatjuk el.
           %li
             %h3 Átvétel
             %p A futár kiválasztja az adományt, amit el akar juttatni rászorulóknak, és egyeztet az adományozóval az átvétel részleteiről.
           %li
             %h3 Kiszállítás
-            %p A futár kiszállítja és átadja az adományt a rászorulóknak, és ezt jelzi a rendszernek — lehetőleg fényképpel, hogy sikersztori legyen a misszióból!
+            %p A futár kiszállítja és átadja az adományt a rászorulóknak, és ezt jelzi a rendszernek.  Amennyiben lehetséges és engedélyt kapunk rá,  fényképekkel is igazoljuk, hogy a szállítás sikeres volt.
+            %p Az adományozóktól a rendszerünkben előzetes kérjük hozzájárulásukat annak érdekében, hogy nemes felajánlásukat publikussá tehessük.
       .col-md-6
         %h2.text-center A mentők
         %ul
           %li
             .icon= image_tag 'icons/food.svg'
             %h3 Adományozók
-            %p Az adományozó megmaradt, még emberi fogyasztásra teljes mértékben alkalmas étel adagokat tud felajánlani, amit a rendszerünkbe felvéve futárok fognak átvenni és kiszállítani rászorulóknak.
+            %p Az adományozó megmaradt, még emberi fogyasztásra teljes mértékben alkalmas étel adagokat tud felajánlani, a regisztráció után használható rendszerünkben történő rögzítéssel. A rögzített felajánlásokról önkéntes futáraink e-mailes értesítést kapnak, melynek alapján vállalni tudják  az adomány átvételét és kiszállítását a rászorulóknak.
             %p= link_to t('.join_as_donator'), '#', class: 'btn btn-default', :'data-toggle' => 'modal', :'data-target' => '#join'
           %li
             .icon= image_tag 'icons/car.svg'
             %h3 Futárok
-            %p A futár a rendszerünkbe bekerült adományokból tud válogatni, hogy azokat eljuttassa az általa választott rászorulóknak.
+            %p A futár a rendszerünkben rözgített adományokból tud válogatni, hogy azokat eljuttassa az általa választott rászorulóknak.
             %p= link_to t('.join_as_transporter'), '#', class: 'btn btn-default', :'data-toggle' => 'modal', :'data-target' => '#join'
 
 %section#sikertortenetek.success-stories

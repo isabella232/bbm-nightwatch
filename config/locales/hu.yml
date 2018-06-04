@@ -43,11 +43,10 @@ hu:
         call_to_action: Kattints ide, hogy elvállald
     assign: Elvállal
     instructions:
-      - "bármi gondod van a kitöltéssel keresd nyugodtan Szőke Dórát: Tel: +36 30 202 7965"
-      - "egyéb gondjaiddal háziorvosodat keresd :)"
-      - "Kérjük, hogy oldd meg a csomagolást!"
-      - "A BBM őrszemek 1 és 5 literes zárható dobozokkal rendelkeznek, a nem csomagolt ételeket ezekben tudják elszállítani"
-      - "A fokozottan romlandó (nyers tojásos,majonézes,gombás) ételeket nem szállítjuk el."
+      - "Ha bármi gondod akad a kitöltéssel, keresd nyugodtan Szőke Dórát, telefonszáma: +36 30 202 7965"
+      - "Egyéb gondjaiddal háziorvosodat keresd :)"
+      - "Kérjük, hogy oldd meg az adományok csomagolását!"
+      - "A fokozottan romlandó (nyers tojásos,majonézes,gombás) ételeket nem szállíthatjuk el."
   donations:
     index:
       title: Felajánlások
@@ -180,5 +179,5 @@ hu:
         source_address: Ide jön a BBM őrszem(futár)
         food_type: "Pl: szendvics 30db., alma 15kg., sós süti 5 tálca"
         quantity: 1 adag = 1 ember vacsorája
-        comment: bármi ami az őrszemet/futárt segítheti a szállításban.
+        comment: Bármi további információ, amely a futárt segítheti a szállításban?
         anonymous: Nem járulok hozzá, hogy a felajánlásom publikus legyen.
