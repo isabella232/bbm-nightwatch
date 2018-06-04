@@ -285,14 +285,13 @@ html, body {
       width: 22px;
       height: 22px;
     }
-    .designed-by {
+    .powered-by {
       float: right;
       height: 56px;
       line-height: 56px;
-      padding-right: 30px;
-      background: asset_url('norb_co_signature.png') center right no-repeat;
-      a {
-        font-weight: bold;
+      img {
+        padding-left: 10px;
+        padding-bottom: 3px;
       }
     }
   }
