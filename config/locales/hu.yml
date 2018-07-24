@@ -31,7 +31,8 @@ hu:
     create_new: Új felajánlás
     submit: Felajánlom :)
     submit_manually: |
-      Ha elakadtál, hívd Dórit, a +36 30 202 7965-ös telefonszámon!
+      Amennyiben a felajánlás rögzítésekor elakadnál,hívd Dórit, a +36 20 347 1781-es telefonszámon! <br/>
+      Amennyiben önkéntes sofőrként a felajánlás elvállalása vagy teljesítése kapcsán merül fel kérdésed, hívd Juditot a +36 20 912 7227-es telefonszámon!
     statuses:
       reported: Szabad
       assigned: Elvállalva
