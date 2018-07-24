@@ -16,7 +16,7 @@
         %li
           = link_to transports_path, class: 'nav-link' do
             = t('.active')
-            = "(#{ Donation.active.count })"
+            = "(#{ Donation.available.count })"
         %li= link_to t('.archive'), archive_donations_path, class: 'nav-link'
       = link_to t('.donate'), new_donation_path, class: 'btn btn-success navbar-btn'
       %ul.nav.navbar-nav.navbar-right
