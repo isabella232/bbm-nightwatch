@@ -96,37 +96,41 @@
       .col-md-12
         %h2.text-center= t '.success_stories'
 
-        .row
-          .col-sm-6.col-md-4
-            .thumbnail
-              = image_tag 'success_stories/01_01.jpg'
-              .caption
-                %h3 Teljes ebéd az átmeneti szállón
-                %p
-                  Gild fedőnevű önkéntes futárunk február 16-án 58 doboz vegyes melegételt és süteményt szállított le a BMSZKI Alföldi utcai átmeneti szállására egy kedves - és anonimitást kérő - felajánló jóvoltából.
-                %div.byline
-                  %hr
-                  %p.text-right Anonim felajánló & Gild
-          .col-sm-6.col-md-4
-            .thumbnail
-              = image_tag 'success_stories/02_01.jpg'
-              .caption
-                %h3 Mindenféle sütemények
-                %p
-                  Március 19-én Várkonyi Beáta önkéntesünk 200 db finom sütit vitt a Podmaniczky úti Rés Alapítvány női szállójára.
-                %div.byline
-                  %hr
-                  %p.text-right Anonim felajánló & Várkonyi Beáta
-          .col-sm-6.col-md-4
-            .thumbnail
-              = image_tag 'success_stories/03_01.jpg'
-              .caption
-                %h3 Esti péksütemények
-                %p
-                  Rendszeresen számíthatunk a Három Tarka Macska Kézműves Pékség felajánlásaira. A nap végén megmaradt pékárut és szendvicseket az esetek többségében a közelben lévő BMSZKI Dózsa György úti komplexébe szállítjuk, ahol mindig jó szívvel fogadják.
-                %div.byline
-                  %hr
-                  %p.text-right Három Tarka Macska & Laczik Erika
+        - stories = []
+        - stories << OpenStruct.new(image_path: 'success_stories/0710PI.jpg', contributor: "Magyar Korfball Szövetség &  Porkoláb Imre, Mudra Gabriella, Jean-Louis Murris", title: "Szendvicsek, saláták és hidegcsomagok a sportolóktól", description: "A budapesti Tüskecsarnokban megrendezett U21 Korfball Világbajnokság szervezőinek hála, július első hetében 5 alkalommal sikerült a sportolóknak készített hidegcsomagokat, szendvicseket, gyümölcsöket és salátát továbbadni rászorulóknak, akik így többször is komplett vacsorához jutottak. Összesen több mint 200 adag ételt mentettünk meg a kidobástól.")
+        - stories << OpenStruct.new(image_path: 'success_stories/0701CSE.jpg', contributor: "Chefparade és Kleber & Csiza Ernő, dr. Fehér Judit, Nagy Zoltán, Gild, Jenet László, Oláh Lackó, Farkas Ádám", title: "Jótékony csapatépítések", description: "A Kleber francia gumigyártó cég 7 alkalommal szervezett csapatépítő jótékonysági főzést dolgozóinak a Chefparade főzőiskolában. A csapatok minden alkalommal 60-60 adag finom friss gulyást és meggyes pitét készítettek a Chefparade főzőiskolában. A nagylelkű és előremutató csapatépítésekről különböző intézményekbe szállítottuk a friss vacsorákat.")
+        - stories << OpenStruct.new(image_path: 'success_stories/0711CSJ.jpg', contributor: "Anonim felajánló & Csonka Judit, dr. Fehér Judit, Jenet László, Németh Júlia", title: "Finomságok uzsonnára", description: "Egy kedves anonim felajánlónak köszönhetően idén nyáron augusztus végéig hétköznapokon változó mennyiségben, de mindig kiváló minőségű péksüteményeket, szendvicseket, zöldséget és gyümölcsöt vihetünk tovább hajléktalan ellátó helyekre.")
+        - stories << OpenStruct.new(image_path: 'success_stories/0706fankok.jpg', contributor: "Apacuka & Oláh Lackó", title: "Esti fánkozás", description: "Július 6-án 100 db fánkot vihettünk a Podmaniczky úti női szállóra, ahol nagyon örültek az esti édességeknek.")
+        - stories << OpenStruct.new(image_path: 'success_stories/01_01.jpg', contributor: "Anonim felajánló & Gild", title: "Teljes ebéd az átmeneti szállón", description: "Gild fedőnevű önkéntes futárunk február 16-án 58 doboz vegyes melegételt és süteményt szállított le a BMSZKI Alföldi utcai átmeneti szállására egy kedves - és anonimitást kérő - felajánló jóvoltából.")
+        - stories << OpenStruct.new(image_path: 'success_stories/02_01.jpg', contributor: "Anonim felajánló & Várkonyi Beáta", title: "Mindenféle sütemények", description: "Március 19-én Várkonyi Beáta önkéntesünk 200 db finom sütit vitt a Podmaniczky úti Rés Alapítvány női szállójára.")
+        - stories << OpenStruct.new(image_path: 'success_stories/03_01.jpg', contributor: "Három Tarka Macska & Laczik Erika", title: "Esti péksütemények", description: "Rendszeresen számíthatunk a Három Tarka Macska Kézműves Pékség felajánlásaira. A nap végén megmaradt pékárut és szendvicseket az esetek többségében a közelben lévő BMSZKI Dózsa György úti komplexébe szállítjuk, ahol mindig jó szívvel fogadják.")
+
+        #carousel-success-stories.carousel.slide(data-ride="carousel" data-type="multi" data-interval="")
+          / Indicators
+          %ol.carousel-indicators
+            - stories.each.with_index do |_, index|
+              %li{class: ("active" if index.zero?), "data-slide-to" => index, "data-target" => "#carousel-success-stories"}
+          / Slides
+          .carousel-inner{:role => "listbox"}
+            - stories.each.with_index do |story, index|
+              .item{class: ("active" if index.zero?)}
+                .col-sm-6.col-md-4
+                  .thumbnail
+                    = image_tag story.image_path
+                    .caption
+                      %h3= story.title
+                      %p(data-toggle="tooltip" data-placement="top" title="#{story.description}")= story.description
+                      %div.byline
+                        %hr
+                        %p.text-right= story.contributor
+
+          / Controls
+          %a.left.carousel-control{"data-slide" => "prev", "data-target" => "#carousel-success-stories", :role => "button"}
+            %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+            %span.sr-only= t '.previous'
+          %a.right.carousel-control{"data-slide" => "next", "data-target" => "#carousel-success-stories", :role => "button"}
+            %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+            %span.sr-only= t '.next'
 
 %section#kapcsolat.contact
   .container
