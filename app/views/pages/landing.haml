@@ -105,7 +105,7 @@
         - stories << OpenStruct.new(image_path: 'success_stories/02_01.jpg', contributor: "Anonim felajánló & Várkonyi Beáta", title: "Mindenféle sütemények", description: "Március 19-én Várkonyi Beáta önkéntesünk 200 db finom sütit vitt a Podmaniczky úti Rés Alapítvány női szállójára.")
         - stories << OpenStruct.new(image_path: 'success_stories/03_01.jpg', contributor: "Három Tarka Macska & Laczik Erika", title: "Esti péksütemények", description: "Rendszeresen számíthatunk a Három Tarka Macska Kézműves Pékség felajánlásaira. A nap végén megmaradt pékárut és szendvicseket az esetek többségében a közelben lévő BMSZKI Dózsa György úti komplexébe szállítjuk, ahol mindig jó szívvel fogadják.")
 
-        #carousel-success-stories.carousel.slide(data-ride="carousel" data-type="multi" data-interval="")
+        #carousel-success-stories.carousel.slide(data-ride="carousel" data-type="multi")
           / Indicators
           %ol.carousel-indicators
             - stories.each.with_index do |_, index|
