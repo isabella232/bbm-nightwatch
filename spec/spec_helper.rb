@@ -93,10 +93,5 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-
-  config.before(:each) do
-    allow(FacebookHandler).to receive(:post_to_group).and_return(123)
-    allow(FacebookHandler).to receive(:update_a_post).and_return(true)
-  end
 end
 

@@ -21,7 +21,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'koala'
 gem 'simple_form'
 gem 'state_machines-activerecord'
 
