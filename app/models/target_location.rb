@@ -5,4 +5,8 @@ class TargetLocation < ApplicationRecord
   # validates :phone, presence: true
   # validates :email, presence: true, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
   # validates :capacity, presence: true
+
+  def contact_information
+    [self.contact_name, self.phone, self.email].reject {|e| e.nil? || e == "" }.join(", ")
+  end
 end

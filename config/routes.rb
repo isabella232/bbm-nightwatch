@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :target_locations, only: [:index]
+
   resources :subscribers, only: [:new, :create]
 
   get '/healthcheck', to: 'health_check#index'

@@ -8,6 +8,5 @@ FactoryBot.define do
     category { "fapad" }
     capacity { 100 }
     winter_capacity { 10 }
-    notes { "MyText" }
   end
 end

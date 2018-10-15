@@ -1,0 +1,15 @@
+%h2= t 'activerecord.models.target_location'
+%table{class: 'table table-striped'}
+  %thead{class: 'thead-dark'}
+    %tr{style: "font-size: 19px"}
+      %th= t 'activerecord.attributes.target_location.name'
+      %th= t 'activerecord.attributes.target_location.address'
+      %th= t 'activerecord.attributes.target_location.contact_name'
+      %th= t 'activerecord.attributes.target_location.capacity'
+  %tbody
+  - @target_locations.each do |target_location|
+    %tr
+      %td= target_location.name
+      %td= target_location.address
+      %td= target_location.contact_information
+      %td= target_location.capacity
