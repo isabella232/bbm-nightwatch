@@ -19,3 +19,11 @@ You use the following URLs to access the app:
 The default admin user is:
 * Email: admin@example.com
 * Password: admin1234
+
+## Useful Links
+
+* [Trello](https://trello.com/b/FALRjFUJ)
+* [Codeship](https://app.codeship.com/projects/254734)
+* [Heroku](https://dashboard.heroku.com/pipelines/6a1f8bcb-62f9-43ef-a170-b4db7333b998)
+* [Staging](https://bbm-nightwatch-staging.herokuapp.com)
+* [Production](https://etelmentes.hu)
