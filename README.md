@@ -1,23 +1,21 @@
 # README
 
-## Initialization
+## How to run the build
 
-```bash
-$ bundle
-$ docker-compose up -d
-$ bundle exec rails db:create db:migrate
-$ env RAILS_ENV=test bundle exec rails db:create db:migrate
-$ foreman start
-```
+    $ bundle install
+    $ docker-compose up -d
+    $ env RAILS_ENV=test bundle exec rails db:create
+    $ bundle exec rake
 
-    
-## Admin interface
+## How to start the application
 
-```bash
-$ bundle exec rails db:seed
-```
+    $ bundle exec rails db:create db:migrate db:seed
+    $ foreman start
 
-Visit the admin url: `http://localhost:5100/admin`, and use the following credentials:
+You use the following URLs to access the app:
+* [Main UI](http://localhost:5100)
+* [Admin interface](http://localhost:5100/admin)
 
-* email: admin@example.com
-* password: admin1234
+The default admin user is:
+* Email: admin@example.com
+* Password: admin1234
