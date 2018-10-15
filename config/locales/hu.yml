@@ -13,7 +13,7 @@ hu:
       bbm: Bike Maffia
       brand: Ételmentés
       active: Aktív felajánlások
-      archive: Arhívum
+      archive: Archívum
       donations: Felajánlások
       my_transports: Vállalásaim
       my_donations: Felajánlásaim
@@ -75,7 +75,7 @@ hu:
       my_available_donations: Aktív felajánlásaim
       my_archive_donations: Régebbi felajánlásaim
     archive:
-      title: Arhívum
+      title: Archívum
   transport:
     create_new: Fuvar vállalása
     submit: Elvállal
