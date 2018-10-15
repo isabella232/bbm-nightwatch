@@ -43,6 +43,7 @@ RSpec.describe TransportsController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       subject { post :create, params: {donation_id: donation.id, transport: valid_attributes} }
+      let(:transport) { build :transport, valid_attributes.merge(transporter: user, donation: donation) }
 
       it "creates a new Transport" do
         expect { subject }.to change(Transport, :count).by(1)
@@ -55,6 +56,16 @@ RSpec.describe TransportsController, type: :controller do
       it "redirects to the created donation" do
         subject
         expect(response).to redirect_to(donation_path(donation.id))
+      end
+
+      it "sends email notification to user who made the donation" do
+        email = double 'email'
+        expect(email).to receive(:deliver_later).once
+        expect(TransportMailer).to receive(:transport_taken_on_notification)
+                                   .with(transport_matcher(transport))
+                                   .and_return(email)
+
+        subject
       end
     end
 

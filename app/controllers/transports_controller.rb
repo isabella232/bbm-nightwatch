@@ -22,6 +22,8 @@ class TransportsController < ApplicationController
     if @transport.save
       @donation.assign!
 
+      TransportMailer.transport_taken_on_notification(@transport).deliver_later
+
       flash[:success] = t('transport.succesfully_assigned')
       redirect_to @donation
     else
