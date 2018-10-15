@@ -88,6 +88,9 @@ hu:
     close: Fuvar lezárása
     assigned_to: "%{name} elvállalta a szállítást"
     succesfully_assigned: Sikeresen elvállaltad a szállítást
+    mailer:
+      transport_cancelled_notification:
+        subject: =?utf-8?Q?=F0=9F=86=98?= Visszamondás miatt újra elérhető felajánlás
   transports:
     new:
       call_to_action: Kattints ide, hogy elvállald

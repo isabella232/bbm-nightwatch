@@ -1,0 +1,17 @@
+- status = ::I18n.t @donation.status, scope: [:posts, :group_message, :statuses]
+- message = ::I18n.t 'posts.group_message.subject', qty: @donation.quantity, food: @donation.food_type
+= status + ": " + message + " (" + url_for(@donation) + ")\n"
+
+= ::I18n.t('posts.group_message.available') + ":"
+= @donation.source_name
+= @donation.source_address
+= "#{I18n.l @donation.available_from} - #{I18n.l @donation.available_to}"
+= "\n"
+
+- unless @donation.comment.blank?
+  = Donation.human_attribute_name(:comment) + ":"
+  = @donation.comment
+
+- if @donation.reported?
+  = ::I18n.t('donation.mailer.created_notification.call_to_action') + ":"
+  = new_donation_transport_url(@donation)
