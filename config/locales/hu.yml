@@ -3,6 +3,9 @@ hu:
     formats:
       default: "%Y-%m-%d %H:%M"
   devise:
+    failure:
+      user:
+        not_found_in_database: A megadott felhasználónévvel nem található felhasználó
     registrations:
       new:
         minimum_password_length: "legalább %{num} karakter"
