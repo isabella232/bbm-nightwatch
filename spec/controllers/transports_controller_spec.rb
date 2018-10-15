@@ -9,7 +9,6 @@ RSpec.describe TransportsController, type: :controller do
       email: 'contact@example.com'
     }
   end
-
   let(:invalid_attributes) do
     {
       name: '',
@@ -17,13 +16,17 @@ RSpec.describe TransportsController, type: :controller do
       email: 'not_an_email'
     }
   end
-
   let(:user) { create :user }
+  let(:notifiable_users) { create_list(:user, 2) + [user] }
+  let(:non_notifiable_users) { create_list :user, 2, email_notification: false }
+
   before { sign_in user }
 
   describe "GET #new" do
+    subject(:new_transport) { get :new, params: {donation_id: donation.id} }
+
     it "returns a success response" do
-      get :new, params: {donation_id: donation.id}
+      new_transport
       expect(response).to be_successful
     end
 
@@ -31,7 +34,7 @@ RSpec.describe TransportsController, type: :controller do
       let(:donation) { create :donation, status: "assigned" }
 
       it "redirects to donation" do
-        get :new, params: {donation_id: donation.id}
+        new_transport
         expect(response).to redirect_to(donation_path(donation.id))
       end
     end
@@ -67,9 +70,10 @@ RSpec.describe TransportsController, type: :controller do
   end
 
   describe "GET #close" do
+    subject { get :close, params: {id: transport.id} }
+
     let(:donation) { transport.donation }
     let(:transport) { create :transport, transporter: user }
-    subject { get :close, params: {id: transport.id} }
 
     it "returns a success response" do
       subject
@@ -98,9 +102,10 @@ RSpec.describe TransportsController, type: :controller do
   end
 
   describe "PATCH #finish" do
+    subject { patch :finish, params: params }
+
     let(:donation) { transport.donation }
     let(:transport) { create :transport, transporter: user }
-    subject { patch :finish, params: params }
     let(:params) { {id: transport.id, transport: { target_location: "Target" }} }
 
     it "updates the transport" do
@@ -146,6 +151,26 @@ RSpec.describe TransportsController, type: :controller do
         expect { subject }
           .not_to change { donation.reload.attributes }
       end
+    end
+  end
+
+  describe "DELETE #cancel" do
+    subject(:cancel_transport) { delete :cancel, params: {id: transport.id} }
+
+    let(:transport) { create :transport, transporter: user, donation: donation }
+    let(:donation) { create :donation, status: 'assigned' }
+
+    it "cancels the transport's donation" do
+      expect { cancel_transport }.to change { donation.reload.status }.from("assigned").to("reported")
+    end
+
+    it "deletes the transport" do
+      cancel_transport
+      expect(Transport.where(id: transport.id).first).to be_nil
+    end
+
+    it "redirects" do
+      expect(cancel_transport).to redirect_to(transports_path)
     end
   end
 end
