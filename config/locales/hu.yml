@@ -45,6 +45,8 @@ hu:
       created_notification:
         subject: Új felajánlás érkezett
         call_to_action: Kattints ide, hogy elvállald
+      revocated_notification:
+        subject: A felajánlás vissza lett vonva
     assign: Elvállal
     instructions:
       - "Ha bármi gondod akad a kitöltéssel, keresd nyugodtan Szőke Dórát, telefonszáma: +36 30 202 7965"
