@@ -24,6 +24,8 @@ RSpec.describe DonationsController, type: :controller do
   let(:valid_session) { {} }
 
   let(:user) { create :user }
+  let(:notifiable_users) { create_list(:user, 2) + [user] }
+  let(:non_notifiable_users) { create_list :user, 2, email_notification: false }
   before { sign_in user }
 
   describe "GET #index" do
@@ -51,20 +53,27 @@ RSpec.describe DonationsController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
+      subject(:create_donation) { post :create, params: {donation: valid_attributes}, session: valid_session }
+
       it "creates a new Donation" do
-        expect {
-          post :create, params: {donation: valid_attributes}, session: valid_session
-        }.to change(Donation, :count).by(1)
+        expect { create_donation }.to change(Donation, :count).by(1)
       end
 
       it "saves user_id on the new Donation" do
-        expect {
-          post :create, params: {donation: valid_attributes}, session: valid_session
-        }.to change(user.donations, :count).by(1)
+        expect { create_donation }.to change(user.donations, :count).by(1)
+      end
+
+      it "sends email notification to all users who have email notifications enabled" do
+        email = double 'email'
+        expect(email).to receive(:deliver_later).thrice
+        notifiable_users.each { |u| expect(DonationMailer).to receive(:created_notification).with(anything, u).and_return email }
+        non_notifiable_users.each { |u| expect(DonationMailer).to_not receive(:created_notification).with(anything, u) }
+
+        create_donation
       end
 
       it "redirects to the created donation" do
-        post :create, params: {donation: valid_attributes}, session: valid_session
+        create_donation
         expect(response).to redirect_to(thank_you_donations_path)
       end
     end

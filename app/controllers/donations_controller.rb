@@ -34,7 +34,7 @@ class DonationsController < ApplicationController
     @donation = current_user.donations.new donation_params
 
     if @donation.save
-      User.all.each do |user|
+      User.to_be_notified_in_email.each do |user|
         DonationMailer.created_notification(@donation, user).deliver_later
       end
 
