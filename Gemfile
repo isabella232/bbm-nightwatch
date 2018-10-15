@@ -33,7 +33,7 @@ gem 'devise'
 gem 'devise-async'
 gem 'devise_invitable'
 gem 'devise-i18n'
-gem 'devise-bootstrap-views', github: 'hisea/devise-bootstrap-views', branch: 'bootstrap4'
+gem 'devise-bootstrap-views', '~> 1.0.0'
 
 gem 'select2-rails'
 gem 'haml-rails'
