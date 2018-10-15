@@ -6,5 +6,6 @@ FactoryBot.define do
     confirmed_at { Time.now }
     name { 'John' }
     phone { '555 55-55' }
+    email_notification { true }
   end
 end
