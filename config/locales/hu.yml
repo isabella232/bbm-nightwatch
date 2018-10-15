@@ -93,6 +93,9 @@ hu:
     mailer:
       transport_cancelled_notification:
         subject: =?utf-8?Q?=F0=9F=86=98?= Visszamondás miatt újra elérhető felajánlás
+      transport_taken_on_notification:
+        subject: Fuvar elvállalva
+        transporter: Futár
   transports:
     new:
       call_to_action: Kattints ide, hogy elvállald

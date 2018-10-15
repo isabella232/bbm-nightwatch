@@ -1,6 +1,4 @@
-- status = ::I18n.t @donation.status, scope: [:posts, :group_message, :statuses]
-- message = ::I18n.t 'posts.group_message.subject', qty: @donation.quantity, food: @donation.food_type
-= status + ": " + message + " (" + url_for(@donation) + ")\n"
+= render partial: 'donation'
 
 = ::I18n.t('posts.group_message.available') + ":"
 = @donation.source_name
