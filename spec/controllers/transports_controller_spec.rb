@@ -158,7 +158,7 @@ RSpec.describe TransportsController, type: :controller do
     subject(:cancel_transport) { delete :cancel, params: {id: transport.id} }
 
     let(:transport) { create :transport, transporter: user, donation: donation }
-    let(:donation) { create :donation, status: 'assigned' }
+    let(:donation) { create :donation, status: 'assigned', user: user }
 
     it "cancels the transport's donation" do
       expect { cancel_transport }.to change { donation.reload.status }.from("assigned").to("reported")
@@ -171,6 +171,15 @@ RSpec.describe TransportsController, type: :controller do
 
     it "redirects" do
       expect(cancel_transport).to redirect_to(transports_path)
+    end
+
+    it "sends email notification to all users who have email notifications enabled" do
+      email = double 'email'
+      allow(email).to receive(:deliver_later)
+      notifiable_users.each { |u| expect(TransportMailer).to receive(:transport_cancelled_notification).with(transport, u).and_return(email) }
+      non_notifiable_users.each { |u| expect(TransportMailer).to_not receive(:transport_cancelled_notification).with(transport, u) }
+
+      cancel_transport
     end
   end
 end

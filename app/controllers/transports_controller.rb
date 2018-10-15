@@ -56,11 +56,18 @@ class TransportsController < ApplicationController
 
   def cancel
     @transport.donation.cancel!
+    notify_users_about_cancel
     @transport.destroy
     redirect_to transports_path
   end
 
   private
+
+  def notify_users_about_cancel
+    User.to_be_notified_in_email.each do |user|
+      TransportMailer.transport_cancelled_notification(@transport, user).deliver_later
+    end
+  end
 
   def find_donation
     @donation = Donation.find params[:donation_id]
