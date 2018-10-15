@@ -1,4 +1,4 @@
-# Preview all emails at http://localhost:3000/rails/mailers/donation_mailer
+# Preview all emails at http://localhost:5100/rails/mailers/donation_mailer
 class DonationMailerPreview < ActionMailer::Preview
   def created_notification
     DonationMailer.created_notification(User.first.donations.first, User.first)
