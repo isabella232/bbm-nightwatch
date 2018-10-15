@@ -16,7 +16,7 @@
         %li
           = link_to transports_path, class: 'nav-link' do
             = t('.active')
-            = "(#{ Donation.available.count })"
+            %span.badge= Donation.available.count
         %li
           = link_to t('activerecord.models.target_location'), target_locations_path, class: 'nav-link'
         %li= link_to t('.archive'), archive_donations_path, class: 'nav-link'
