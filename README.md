@@ -30,3 +30,11 @@ Things you may want to cover:
     $ bundle exec rails db:create db:migrate
     $ env RAILS_ENV=test bundle exec rails db:create db:migrate
     $ foreman start
+    
+## Admin interface
+    $bundle exec rails db:seed
+    
+* Url: <root_path>/admin
+* email: admin@example.com
+* password: admin1234
+

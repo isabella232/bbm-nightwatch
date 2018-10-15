@@ -35,3 +35,5 @@ target_locations = TargetLocation.create [
   {name: "BMSZKI Alföldi u.", address: "Alföldi u. 6-8, Budapest, 1081", contact_name: "Preszl Éva", phone: "+36 30 4853122", category: "Átmeneti szálló - férfi, női ", capacity: 181, winter_capacity: nil, comment: ""},
   {name: "Menhely Vajda", address: "1082, Vajdahunyad u. 3.", contact_name: "", phone: "+36 1 333-5987", category: "fapad - férfi", capacity: 52, winter_capacity: nil, comment: "18-08h-ig nyitva"},
 ]
+
+User.create(name: 'admin', role: 'admin', email: 'admin@example.com', password: 'admin1234', phone: '+36202968744', confirmed_at: (Time.now+100))
