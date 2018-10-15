@@ -24,7 +24,7 @@ RSpec.describe TransportsController, type: :controller do
   describe "GET #new" do
     it "returns a success response" do
       get :new, params: {donation_id: donation.id}
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     context "donation is not assignable" do
@@ -61,7 +61,7 @@ RSpec.describe TransportsController, type: :controller do
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: {donation_id: donation.id, transport: invalid_attributes}
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
   end
@@ -73,7 +73,7 @@ RSpec.describe TransportsController, type: :controller do
 
     it "returns a success response" do
       subject
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     context "donation is already transported" do

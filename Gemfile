@@ -1,21 +1,16 @@
 source 'https://rubygems.org'
 ruby File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
-gem 'rails', '~> 5.1.4'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.7'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'rails'
+gem 'pg'
+gem 'puma'
+gem 'sass-rails'
+gem 'uglifier'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'coffee-rails', '~> 4.2'
-gem 'jbuilder', '~> 2.5'
+# gem 'coffee-rails', '~> 4.2'
+# gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -25,7 +20,7 @@ gem 'simple_form'
 gem 'state_machines-activerecord'
 
 gem 'administrate'
-gem 'rails-i18n', '~> 5.0.0'
+gem 'rails-i18n'
 
 gem 'sidekiq'
 
@@ -33,15 +28,13 @@ gem 'devise'
 gem 'devise-async'
 gem 'devise_invitable'
 gem 'devise-i18n'
-gem 'devise-bootstrap-views', '~> 1.0.0'
+gem 'devise-bootstrap-views'
 
 gem 'select2-rails'
 gem 'haml-rails'
 gem 'actionview-encoded_mail_to'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
@@ -58,6 +51,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

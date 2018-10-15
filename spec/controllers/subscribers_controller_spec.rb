@@ -7,7 +7,7 @@ RSpec.describe SubscribersController, type: :controller do
   describe "GET #new" do
     it "returns a success response" do
       get :new, params: {}
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
@@ -38,7 +38,7 @@ RSpec.describe SubscribersController, type: :controller do
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: {subscriber: invalid_attributes}
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
   end
