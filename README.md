@@ -1,40 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 ## Initialization
 
-    $ bundle
-    $ docker-compose up -d
-    $ bundle exec rails db:create db:migrate
-    $ env RAILS_ENV=test bundle exec rails db:create db:migrate
-    $ foreman start
+```bash
+$ bundle
+$ docker-compose up -d
+$ bundle exec rails db:create db:migrate
+$ env RAILS_ENV=test bundle exec rails db:create db:migrate
+$ foreman start
+```
+
     
 ## Admin interface
-    $bundle exec rails db:seed
-    
-* Url: <root_path>/admin
+
+```bash
+$ bundle exec rails db:seed
+```
+
+Visit the admin url: `http://localhost:5100/admin`, and use the following credentials:
+
 * email: admin@example.com
 * password: admin1234
-
