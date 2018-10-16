@@ -27,7 +27,7 @@
   - @my_available_donations.each do |donation|
     .col-md-3.col-sm-6
       .panel.panel-default
-        .panel-body
+        .panel-body.active-donation
           %p
             = "#{t 'donations.cards.food_type'}:"
             = link_to donation.food_type, donation
