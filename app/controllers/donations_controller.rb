@@ -34,10 +34,7 @@ class DonationsController < ApplicationController
     @donation = current_user.donations.new donation_params
 
     if @donation.save
-      User.to_be_notified_in_email.each do |user|
-        DonationMailer.created_notification(@donation, user).deliver_later
-      end
-
+      notify_about_creation @donation
       redirect_to thank_you_donations_url
     else
       render :new
@@ -53,14 +50,23 @@ class DonationsController < ApplicationController
 
     @donation.destroy
 
-    transports.each do |transport|
-      DonationMailer.revocated_notification(food_type, quantity, transport.transporter).deliver_later
-    end
-
+    notify_about_revocation transports, food_type, quantity
     redirect_to my_donations_path
   end
 
   private
+
+  def notify_about_creation(donation)
+    User.to_be_notified_in_email.each do |user|
+      DonationMailer.created_notification(donation, user).deliver_later
+    end
+  end
+
+  def notify_about_revocation(transports, food_type, quantity)
+    transports.each do |transport|
+      DonationMailer.revocated_notification(food_type, quantity, transport.transporter).deliver_later
+    end
+  end
 
   def set_donation
     @donation = Donation.find params[:id]
