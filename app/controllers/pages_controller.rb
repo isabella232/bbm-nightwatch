@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def landing
+    @success_stories = SuccessStory.all
   end
 end
