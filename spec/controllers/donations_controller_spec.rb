@@ -109,7 +109,7 @@ RSpec.describe DonationsController, type: :controller do
       let(:email) { double 'email' }
 
       it "sends email notification about revocation" do
-        expect(DonationMailer).to receive(:revocated_notification).with(donation, transporter_user).and_return email
+        expect(DonationMailer).to receive(:revocated_notification).with(donation.food_type, donation.quantity, transporter_user).and_return email
         expect(email).to receive(:deliver_later)
         destroy_donation
       end

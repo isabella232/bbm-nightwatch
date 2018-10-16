@@ -5,6 +5,7 @@ class DonationMailerPreview < ActionMailer::Preview
   end
 
   def revocated_notification
-    DonationMailer.revocated_notification(Donation.first, User.first)
+    donation = Donation.first
+    DonationMailer.revocated_notification(donation.food_type, donation.quantity, User.first)
   end
 end
