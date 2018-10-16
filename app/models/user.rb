@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates :phone, presence: true
 
   scope :to_be_notified_in_email, -> { where email_notification: true }
+  scope :admins, -> { User.select(&:admin?) }
 
   def admin?
     role == 'admin'

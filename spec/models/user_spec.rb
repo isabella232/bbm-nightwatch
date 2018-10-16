@@ -12,4 +12,14 @@ RSpec.describe User, type: :model do
       expect(User.to_be_notified_in_email.all).to eq [user1]
     end
   end
+
+  describe "#admins" do
+    let!(:admins) { create_list :user, 2, role: "admin" }
+    let!(:non_admins) { create_list :user, 2, role: "users" }
+
+    it "returns only users who have admin role" do
+      expect(User.admins).to match_array(admins)
+      expect(User.admins).not_to match_array(non_admins)
+    end
+  end
 end
