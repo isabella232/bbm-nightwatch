@@ -87,16 +87,32 @@ RSpec.describe DonationsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    let(:donation) { create :donation, user: user }
+    subject(:destroy_donation) { delete :destroy, params: {id: donation.to_param}, session: valid_session }
+
+    let(:donation) { create :donation, user: user, transports: transports }
+    let(:transports) { [] }
 
     it "destroys given donation" do
-      delete :destroy, params: {id: donation.to_param}, session: valid_session
+      destroy_donation
       expect { donation.reload }.to raise_exception ActiveRecord::RecordNotFound
     end
 
     it "redirects to current user's donations" do
-      delete :destroy, params: {id: donation.to_param}, session: valid_session
-      expect(response).to redirect_to(my_donations_path)
+      destroy_donation
+      expect(response).to redirect_to my_donations_path
+    end
+
+    context "when there is subscribed transporter for donation" do
+      let(:transporter_user) { create :user }
+      let(:transport) { build :transport, transporter: transporter_user, donation: nil }
+      let(:transports) { [transport] }
+      let(:email) { double 'email' }
+
+      it "sends email notification about revocation" do
+        expect(DonationMailer).to receive(:revocated_notification).with(donation, transporter_user).and_return email
+        expect(email).to receive(:deliver_later)
+        destroy_donation
+      end
     end
   end
 

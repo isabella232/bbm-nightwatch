@@ -46,7 +46,13 @@ class DonationsController < ApplicationController
 
   def destroy
     @donation = current_user.donations.find params[:id]
+
+    @donation.transports.each do |transport|
+      DonationMailer.revocated_notification(@donation, transport.transporter).deliver_later
+    end
+
     @donation.destroy
+
     redirect_to my_donations_path
   end
 
