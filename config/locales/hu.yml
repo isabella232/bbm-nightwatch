@@ -49,7 +49,7 @@ hu:
     mailer:
       created_notification:
         subject: Új felajánlás érkezett
-        call_to_action: Kattints ide, hogy elvállald
+        call_to_action: Kattints ide, hogy elvállald!
       revocated_notification:
         subject: A felajánlás vissza lett vonva
         invocation: Kedves Futárunk!
@@ -105,7 +105,15 @@ hu:
     succesfully_assigned: Sikeresen elvállaltad a szállítást
     mailer:
       transport_cancelled_notification:
-        subject: =?utf-8?Q?=F0=9F=86=98?= Visszamondás miatt újra elérhető felajánlás
+        subject: =?utf-8?Q?=F0=9F=86=98?= Visszamondás miatt újra elérhető felajánlás (%{food})
+        source_name: Felajánló
+        source_address: Cím
+        available: Érvényes
+        comment: Megjegyzés
+        body: A tárgyban hivatkozott felajánlás újra szabaddá vált! Nézzétek meg és aki tudja vállalni, legyen kedves elvállalni a rendszerben.
+        title: Kedves Futárok!
+        thank_you: Köszönjük!
+        signature: BBM Ételmentés csapata
       transport_taken_on_notification:
         subject: Fuvar elvállalva
         transporter: Futár

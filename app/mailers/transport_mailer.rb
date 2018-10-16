@@ -2,7 +2,8 @@ class TransportMailer < ApplicationMailer
   def transport_cancelled_notification(transport, user)
     @donation = transport.donation
     @user = user
-    mail(to: @user.email, subject: I18n.t('transport.mailer.transport_cancelled_notification.subject'))
+    food = ::I18n.t 'posts.group_message.subject', qty: @donation.quantity, food: @donation.food_type
+    mail(to: @user.email, subject: I18n.t('transport.mailer.transport_cancelled_notification.subject', food: food))
   end
 
   def transport_taken_on_notification(transport)
