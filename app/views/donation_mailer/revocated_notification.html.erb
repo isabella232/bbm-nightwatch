@@ -1,1 +1,6 @@
-<p>placeholder for message</p>
+<% message = ::I18n.t 'donation.mailer.revocated_notification.message' %>
+<% subject = ::I18n.t 'posts.group_message.subject', qty: @donation.quantity, food: @donation.food_type %>
+<h3>
+  <%= message %>:
+  <%= link_to subject, url_for(@donation) %>
+</h3>
