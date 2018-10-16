@@ -7,6 +7,6 @@ class TargetLocation < ApplicationRecord
   # validates :capacity, presence: true
 
   def contact_information
-    [self.contact_name, self.phone, self.email].reject {|e| e.nil? || e == "" }.join(", ")
+    [self.contact_name, self.phone, self.email].reject(&:blank?).join(", ")
   end
 end
