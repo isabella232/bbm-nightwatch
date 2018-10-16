@@ -67,7 +67,7 @@ class TransportsController < ApplicationController
 
   def notify_users_about_cancel
     User.to_be_notified_in_email.each do |user|
-      TransportMailer.transport_cancelled_notification(@transport, user).deliver_later
+      TransportMailer.transport_cancelled_notification(@transport.donation, user).deliver_later
     end
   end
 

@@ -186,9 +186,9 @@ RSpec.describe TransportsController, type: :controller do
 
     it "sends email notification to all users who have email notifications enabled" do
       email = double 'email'
-      allow(email).to receive(:deliver_later)
-      notifiable_users.each { |u| expect(TransportMailer).to receive(:transport_cancelled_notification).with(transport, u).and_return(email) }
-      non_notifiable_users.each { |u| expect(TransportMailer).to_not receive(:transport_cancelled_notification).with(transport, u) }
+      expect(email).to receive(:deliver_later).thrice
+      notifiable_users.each { |u| expect(TransportMailer).to receive(:transport_cancelled_notification).with(donation, u).and_return(email) }
+      non_notifiable_users.each { |u| expect(TransportMailer).to_not receive(:transport_cancelled_notification).with(donation, u) }
 
       cancel_transport
     end
