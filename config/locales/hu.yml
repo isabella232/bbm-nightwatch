@@ -26,6 +26,11 @@ hu:
       log_out: Kijelentkezés
       sign_in: Belépés
       sign_up: Regisztráció
+      target_locations: Szállók
+  target_locations:
+    index:
+      header: Szállók
+      contact: Kontakt
   donation:
     thank_you:
       title: Köszönjük a felajánlást,
