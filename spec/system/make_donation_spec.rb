@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Make donations", type: :system do
-  let(:user) { create :user }
+  let(:user) { create :user, email: "user1@example.com" }
 
   before { login_as(user, scope: :user) }
 
