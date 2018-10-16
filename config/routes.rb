@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :transports
     resources :users
     resources :subscribers
+    resources :success_stories
 
     root to: "donations#index"
   end
