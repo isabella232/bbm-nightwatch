@@ -1,0 +1,6 @@
+%h4= ::I18n.t('subscriber.mailer.new_subscription_notification.subject') + ":"
+
+%ul
+  %li= @subscriber.email
+
+= link_to ::I18n.t('subscriber.mailer.new_subscription_notification.send_invite'), new_user_invitation_url

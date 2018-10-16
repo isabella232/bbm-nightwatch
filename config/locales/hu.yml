@@ -110,6 +110,11 @@ hu:
       available_donations: Kiszállítandó felajánlások
       donations_assigned_to_others: Mások által elvállalt felajánlások
     cards: *cards
+  subscriber:
+    mailer:
+      new_subscription_notification:
+        subject: Új feliratkozó
+        send_invite: Meghívó küldése
   subscribers:
     new:
       title: Meghívó igénylése
