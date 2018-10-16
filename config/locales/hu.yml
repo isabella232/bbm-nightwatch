@@ -52,7 +52,14 @@ hu:
         call_to_action: Kattints ide, hogy elvállald
       revocated_notification:
         subject: A felajánlás vissza lett vonva
-        message: Visszavont felajánlás
+        invocation: Kedves Futárunk!
+        message_parts:
+          - "Sajnos az általad vállalt felajánlást visszavonták, így most nem kell menned."
+          - "Reméljük, a következő alkalommal sikerrel járunk!"
+        farewell_parts:
+          - "Üdvözlettel:"
+          - "BBM Ételmentés csapata"
+        revocated_item: "Visszavont felajánlás"
     assign: Elvállal
     instructions:
       - "Ha bármi gondod akad a kitöltéssel, keresd nyugodtan Szőke Dórát, telefonszáma: +36 30 202 7965"

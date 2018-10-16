@@ -1,3 +1,11 @@
-<% message = ::I18n.t 'donation.mailer.revocated_notification.message' %>
-<% subject = ::I18n.t 'posts.group_message.subject', qty: @donation.quantity, food: @donation.food_type %>
-<%= message %>: <%= subject %> (<%= url_for(@donation) %>)
+<% subject = ::I18n.t('posts.group_message.subject', qty: @donation.quantity, food: @donation.food_type) %>
+
+<%= ::I18n.t('donation.mailer.revocated_notification.invocation') %>
+
+<%= ::I18n.t('donation.mailer.revocated_notification.message_parts')[0] %>
+<%= ::I18n.t('donation.mailer.revocated_notification.message_parts')[1] %>
+
+<%= ::I18n.t('donation.mailer.revocated_notification.revocated_item') %>: <%= subject %>
+
+<%= ::I18n.t('donation.mailer.revocated_notification.farewell_parts')[0] %>
+<%= ::I18n.t('donation.mailer.revocated_notification.farewell_parts')[1] %>

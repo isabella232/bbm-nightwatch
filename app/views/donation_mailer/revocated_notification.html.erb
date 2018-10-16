@@ -1,6 +1,15 @@
-<% message = ::I18n.t 'donation.mailer.revocated_notification.message' %>
-<% subject = ::I18n.t 'posts.group_message.subject', qty: @donation.quantity, food: @donation.food_type %>
-<h3>
-  <%= message %>:
-  <%= link_to subject, url_for(@donation) %>
-</h3>
+<% subject = ::I18n.t('posts.group_message.subject', qty: @donation.quantity, food: @donation.food_type) %>
+
+<h4><%= ::I18n.t('donation.mailer.revocated_notification.invocation') %></h4>
+
+<p>
+  <%= ::I18n.t('donation.mailer.revocated_notification.message_parts')[0] %><br>
+  <%= ::I18n.t('donation.mailer.revocated_notification.message_parts')[1] %>
+</p>
+
+<p><strong><%= ::I18n.t('donation.mailer.revocated_notification.revocated_item') %>:</strong> <%= subject %></p>
+
+<p>
+  <%= ::I18n.t('donation.mailer.revocated_notification.farewell_parts')[0] %><br>
+  <%= ::I18n.t('donation.mailer.revocated_notification.farewell_parts')[1] %>
+</p>
