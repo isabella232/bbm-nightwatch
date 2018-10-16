@@ -1,5 +1,11 @@
-= render partial: 'donation'
-
-= I18n.t('transport.mailer.transport_taken_on_notification.transporter')  + ":"
+= I18n.t 'transport.mailer.transport_taken_on_notification.invocation'
+= "\n"
+= I18n.t('transport.mailer.transport_taken_on_notification.message_parts')[0]
+= I18n.t('transport.mailer.transport_taken_on_notification.message_parts')[1]
+= "\n"
 = @transporter.name
 = @transporter.phone
+= "\n"
+= I18n.t('transport.mailer.transport_taken_on_notification.farewell_parts')[0]
+= I18n.t('transport.mailer.transport_taken_on_notification.farewell_parts')[1]
+= I18n.t('transport.mailer.transport_taken_on_notification.farewell_parts')[2]

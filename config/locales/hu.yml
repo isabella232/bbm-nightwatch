@@ -118,8 +118,15 @@ hu:
         thank_you: Köszönjük!
         signature: BBM Ételmentés csapata
       transport_taken_on_notification:
-        subject: Fuvar elvállalva
-        transporter: Futár
+        subject: Felajánlás szállítását önkéntesünk elvállata (%{food})
+        invocation: Kedves Felajánlónk!
+        message_parts:
+          - "A BBM Ételmentés csapatának önkéntesére a megadott időben és helyen számíthattok!"
+          - "A szállítást vállaló önkéntesünk neve és telefonszáma:"
+        farewell_parts:
+          - "Amennyiben az előzetesen egyeztetett információk kapcsán változás történik, kérlek keresd közvetlenül önkéntesünket."
+          - "Felajánlásotokat előre is köszönjük!"
+          - "BBM Ételmentés csapata"
   transports:
     new:
       call_to_action: Kattints ide, hogy elvállald
