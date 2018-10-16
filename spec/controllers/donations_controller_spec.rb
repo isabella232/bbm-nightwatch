@@ -86,4 +86,18 @@ RSpec.describe DonationsController, type: :controller do
     end
   end
 
+  describe "DELETE #destroy" do
+    let(:donation) { create :donation, user: user }
+
+    it "destroys given donation" do
+      delete :destroy, params: {id: donation.to_param}, session: valid_session
+      expect { donation.reload }.to raise_exception ActiveRecord::RecordNotFound
+    end
+
+    it "redirects to current user's donations" do
+      delete :destroy, params: {id: donation.to_param}, session: valid_session
+      expect(response).to redirect_to(my_donations_path)
+    end
+  end
+
 end
