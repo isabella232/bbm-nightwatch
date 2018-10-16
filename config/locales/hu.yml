@@ -76,6 +76,9 @@ hu:
       source_address: Cím
       available_from: Mikor
       available_to: Határidő
+      available: Átvehető
+      available_single_day: "%{date} napon %{from} és %{to} között"
+      available_different_days: "%{from} és %{to} között"
       transport: Kiszállítom
       cancel: Visszamondom
       assigned: Elvállalva
