@@ -26,6 +26,8 @@
               %span.glyphicon.glyphicon-log-out(aria-hidden="true")
       - else
         = link_to t('shared.nav.sign_in'), new_user_session_path, class: 'btn btn-primary navbar-btn pull-right'
+        = link_to 'https://www.facebook.com/budapestbikemaffia', target: '_blank', class: 'pull-right navbar-icon' do
+          = image_tag "icons/facebook.svg", alt: 'Emarsys'
 
 %section#start.intro.text-center
   .container.content
