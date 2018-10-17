@@ -1,0 +1,5 @@
+= ::I18n.t('subscriber.mailer.new_subscription_notification.subject') + ":\n"
+
+= "* #{@subscriber.email}\n"
+
+= ::I18n.t('subscriber.mailer.new_subscription_notification.send_invite') + ": " + new_user_invitation_url(subscriber_id: @subscriber.id)
