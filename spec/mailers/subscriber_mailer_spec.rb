@@ -26,16 +26,6 @@ RSpec.describe SubscriberMailer, type: :mailer do
       expect(mail.text_part.body).to include I18n.t('subscriber.mailer.new_subscription_notification.subject')
     end
 
-    it "renders the subject to mail body" do
-      expect(mail.html_part.body).to include I18n.t('subscriber.mailer.new_subscription_notification.subject')
-      expect(mail.text_part.body).to include I18n.t('subscriber.mailer.new_subscription_notification.subject')
-    end
-
-    it "renders invitation text to mail body" do
-      expect(mail.html_part.body).to include I18n.t('subscriber.mailer.new_subscription_notification.send_invite')
-      expect(mail.text_part.body).to include I18n.t('subscriber.mailer.new_subscription_notification.send_invite')
-    end
-
     it "renders invitation text to mail body" do
       expect(mail.html_part.body).to include I18n.t('subscriber.mailer.new_subscription_notification.send_invite')
       expect(mail.text_part.body).to include I18n.t('subscriber.mailer.new_subscription_notification.send_invite')
