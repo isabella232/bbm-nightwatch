@@ -12,7 +12,7 @@ class SuccessStoryDashboard < Administrate::BaseDashboard
     image_path: SuccessStoryImageField,
     contributor: Field::String,
     title: Field::String,
-    description: Field::String,
+    description: Field::Text,
     position: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
