@@ -5,6 +5,7 @@ hu:
   devise:
     failure:
       user:
+        invalid: A megadott felhasználónév vagy jelszó nem megfelelő
         not_found_in_database: A megadott felhasználónévvel nem található felhasználó
     registrations:
       new:
