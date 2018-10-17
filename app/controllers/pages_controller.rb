@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def landing
-    @success_stories = SuccessStory.all
+    @success_stories = SuccessStory.all.order(position: :asc )
   end
 end
