@@ -1,3 +1,3 @@
 %h1= t '.title'
-%p= t '.lead'
+%p= t('.lead').html_safe
 = render 'form', subscriber: @subscriber
