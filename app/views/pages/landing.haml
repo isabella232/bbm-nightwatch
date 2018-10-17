@@ -160,6 +160,7 @@
         %hr
 
         = simple_form_for(Subscriber.new) do |form|
+          = form.input :name
           = form.input :email
           .text-center
             %button.btn.btn-primary{type: "submit"}= t 'subscribers.form.submit'

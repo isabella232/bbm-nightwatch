@@ -1,3 +1,5 @@
 = simple_form_for(subscriber) do |form|
+  = form.input :name
   = form.input :email
-  = form.button :submit, t('.submit')
+  .text-center
+    %button.btn.btn-primary{type: "submit"}= t 'subscribers.form.submit'

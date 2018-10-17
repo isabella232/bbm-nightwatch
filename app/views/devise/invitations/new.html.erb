@@ -5,9 +5,9 @@
 <%= simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: {method: :post} do |f| %>
   <%= devise_error_messages! %>
 
-  <%= f.input :name %>
-  <%= f.input :phone %>
+  <%= f.input :name, required: true, input_html: {value: subscriber&.name || ""} %>
   <%= f.input :email, required: true, input_html: {value: subscriber&.email || ""} %>
+  <%= f.input :phone, required: false %>
 
   <%= f.button :submit, t(".submit_button") %>
 <% end %>

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SubscribersController, type: :controller do
-  let(:valid_attributes) { {email: 'subscriber@example.com'} }
+  let(:valid_attributes) { {email: 'subscriber@example.com', name: 'John Doe'} }
   let(:invalid_attributes) { {email: 'not-an-email'} }
   let(:admins) { create_list :user, 2, role: "admin" }
   let(:non_admins) { create_list :user, 2, role: "non_admin" }

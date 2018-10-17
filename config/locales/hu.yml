@@ -205,6 +205,9 @@ hu:
         email: E-mail cím
         phone: Telefonszám
         email_notification: E-mail értesítés felajánlásokról
+      subscriber:
+        name: Név
+        email: E-mail cím
     errors:
       models:
         donation:
