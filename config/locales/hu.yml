@@ -145,9 +145,9 @@ hu:
     new:
       title: Meghívó igénylése
       lead:
-        Jelenlen a felhasználók csak meghívásos alapon kerülhetnek be az oldalra —
-        igényelj te is meghívót az e-mail címed megadásával! Így felkerülsz a várólistára,
-        és esélyed lesz arra, hogy meghívót küldünk neked.
+        Köszönjük az érdeklődésedet.
+        Ételmentő rendszerünk használata regisztrációhoz kötött.
+        Neved és e-mailcímed, megadása után hamarosan kapsz egy meghívót amiből be tudsz majd lépni ételmentő felületünkre.
     create:
       thank_you: "Köszönjük jelentkezésed!"
     form:
