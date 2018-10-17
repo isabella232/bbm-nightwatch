@@ -10,6 +10,7 @@ class SubscriberDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     email: Field::String,
+    name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -22,6 +23,7 @@ class SubscriberDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :email,
+    :name,
     :created_at,
     :updated_at,
   ].freeze
@@ -31,6 +33,7 @@ class SubscriberDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :email,
+    :name,
     :created_at,
     :updated_at,
   ].freeze
@@ -40,6 +43,7 @@ class SubscriberDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :email,
+    :name
   ].freeze
 
   # Overwrite this method to customize how subscribers are displayed
