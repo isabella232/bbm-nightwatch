@@ -11,6 +11,7 @@ gem 'simple_form'
 gem 'state_machines-activerecord'
 
 gem 'administrate'
+gem 'administrate-field-active_storage'
 gem 'rails-i18n'
 
 gem 'sidekiq'

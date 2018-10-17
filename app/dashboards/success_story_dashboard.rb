@@ -10,6 +10,7 @@ class SuccessStoryDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     image_path: SuccessStoryImageField,
+    image: Field::ActiveStorage,
     contributor: Field::String,
     title: Field::String,
     description: Field::Text,
@@ -25,6 +26,7 @@ class SuccessStoryDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :image_path,
+    :image,
     :contributor,
     :title,
     :position,
@@ -34,6 +36,7 @@ class SuccessStoryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :image_path,
+    :image,
     :contributor,
     :title,
     :description,
@@ -47,6 +50,7 @@ class SuccessStoryDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :image_path,
+    :image,
     :contributor,
     :title,
     :description,
@@ -59,4 +63,7 @@ class SuccessStoryDashboard < Administrate::BaseDashboard
   # def display_resource(success_story)
   #   "SuccessStory ##{success_story.id}"
   # end
+  def permitted_attributes
+    super + [:image => []]
+  end
 end
