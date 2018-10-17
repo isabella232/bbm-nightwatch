@@ -10,6 +10,7 @@ class TransportMailer < ApplicationMailer
     user = transport.donation.user
     @donation = transport.donation
     @transporter = transport.transporter
-    mail(to: user.email, subject: I18n.t('transport.mailer.transport_taken_on_notification.subject'))
+    food = ::I18n.t 'posts.group_message.subject', qty: @donation.quantity, food: @donation.food_type
+    mail(to: user.email, subject: I18n.t('transport.mailer.transport_taken_on_notification.subject', food: food))
   end
 end
