@@ -5,7 +5,7 @@
     $ bundle install
     $ docker-compose up -d
     $ env RAILS_ENV=test bundle exec rails db:create
-    $ bundle exec rake
+    $ bundle exec rspec
 
 ## How to start the application
 
