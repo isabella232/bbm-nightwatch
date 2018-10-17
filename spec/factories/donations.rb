@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :donation do
+    sequence :id, 100
     contact_name { "John Doe" }
     contact_phone { "555 55-55" }
     source_name { "Food factory Ltd." }
