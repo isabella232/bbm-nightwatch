@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe TransportMailer, type: :mailer do
-
   describe '#transport_taken_on_notification' do
     subject(:mail) { TransportMailer.transport_taken_on_notification(transport) }
 
@@ -11,7 +10,8 @@ RSpec.describe TransportMailer, type: :mailer do
     let(:transport) { build :transport, donation: donation, transporter: transporter }
 
     it 'renders the headers' do
-      expect(mail.subject).to eq(I18n.t('transport.mailer.transport_taken_on_notification.subject'))
+      food = ::I18n.t 'posts.group_message.subject', qty: donation.quantity, food: donation.food_type
+      expect(mail.subject).to eq(I18n.t('transport.mailer.transport_taken_on_notification.subject', food: food))
     end
 
     it 'renders the receiver email' do
