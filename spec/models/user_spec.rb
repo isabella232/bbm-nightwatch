@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it { is_expected.to validate_presence_of(:name) }
-  it { is_expected.to validate_presence_of(:phone) }
 
   describe '#to_be_notified_in_email' do
     it 'returns only users who requested to be notified in email' do

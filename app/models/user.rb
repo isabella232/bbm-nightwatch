@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_many :transports, foreign_key: :transporter_id
 
   validates :name, presence: true
-  validates :phone, presence: true
 
   scope :to_be_notified_in_email, -> { where email_notification: true }
   scope :admins, -> { User.select(&:admin?) }
