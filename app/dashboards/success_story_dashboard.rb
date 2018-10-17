@@ -13,6 +13,7 @@ class SuccessStoryDashboard < Administrate::BaseDashboard
     contributor: Field::String,
     title: Field::String,
     description: Field::String,
+    position: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,6 +27,7 @@ class SuccessStoryDashboard < Administrate::BaseDashboard
     :image_path,
     :contributor,
     :title,
+    :position,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,6 +37,7 @@ class SuccessStoryDashboard < Administrate::BaseDashboard
     :contributor,
     :title,
     :description,
+    :position,
     :created_at,
     :updated_at,
   ].freeze
@@ -47,6 +50,7 @@ class SuccessStoryDashboard < Administrate::BaseDashboard
     :contributor,
     :title,
     :description,
+    :position,
   ].freeze
 
   # Overwrite this method to customize how success stories are displayed
