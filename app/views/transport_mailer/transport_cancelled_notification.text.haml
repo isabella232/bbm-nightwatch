@@ -1,15 +1,20 @@
-= render partial: 'donation'
+= t("transport.mailer.transport_cancelled_notification.title") + "\n"
 
-= ::I18n.t('posts.group_message.available') + ":"
-= @donation.source_name
-= @donation.source_address
-= "#{I18n.l @donation.available_from} - #{I18n.l @donation.available_to}"
-= "\n"
+= t("transport.mailer.transport_cancelled_notification.body") + "\n"
 
+- message = t 'posts.group_message.subject', qty: @donation.quantity, food: @donation.food_type
+- status = t @donation.status, scope: [:posts, :group_message, :statuses]
+= status + ":"
+= message + ": " + url_for(@donation) + "\n"
+
+= "#{t("transport.mailer.transport_cancelled_notification.source_name")}: #{@donation.source_name}"
+= "#{t("transport.mailer.transport_cancelled_notification.source_address")}: #{@donation.source_address}"
+= "#{t("transport.mailer.transport_cancelled_notification.available")}: #{l @donation.available_from} - #{l @donation.available_to}\n"
 - unless @donation.comment.blank?
-  = Donation.human_attribute_name(:comment) + ":"
-  = @donation.comment
+  = "#{t("transport.mailer.transport_cancelled_notification.comment")}: #{@donation.comment}"
 
 - if @donation.reported?
-  = ::I18n.t('donation.mailer.created_notification.call_to_action') + ":"
-  = new_donation_transport_url(@donation)
+  = "#{t('donation.mailer.created_notification.call_to_action')}: #{new_donation_transport_url(@donation)}\n"
+
+= t "transport.mailer.transport_cancelled_notification.thank_you"
+= t "transport.mailer.transport_cancelled_notification.signature"

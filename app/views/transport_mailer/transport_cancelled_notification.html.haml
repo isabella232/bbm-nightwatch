@@ -8,7 +8,7 @@
   = status + ":"
   = link_to message, url_for(@donation)
 
-%b= ::I18n.t('posts.group_message.available') + ":"
+%b= t('posts.group_message.available') + ":"
 
 %table
   %tbody
@@ -27,7 +27,7 @@
           %td= @donation.comment
 
 - if @donation.reported?
-  %p= link_to ::I18n.t('donation.mailer.created_notification.call_to_action'), new_donation_transport_url(@donation)
+  %p= link_to t('donation.mailer.created_notification.call_to_action'), new_donation_transport_url(@donation)
 
 
 %p= t "transport.mailer.transport_cancelled_notification.thank_you"
