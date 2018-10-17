@@ -167,6 +167,7 @@ hu:
       transport: Szállítás
       target_location: Szálló
       subscriber: Feliratkozó
+      success_story: Sikertörténet
     attributes:
       donation:
         contact_name: Kapcsolattartó neve
@@ -230,3 +231,8 @@ hu:
         quantity: 1 adag = 1 ember vacsorája
         comment: Bármi további információ, amely a futárt segítheti a szállításban?
         anonymous: Nem járulok hozzá, hogy a felajánlásom publikus legyen.
+  administrate:
+    actions:
+      show_resource: Show Resource
+      edit_resource: Edit Resource
+      new_resource: New Resource
