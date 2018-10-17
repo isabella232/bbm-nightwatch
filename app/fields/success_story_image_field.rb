@@ -6,6 +6,6 @@ class SuccessStoryImageField < Administrate::Field::Base
   end
 
   def select_from
-    SuccessStory.all.map(&:image_path)
+    SuccessStory.all.map(&:image_path).uniq
   end
 end
