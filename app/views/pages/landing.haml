@@ -13,14 +13,12 @@
         %li.nav-item= link_to t('.success_stories'), '#sikertortenetek', class: 'nav-link'
         %li.nav-item= link_to t('.contact'), '#kapcsolat', class: 'nav-link'
       - if user_signed_in?
-        %ul.nav.navbar-nav.navbar-right
-          %li= link_to t("shared.nav.donations"), transports_path, class: 'nav-link'
-          %li
-            = link_to edit_user_registration_path, class: 'nav-link', title: current_user.name do
-              = icon 'fas', 'user'
-          %li
-            = link_to destroy_user_session_path, method: :delete, class: 'nav-link', title: t("shared.nav.log_out") do
-              = icon 'fas', 'sign-out-alt'
+        .navbar-nav
+          = link_to t("shared.nav.donations"), transports_path, class: 'nav-link'
+          = link_to edit_user_registration_path, class: 'nav-link', title: current_user.name do
+            = icon 'fas', 'user'
+          = link_to destroy_user_session_path, method: :delete, class: 'nav-link', title: t("shared.nav.log_out") do
+            = icon 'fas', 'sign-out-alt'
       - else
         = link_to 'https://www.facebook.com/budapestbikemaffia', target: '_blank', class: 'pull-right navbar-icon' do
           = image_tag "icons/facebook.svg", alt: 'Emarsys'
