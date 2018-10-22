@@ -31,12 +31,23 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+Capybara.register_driver :selenium_chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.headless!
+  options.add_argument '--window-size=1280,1280'
+  Capybara::Selenium::Driver.new app, browser: :chrome, options: options
+end
+
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers
 
   config.before(:all, type: :system) do
     Capybara.server = :puma, {Silent: true}
+  end
+
+  config.before(:each, type: :system) do
+    driven_by :selenium_chrome_headless
   end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
