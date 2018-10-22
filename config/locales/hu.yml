@@ -147,7 +147,7 @@ hu:
       lead: |
         Köszönjük az érdeklődésedet.<br/>
         Ételmentő rendszerünk használata regisztrációhoz kötött. <br/>
-        Neved és e-mail címed, megadása után hamarosan kapsz egy meghívót amiből be tudsz majd lépni ételmentő felületünkre.
+        Neved és e-mail címed megadása után hamarosan kapsz egy meghívót, amiből be tudsz majd lépni ételmentő felületünkre.
     create:
       thank_you: "Köszönjük jelentkezésed!"
     form:
