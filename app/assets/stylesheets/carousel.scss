@@ -1,0 +1,47 @@
+.carousel-control-prev {
+  left: -8%
+}
+.carousel-control-next {
+  right: -8%
+}
+.carousel-indicators {
+  bottom: -50px;
+}
+.carousel-item-prev,
+.carousel-item-next,
+.carousel-item.active {
+  display: flex;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .carousel-inner > .carousel-item > div:last-child {
+    display: none;
+  }
+  .carousel-inner > .carousel-item-right.active,
+  .carousel-inner > .carousel-item-next {
+    transform: translateX(50%);
+  }
+  .carousel-inner .carousel-item-left.active,
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-50%)
+  }
+  .carousel-inner .carousel-item-right,
+  .carousel-inner .carousel-item-left{
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel-inner .carousel-item-right.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(33.33%);
+  }
+  .carousel-inner .carousel-item-left.active,
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-33.33%)
+  }
+  .carousel-inner .carousel-item-right,
+  .carousel-inner .carousel-item-left{
+    transform: translateX(0);
+  }
+}

@@ -5,54 +5,43 @@ html, body {
 .landing-page {
   font-family: Barlow;
 
-  .navbar-inverse {
-    background: transparent;
-    background-image: none;
-    border-color: transparent;
-    box-shadow: none;
-    color: white;
-    text-align: center;
+  .navbar {
+    border: 0;
     padding: 20px 0;
     transition: 0.25s;
 
     .navbar-brand {
       font-family: HelveticaNeue;
       color: white;
-      padding: 21px 15px;
-      line-height: 24px;
+      padding-bottom: 12px;
+      padding-right: 15px;
       font-weight: 600;
       font-size: 24px;
       letter-spacing: -1px;
+      .bbm {
+        color: #dadac0;
+      }
     }
     .navbar-icon {
-      padding: 25px 35px;
-    }
-    .navbar-nav.navbar-center {
-      float: none;
-      display: inline-block;
-      vertical-align: top;
+      padding: 0 35px;
     }
     .navbar-nav > li {
       a {
         color: white;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        padding-top: 24px;
-        padding-bottom: 24px;
-      }
-      &.active > a {
-        background: none;
-        position: relative;
+        padding: 24px 15px;
 
-        &:after {
-          content: '';
-          position: absolute;
-          left: 15px;
-          right: 15px;
-          bottom: 18px;
-          height: 2px;
-          background-color: #fff;
+        &.active {
+          position: relative;
+
+          &:after {
+            content: '';
+            position: absolute;
+            left: 15px;
+            right: 15px;
+            bottom: 18px;
+            height: 2px;
+            background-color: #fff;
+          }
         }
       }
     }
@@ -64,6 +53,10 @@ html, body {
     &.navbar-scrolled {
       background-color: rgba(0, 0, 0, 0.5);
       padding: 0;
+    }
+
+    .navbar-collapse.collapse.show {
+      display: block;
     }
   }
 
@@ -202,50 +195,40 @@ html, body {
 
   .success-stories {
     background: #12171A;
-    color: white;
 
     padding: 80px 0;
 
     h2 {
+      color: white;
       margin-bottom: 80px;
     }
-    .thumbnail {
-      padding: 0;
+
+    .card {
       border: 0;
       border-radius: 8px;
       height: 600px;
       overflow: hidden;
 
-      img {
-        border-radius: 8px 8px 0 0;
+      h3 {
+        font-weight: 600;
       }
-      .caption {
-        padding: 22px 30px;
-        overflow: hidden;
-
-        h3 {
-          font-weight: 600;
-          font-size: 28px;
-          line-height: 32px;
-          margin-top: 0;
-        }
-
-        p {
-          font-size: 16px;
-          line-height: 24px;
-          margin: 0;
-        }
+      .card-img-top img {
+        width: 100%;
       }
-      .byline {
+      .card-footer {
         position: absolute;
-        bottom: 20px;
-        width: 76%;
-        padding-top: 20px;
-        padding-bottom: 30px;
-        background: linear-gradient(to bottom, rgba(255,255,255,0) 0,rgba(255,255,255,1) 30px);
+        bottom: 0;
+        width: 100%;
+        background-color: #f9f9f9;
 
-        hr {
-          margin: 10px 0;
+        $fader-length: 40px;
+        .fader {
+          position: absolute;
+          left: 0;
+          top: -$fader-length - 1;
+          height: $fader-length;
+          width: 100%;
+          background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 1) $fader-length);
         }
       }
     }
@@ -343,34 +326,34 @@ html, body {
 
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .landing-page {
-    .navbar-inverse {
-
+    .navbar {
       .navbar-brand {
-        padding: 13px 15px;
+        padding: 5px;
       }
-
       .navbar-collapse {
         background-color: rgba(0, 0, 0, 0.8) !important;
         border: none;
         box-shadow: none;
+        text-align: center;
       }
-
-      .navbar-nav.navbar-center {
+      .navbar-icon {
         display: block;
       }
-      .navbar-btn.pull-right {
+      .pull-right {
         float: none !important;
       }
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .landing-page {
     .intro {
       height: auto;
       padding: 80px 0;
       .content {
-        position: relative;
-        width: auto;
-        top: 0;
         transform: none;
       }
     }
@@ -386,72 +369,4 @@ html, body {
       }
     }
   }
-
-}
-
-
-.carousel-control.right,
-.carousel-control.left {
-    background: none;
-}
-
-// Carousel
-@media (max-width: 767px) {
-  .carousel-indicators { bottom: -20px; }
-  .carousel-inner > .item > div:not(:first-child) { display: none; }
-
-
-  .carousel-inner > .item.next,
-  .carousel-inner > .item.active.right {
-      left: 0;
-      -webkit-transform: translate3d(100%, 0, 0);
-      transform: translate3d(100%, 0, 0);
-  }
-  .carousel-inner > .item.prev,
-  .carousel-inner > .item.active.left {
-      left: 0;
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
-  }
-
-}
-@media (min-width: 767px) and (max-width: 992px ) {
-  .carousel-indicators { bottom: -30px; }
-  .carousel-control.right { right: -12%; }
-  .carousel-control.left { left: -12%; }
-
-  .carousel-inner > .item > div:last-child { display: none; }
-
-  .carousel-inner > .item.next,
-  .carousel-inner > .item.active.right {
-      left: 0;
-      -webkit-transform: translate3d(50%, 0, 0);
-      transform: translate3d(50%, 0, 0);
-  }
-  .carousel-inner > .item.prev,
-  .carousel-inner > .item.active.left {
-      left: 0;
-      -webkit-transform: translate3d(-50%, 0, 0);
-      transform: translate3d(-50%, 0, 0);
-  }
-}
-@media (min-width: 992px ) {
-  .carousel-indicators { bottom: -40px; }
-  .carousel-control.right { right: -15%; }
-  .carousel-control.left { left: -15%; }
-
-
-  .carousel-inner > .item.next,
-  .carousel-inner > .item.active.right {
-      left: 0;
-      -webkit-transform: translate3d(33.3%, 0, 0);
-      transform: translate3d(33.3%, 0, 0);
-  }
-  .carousel-inner > .item.prev,
-  .carousel-inner > .item.active.left {
-      left: 0;
-      -webkit-transform: translate3d(-33.3%, 0, 0);
-      transform: translate3d(-33.3%, 0, 0);
-  }
-
 }

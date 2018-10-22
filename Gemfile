@@ -26,6 +26,8 @@ gem 'select2-rails'
 gem 'haml-rails'
 gem 'actionview-encoded_mail_to'
 
+gem 'font-awesome-sass'
+
 group :development, :test do
   gem 'dotenv-rails'
 end

@@ -1,45 +1,41 @@
-%nav.navbar.navbar-inverse.navbar-fixed-top
+%nav.navbar.fixed-top.navbar-dark.navbar-expand-lg
   .container
-    .navbar-header
-      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Navigáció
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to root_path, class: 'navbar-brand' do
-        %span.bbm= "#{t('shared.nav.bbm')}:"
-        = t('shared.nav.brand')
-    #navbar.collapse.navbar-collapse
-      %ul.nav.navbar-nav.navbar-center
-        %li= link_to t('.mission'), '#kuldetesunk'
-        %li= link_to t('.how_we_do'), '#hogyan-csinaljuk'
-        %li= link_to t('.success_stories'), '#sikertortenetek'
-        %li= link_to t('.contact'), '#kapcsolat'
+    = link_to root_path, class: 'navbar-brand' do
+      %span.bbm= "#{t('shared.nav.bbm')}:"
+      = t('shared.nav.brand')
+    %button.navbar-toggler{type: "button", "data-toggle": "collapse", "data-target": "#navbar", "aria-controls": "navbar", "aria-expanded": "false"}
+      %span.navbar-toggler-icon
+
+    #navbar.navbar-collapse.collapse
+      %ul.navbar-nav.mx-auto
+        %li.nav-item= link_to t('.mission'), '#kuldetesunk', class: 'nav-link'
+        %li.nav-item= link_to t('.how_we_do'), '#hogyan-csinaljuk', class: 'nav-link'
+        %li.nav-item= link_to t('.success_stories'), '#sikertortenetek', class: 'nav-link'
+        %li.nav-item= link_to t('.contact'), '#kapcsolat', class: 'nav-link'
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
           %li= link_to t("shared.nav.donations"), transports_path, class: 'nav-link'
           %li
             = link_to edit_user_registration_path, class: 'nav-link', title: current_user.name do
-              %span.glyphicon.glyphicon-user(aria-hidden="true")
+              = icon 'fas', 'user'
           %li
             = link_to destroy_user_session_path, method: :delete, class: 'nav-link', title: t("shared.nav.log_out") do
-              %span.glyphicon.glyphicon-log-out(aria-hidden="true")
+              = icon 'fas', 'sign-out-alt'
       - else
-        = link_to t('shared.nav.sign_in'), new_user_session_path, class: 'btn btn-primary navbar-btn pull-right'
         = link_to 'https://www.facebook.com/budapestbikemaffia', target: '_blank', class: 'pull-right navbar-icon' do
           = image_tag "icons/facebook.svg", alt: 'Emarsys'
+        = link_to t('shared.nav.sign_in'), new_user_session_path, class: 'btn btn-primary navbar-btn pull-right'
 
 %section#start.intro.text-center
   .container.content
     - if flash.any?
       .row
-        .col-md-6.col-md-offset-3
-          = render partial: "shared/flash_messages", flash: flash
+        .col= render partial: "shared/flash_messages", flash: flash
     .row
-      .col-md-10.col-md-offset-1
+      .col
         %h1.motto= t('.motto').html_safe
     .row
-      .col-md-6.col-md-offset-3
+      .col-lg-6.offset-lg-3
         %p Segítsünk együtt megmenteni a megmaradt porciókat a kidobástól, és eljuttatni az ételeket rászoruló társainknak, akiknek jól jönne pár finom falat.
         %p
           = link_to t('.how'), '#kuldetesunk', class: 'btn btn-default'
@@ -49,7 +45,7 @@
 %section#kuldetesunk.our-mission
   .container
     .row
-      .col-md-6.col-md-offset-3
+      .col-lg-6.offset-lg-3
         %h2.text-center= t '.mission'
         %hr
         %p.lead
@@ -101,33 +97,32 @@
           / Indicators
           %ol.carousel-indicators
             - @success_stories.each.with_index do |_, index|
-              %li{class: ("active" if index.zero?), "data-slide-to" => index, "data-target" => "#carousel-success-@success_stories"}
+              %li{class: ("active" if index.zero?), "data-slide-to": index, "data-target": "#carousel-success-stories"}
           / Slides
-          .carousel-inner{:role => "listbox"}
+          .carousel-inner
             - @success_stories.each.with_index do |story, index|
-              .item{class: ("active" if index.zero?)}
-                .col-sm-6.col-md-4
-                  .thumbnail
-                    = image_tag story.image_path
-                    .caption
-                      %h3= story.title
-                      %p(data-toggle="tooltip" data-placement="top" title="#{story.description}")= story.description
-                      %div.byline
-                        %hr
-                        %p.text-right= story.contributor
-
+              .carousel-item{class: ("active" if index.zero?)}
+                .col-12.col-md-6.col-lg-4
+                  .card
+                    .card-img-top= image_tag story.image_path
+                    .card-body
+                      %h3.card-title= story.title
+                      %p.card-text(data-toggle="tooltip" data-placement="top" title="#{story.description}")= story.description
+                    .card-footer.text-right
+                      .fader
+                      = story.contributor
           / Controls
-          %a.left.carousel-control{"data-slide" => "prev", "data-target" => "#carousel-success-stories", :role => "button"}
-            %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+          %a.carousel-control-prev{"data-target": "#carousel-success-stories", "data-slide": "prev", role: "button"}
+            %span.carousel-control-prev-icon{"aria-hidden": "true"}
             %span.sr-only= t '.previous'
-          %a.right.carousel-control{"data-slide" => "next", "data-target" => "#carousel-success-stories", :role => "button"}
-            %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+          %a.carousel-control-next{"data-target": "#carousel-success-stories", "data-slide": "next", role: "button"}
+            %span.carousel-control-next-icon{"aria-hidden": "true"}
             %span.sr-only= t '.next'
 
 %section#kapcsolat.contact
   .container
     .row
-      .col-md-6.col-md-offset-3
+      .col-lg-6.offset-lg-3
         %h2.text-center= t '.contact'
         %p.text-center
           Ha elakadtál vagy kérdésed merült fel, amire itt nem kaptál választ, akkor keresd Dórit:
@@ -150,10 +145,10 @@
 #join.modal.fade(aria-labelledby="joinModalLabel" role="dialog" tabindex="-1")
   .modal-dialog{role: "document"}
     .modal-content
-      .modal-header.text-center
-        %button.close(aria-label="Close" data-dismiss="modal" type="button")
-          %span(aria-hidden="true") ×
+      .modal-header
         %h4#joinModalLabel.modal-title= t 'subscribers.new.title'
+        %button.close(aria-label="Close" data-dismiss="modal" type="button")
+          %span(aria-hidden="true") &times;
       .modal-body
         = t('subscribers.new.lead').html_safe
 

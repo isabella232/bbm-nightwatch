@@ -17,6 +17,9 @@
  *= require_tree .
  */
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 .footer {
     /*position: absolute;*/
     bottom: 0;
@@ -51,9 +54,4 @@ code {
 
 .help-block {
     font-size: small;
-}
-
-
-.navbar-brand .bbm {
-  color: #dadac0;
 }
