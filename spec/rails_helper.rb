@@ -35,7 +35,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers
 
-  config.before(:all, type: :system, js: true) do
+  config.before(:all, type: :system) do
     Capybara.server = :puma, {Silent: true}
   end
 
