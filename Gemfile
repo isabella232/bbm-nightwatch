@@ -30,6 +30,7 @@ gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -37,10 +38,10 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rspec-rails'
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'rspec_junit_formatter'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
