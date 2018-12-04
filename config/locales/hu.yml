@@ -1,4 +1,5 @@
 hu:
+  deleted_user: "Törölt felhasználó"
   time:
     formats:
       default: "%Y-%m-%d %H:%M"

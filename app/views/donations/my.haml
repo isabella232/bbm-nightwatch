@@ -16,7 +16,7 @@
             = l donation.available_from, format: :default
           %p
             = "#{t 'donations.cards.transporter'}:"
-            = transport.transporter.name
+            = transport.transporter&.name || t('deleted_user')
           .text-center
             = link_to t('donations.cards.destroy'), donation_path(donation), method: :delete, class: 'btn btn-danger', data: {confirm: t('donations.cards.confirm')}
 

@@ -60,6 +60,6 @@
             = link_to donation.source_address, "https://maps.google.com/?q=#{donation.source_address}", target: '_blank'
           %p
             = "#{t 'donations.cards.transporter'}:"
-            = transport.transporter.name
+            = transport.transporter&.name || t('deleted_user')
           .text-center
             %span.btn.btn-default= t('donations.cards.assigned')
