@@ -21,13 +21,24 @@ RSpec.describe SubscribersController, type: :controller do
         expect { create_subscriber }.to change(Subscriber, :count).by(1)
       end
 
-      it "sends email notification to all users who have email notifications enabled" do
+      it "sends email notification to all admins" do
         email = double 'email'
         expect(email).to receive(:deliver_later).twice
         admins.each { |u| expect(SubscriberMailer).to receive(:new_subscription_notification).with(u, anything).and_return(email) }
         non_admins.each { |u| expect(SubscriberMailer).to_not receive(:new_subscription_notification).with(u, anything) }
 
         create_subscriber
+      end
+
+      it 'sends a welcome email to the new subscriber' do
+        email = spy 'email'
+        allow(SubscriberMailer).to receive(:welcome_notification).and_return(email)
+
+        create_subscriber
+
+        subscriber = Subscriber.find_by valid_attributes
+        expect(SubscriberMailer).to have_received(:welcome_notification).with(subscriber)
+        expect(email).to have_received(:deliver_later)
       end
 
       it "redirects to the root path" do

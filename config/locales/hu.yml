@@ -142,6 +142,8 @@ hu:
       new_subscription_notification:
         subject: Új feliratkozó
         send_invite: Meghívó küldése
+      welcome_notification:
+        subject: Első visszajelzés
   subscribers:
     new:
       title: Meghívó igénylése
