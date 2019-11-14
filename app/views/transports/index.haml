@@ -65,4 +65,16 @@
             = "#{t 'donations.cards.transporter'}:"
             = transport.transporter&.name || t('deleted_user')
           .text-center
-            %span.btn.btn-default= t('donations.cards.assigned')
+            - if current_user.admin?
+              - dropdown_id = "transport-dropdown-#{transport.id}"
+              .dropdown
+                %button.btn.btn-default.dropdown-toggle{"id" => dropdown_id, "aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                  = t('donations.cards.assigned')
+                  %span.caret
+                %ul.dropdown-menu{"aria-labelledby" => dropdown_id}
+                  - if donation.can_cancel?
+                    %li= link_to t('donations.cards.cancel'), cancel_transport_path(transport), method: :delete, data: {confirm: t('donations.cards.confirm')}
+                  - if donation.can_finish?
+                    %li= link_to t('donations.cards.close'), close_transport_path(transport)
+            - else
+              %span.btn.btn-default= t('donations.cards.assigned')

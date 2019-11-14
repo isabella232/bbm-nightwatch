@@ -88,14 +88,18 @@ class TransportsController < ApplicationController
   end
 
   def check_finishability
-    unless @transport.transporter == current_user && @transport.donation.can_finish?
+    unless transporter_or_admin && @transport.donation.can_finish?
       redirect_to @transport.donation, alert: t("transport.can_not_finish")
     end
   end
 
   def check_cancelability
-    unless @transport.transporter == current_user && @transport.donation.can_cancel?
+    unless transporter_or_admin && @transport.donation.can_cancel?
       redirect_to @transport.donation, alert: t("transport.can_not_cancel")
     end
+  end
+
+  def transporter_or_admin
+    @transport.transporter == current_user || current_user.admin?
   end
 end
