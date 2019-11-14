@@ -59,6 +59,9 @@
             = "#{t 'donations.cards.source_address'}:"
             = link_to donation.source_address, "https://maps.google.com/?q=#{donation.source_address}", target: '_blank'
           %p
+            = "#{t 'donations.cards.available'}:"
+            = available donation.available_from, donation.available_to
+          %p
             = "#{t 'donations.cards.transporter'}:"
             = transport.transporter&.name || t('deleted_user')
           .text-center
