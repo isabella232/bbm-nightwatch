@@ -27,7 +27,8 @@ gem 'haml-rails'
 gem 'actionview-encoded_mail_to'
 
 gem 'font-awesome-sass'
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk-s3', require: false
+gem 'mini_magick'
 
 group :development, :test do
   gem 'dotenv-rails'
