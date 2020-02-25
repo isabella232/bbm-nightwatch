@@ -5,10 +5,6 @@ RSpec.describe "Make donations", type: :system do
 
   before { login_as(user, scope: :user) }
 
-  around do |example|
-    Sidekiq::Testing.inline! { example.run }
-  end
-
   it "enables the users to make their donations" do
     visit root_path
     click_on "Felajánlások"

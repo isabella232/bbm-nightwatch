@@ -14,8 +14,6 @@ gem 'administrate'
 gem 'administrate-field-active_storage'
 gem 'rails-i18n'
 
-gem 'sidekiq'
-
 gem 'devise'
 gem 'devise-async'
 gem 'devise_invitable'
