@@ -102,7 +102,7 @@
               .carousel-item{class: ("active" if index.zero?)}
                 .col-12.col-md-6.col-lg-4
                   .card
-                    .card-img-top= image_tag story.image
+                    .card-img-top= image_tag story.image if story.image.attached?
                     .card-body
                       %h3.card-title= story.title
                       %p.card-text(data-toggle="tooltip" data-placement="top" title="#{story.description}")= story.description
