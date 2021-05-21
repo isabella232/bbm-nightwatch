@@ -46,6 +46,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
   gem 'email_spec'
 end
